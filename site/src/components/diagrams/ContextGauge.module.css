@@ -1,0 +1,42 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.label {
+  flex: 0 0 130px;
+  font-size: 0.85rem;
+  color: var(--dd-muted);
+}
+
+.track {
+  flex: 1;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--dd-paper);
+  border: 1px solid var(--dd-rule-solid);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--dd-accent);
+  border-radius: 7px 0 0 7px;
+}
+
+.pct {
+  flex: 0 0 42px;
+  text-align: right;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--dd-soft);
+}

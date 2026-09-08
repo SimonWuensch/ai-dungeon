@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
+import {storySteps} from '@site/src/components/story/storySteps';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -16,9 +17,13 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroLead}>
+          Agentic Coding in 9 kurzen Schritten erklärt — ca. 12–15 Minuten, keine Vorkenntnisse
+          nötig.
+        </p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/intro">
-            Los geht's
+          <Link className="button button--secondary button--lg" to={storySteps[0].slug}>
+            Schritt 1 starten →
           </Link>
         </div>
       </div>
@@ -26,13 +31,39 @@ function HomepageHeader() {
   );
 }
 
-type CardProps = {
+function StoryMap() {
+  return (
+    <section className={styles.section}>
+      <div className="container">
+        <Heading as="h2" className={styles.sectionTitle}>
+          Die 9 Schritte
+        </Heading>
+        <p className={styles.sectionSubtitle}>
+          Am besten der Reihe nach — du kannst aber auch direkt zu einem Schritt springen.
+        </p>
+        <div className={styles.grid}>
+          {storySteps.map((s) => (
+            <Link key={s.slug} to={s.slug} className={styles.stepCard}>
+              <span className={styles.stepNumber}>{String(s.step).padStart(2, '0')}</span>
+              <Heading as="h3" className={styles.stepTitle}>
+                {s.title}
+              </Heading>
+              <p className={styles.stepTeaser}>{s.teaser}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+type DeepDiveCardProps = {
   title: string;
   description: string;
   to: string;
 };
 
-const cards: CardProps[] = [
+const deepDiveCards: DeepDiveCardProps[] = [
   {
     title: 'Skills',
     description:
@@ -53,14 +84,20 @@ const cards: CardProps[] = [
   },
 ];
 
-function HomepageCards() {
+function DeepDiveSection() {
   return (
-    <section className={styles.cards}>
+    <section className={clsx(styles.section, styles.deepDiveSection)}>
       <div className="container">
+        <Heading as="h2" className={styles.sectionTitle}>
+          Zum Vertiefen
+        </Heading>
+        <p className={styles.sectionSubtitle}>
+          Wenn du die Einführung schon kennst und direkt in die Referenz willst.
+        </p>
         <div className="row">
-          {cards.map((card) => (
+          {deepDiveCards.map((card) => (
             <div key={card.title} className="col col--4">
-              <Link to={card.to} className={styles.card}>
+              <Link to={card.to} className={styles.deepDiveCard}>
                 <Heading as="h3">{card.title}</Heading>
                 <p>{card.description}</p>
               </Link>
@@ -77,10 +114,11 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={siteConfig.title}
-      description="Wissensbasis für Agentic Coding — Skills, Workflows, Best Practices">
+      description="Agentic Coding in 9 kurzen Schritten erklärt — Wissensbasis für Skills, Workflows und Best Practices">
       <HomepageHeader />
       <main>
-        <HomepageCards />
+        <StoryMap />
+        <DeepDiveSection />
       </main>
     </Layout>
   );

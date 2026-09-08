@@ -1,0 +1,19 @@
+.card {
+  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--dd-rule);
+  border-radius: var(--ifm-global-radius);
+  background: var(--dd-paper-2);
+  color: var(--dd-ink);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dd-soft);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}

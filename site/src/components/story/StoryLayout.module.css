@@ -1,0 +1,103 @@
+.wrapper {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem var(--ifm-spacing-horizontal) 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dd-soft);
+}
+
+.progressTrack {
+  flex: 1;
+  max-width: 220px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--dd-rule-solid);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--dd-accent);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+.content {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem var(--ifm-spacing-horizontal) 3rem;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.nav {
+  border-top: 1px solid var(--dd-rule);
+  padding: 1.5rem var(--ifm-spacing-horizontal) 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navSide {
+  flex: 1;
+  display: flex;
+}
+
+.navSide:last-child {
+  justify-content: flex-end;
+}
+
+.navButton {
+  display: block;
+  text-decoration: none !important;
+  color: inherit;
+  border: 1px solid var(--dd-rule-solid);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.6rem 1rem;
+  max-width: 320px;
+  transition: border-color 0.15s ease;
+}
+
+.navButton:hover {
+  border-color: var(--dd-accent);
+  color: inherit;
+}
+
+.navLabel {
+  display: block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dd-soft);
+  margin-bottom: 0.15rem;
+}
+
+.navTitle {
+  font-weight: 600;
+}
+
+.overviewLink {
+  text-align: center;
+  padding-bottom: 2rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+}
