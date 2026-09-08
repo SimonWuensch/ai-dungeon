@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
 /* Infima palette — tied to the diagram-design accent (atomic-tangerine) so
    page chrome and diagrams read as one system. */
 :root {
@@ -52,4 +54,49 @@
   --dd-accent: #f08a59;
   --dd-accent-tint: rgba(240, 138, 89, 0.1);
   --dd-link: #6a95d8;
+}
+
+/* Editorial serif for headings — ties page chrome to the diagram-design title token. */
+h1,
+h2,
+h3,
+.hero__title {
+  font-family: 'Instrument Serif', var(--ifm-font-family-base);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+}
+
+@media (max-width: 640px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+}
+
+/* Subtle depth for cards site-wide — paired with each card's own hover transform. */
+.dd-card,
+[class*='stepCard_'],
+[class*='deepDiveCard_'] {
+  box-shadow: 0 1px 2px rgba(45, 49, 66, 0.04);
+}
+
+[class*='stepCard_']:hover,
+[class*='deepDiveCard_']:hover {
+  box-shadow: 0 10px 24px rgba(45, 49, 66, 0.1);
+}
+
+[data-theme='dark'] [class*='stepCard_']:hover,
+[data-theme='dark'] [class*='deepDiveCard_']:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }

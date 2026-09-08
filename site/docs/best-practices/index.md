@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Best Practices
 
-:::info Inhalt folgt
+:::info[Inhalt folgt]
 Platzhalter — hier entsteht eine kuratierte Sammlung von Best Practices für agentic coding, u.a. von:
 
 - **Anthropic** (Claude Code Docs, Prompting-Guides)

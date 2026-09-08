@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Skills
 
-:::info Inhalt folgt
+:::info[Inhalt folgt]
 Diese Seite ist ein Platzhalter. Hier entsteht die Erklärung: **Was ist ein Claude Code Skill?**,
 wie ist ein `SKILL.md` aufgebaut, wann lohnt sich ein Skill gegenüber einem einfachen Prompt, und
 wie schreibt man eigene Skills.

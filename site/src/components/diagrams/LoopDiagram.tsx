@@ -13,12 +13,12 @@ type LoopDiagramProps = {
   stations: LoopStation[];
 };
 
-const STATION_W = 128;
-const STATION_H = 56;
-const HUB_W = 148;
-const HUB_H = 72;
-const RADIUS = 168;
-const MARGIN = 56;
+const STATION_W = 140;
+const STATION_H = 60;
+const HUB_W = 160;
+const HUB_H = 78;
+const RADIUS = 190;
+const MARGIN = 48;
 
 function shorten(from: {x: number; y: number}, to: {x: number; y: number}, by: number) {
   const dx = to.x - from.x;
@@ -55,7 +55,7 @@ export default function LoopDiagram({eyebrow, hub, stations}: LoopDiagramProps) 
         viewBox={`0 0 ${size} ${size}`}
         role="img"
         aria-label={`Loop-Diagramm: ${stations.map((s) => s.name).join(' → ')}, zurück zu ${stations[0]?.name}, alle schreiben in ${hub.name}`}
-        style={{width: '100%', height: 'auto', maxWidth: 460, display: 'block', margin: '0 auto'}}>
+        style={{width: '100%', height: 'auto', maxWidth: 560, display: 'block', margin: '0 auto'}}>
         <defs>
           <marker id="loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="var(--dd-muted)" />

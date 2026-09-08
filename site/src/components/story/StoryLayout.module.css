@@ -4,11 +4,17 @@
   flex-direction: column;
 }
 
+.eyebrowRow {
+  padding: 2rem var(--ifm-spacing-horizontal) 0;
+}
+
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 2rem var(--ifm-spacing-horizontal) 0;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -73,12 +79,14 @@
   border-radius: var(--ifm-global-radius);
   padding: 0.6rem 1rem;
   max-width: 320px;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .navButton:hover {
   border-color: var(--dd-accent);
   color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 49, 66, 0.08);
 }
 
 .navLabel {

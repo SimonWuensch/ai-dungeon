@@ -9,7 +9,7 @@ type DiagramProps = {
 /** Shared "paper" card frame every diagram sits in — keeps the editorial look consistent. */
 export default function Diagram({eyebrow, children}: DiagramProps) {
   return (
-    <div className={styles.card}>
+    <div className={`dd-card ${styles.card}`}>
       {eyebrow && <span className={styles.eyebrow}>{eyebrow}</span>}
       {children}
     </div>

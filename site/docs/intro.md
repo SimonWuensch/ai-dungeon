@@ -8,7 +8,7 @@ sidebar_position: 1
 Skills, Workflows und Best Practices an einem Ort, kuratiert aus den Erfahrungen bekannter Praktiker
 (u.a. Matt Pocock) und den offiziellen Empfehlungen von Anthropic und OpenAI.
 
-:::info Baustelle
+:::info[Baustelle]
 Dies ist erst das Grundgerüst der Seite. Die Inhalte werden Stück für Stück erarbeitet — die Links
 unten führen bereits zu den geplanten Bereichen, sind aber noch nicht vollständig ausgefüllt.
 :::

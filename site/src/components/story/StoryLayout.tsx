@@ -21,15 +21,17 @@ export default function StoryLayout({slug, description, children}: StoryLayoutPr
   return (
     <Layout title={current.title} description={description}>
       <div className={styles.wrapper}>
-        <div className={styles.eyebrow}>
-          <span>
-            Schritt {current.step} von {total}
-          </span>
-          <div className={styles.progressTrack}>
-            <div
-              className={styles.progressFill}
-              style={{width: `${(current.step / total) * 100}%`}}
-            />
+        <div className={styles.eyebrowRow}>
+          <div className={styles.eyebrow}>
+            <span>
+              Schritt {current.step} von {total}
+            </span>
+            <div className={styles.progressTrack}>
+              <div
+                className={styles.progressFill}
+                style={{width: `${(current.step / total) * 100}%`}}
+              />
+            </div>
           </div>
         </div>
 

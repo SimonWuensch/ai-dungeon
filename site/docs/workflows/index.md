@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Workflows & Sessions
 
-:::info Inhalt folgt
+:::info[Inhalt folgt]
 Platzhalter — hier entsteht die Erklärung zu:
 
 - Wie ein guter Skill-Workflow aussieht (Trigger → Ausführung → Review)
