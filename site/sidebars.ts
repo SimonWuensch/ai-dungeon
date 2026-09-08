@@ -1,0 +1,29 @@
+import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const sidebars: SidebarsConfig = {
+  wissensSidebar: [
+    'intro',
+    {
+      type: 'category',
+      label: 'Skills',
+      link: {type: 'doc', id: 'skills/index'},
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Best Practices',
+      link: {type: 'doc', id: 'best-practices/index'},
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Workflows & Sessions',
+      link: {type: 'doc', id: 'workflows/index'},
+      items: [],
+    },
+  ],
+};
+
+export default sidebars;
