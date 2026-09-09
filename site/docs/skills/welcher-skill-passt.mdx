@@ -3,6 +3,7 @@ sidebar_position: 0
 ---
 
 import DecisionTree from '@site/src/components/diagrams/DecisionTree';
+import HintBoxRow from '@site/src/components/diagrams/HintBoxRow';
 import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 # Welcher Skill passt zu meiner Situation?
@@ -34,11 +35,22 @@ Die wichtigste Frage zuerst — und sie hat keine einzige richtige Antwort, sond
   ]}
 />
 
-### 💡 Warum welcher Skill?
-
-- **Winzig → `grill-me`, nicht `grill-with-docs`.** Klingt paradox — `grill-me` ist doch die Variante *ohne* Papierspur, `grill-with-docs` doch "strikt besser", wenn ein Repo da ist? Bei einer wirklich trivialen Entscheidung (welches Datumsformat?) stimmt das nicht mehr: Diese Entscheidung verdient **keinen Dauereintrag** in `CONTEXT.md` — nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. `grill-me` bleibt hier bewusst flüchtig.
-- **Feature → `grill-with-docs` → `to-spec` → `to-tickets`.** Hier lohnt sich die Papierspur: Begriffe wie "Digest" oder "stille Zeit" werden wiederverwendetes Projekt-Vokabular, das später andere Features wieder brauchen.
-- **Riesig & neblig → `wayfinder`.** Die Frage ist nicht "wie baue ich das", sondern "was müssen wir überhaupt erst entscheiden, bevor klar ist, was gebaut wird". Das ist eine andere Aufgabe als Bauen — Planen.
+<HintBoxRow
+  hints={[
+    {
+      skill: 'grill-me',
+      text: 'Klingt paradox — grill-with-docs ist doch "strikt besser", wenn ein Repo da ist? Bei einer wirklich trivialen Entscheidung (welches Datumsformat?) stimmt das nicht: Sie verdient keinen Dauereintrag in CONTEXT.md.',
+    },
+    {
+      skill: 'grill-with-docs → to-spec → to-tickets',
+      text: 'Hier lohnt sich die Papierspur: Begriffe wie "Digest" oder "stille Zeit" werden wiederverwendetes Projekt-Vokabular, das später andere Features wieder brauchen.',
+    },
+    {
+      skill: 'wayfinder',
+      text: 'Die Frage ist nicht "wie baue ich das", sondern "was müssen wir überhaupt erst entscheiden, bevor klar ist, was gebaut wird". Das ist eine andere Aufgabe als Bauen — Planen.',
+    },
+  ]}
+/>
 
 ## Drei Beispiele, eine Welt
 

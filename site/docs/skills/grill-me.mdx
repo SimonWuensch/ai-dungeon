@@ -9,12 +9,14 @@ import CompareColumns from '@site/src/components/diagrams/CompareColumns';
 
 <SkillHeader category="Standalone" invocation="user" githubPath="productivity/grill-me" />
 
+## Was ist `grill-me`?
+
 **Dasselbe rücksichtslose Interview wie `grill-with-docs` — nur ohne Papierspur.** Ruft intern nur `grilling` auf, speichert aber nichts lokal und legt kein `CONTEXT.md` an. Der richtige Skill, wenn es gar kein Arbeitsverzeichnis gibt, in dem sich etwas festhalten ließe.
 
-## Wann nutzen
+## Wann brauche ich das?
 
 - Du schärfst einen Plan, ein Design oder einen Text, aber **arbeitest nicht in einem Repo** — kein Ort, an dem eine Papierspur überhaupt hinginge.
-- Bist du in einem Arbeitsverzeichnis, ist `grill-with-docs` **strikt die bessere Wahl**: gleicher Loop, plus Gedächtnis.
+- Auch **in einem Arbeitsverzeichnis** ist `grill-with-docs` nicht automatisch die bessere Wahl: Bei einer wirklich trivialen, nicht wiederverwendbaren Entscheidung (welches Datumsformat? welcher Variablenname?) verdient das Ergebnis **keinen Dauereintrag** in `CONTEXT.md` — nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. Für alles, was über eine Zeile Klärung hinausgeht oder Begriffe schafft, die andere Features wiederverwenden, ist `grill-with-docs` weiterhin vorzuziehen.
 
 **Wie oft?** Matt Pococks eigene Empfehlung: *"Use them every time you want to make a change"* — auch bei kleinen. Der Reflex sollte lauten "erst grillen, dann bauen", nicht nur bei großen Features.
 
@@ -36,7 +38,7 @@ import CompareColumns from '@site/src/components/diagrams/CompareColumns';
     items: [
       'Setzt ein Arbeitsverzeichnis voraus',
       'Schreibt live in CONTEXT.md und ADRs',
-      'Strikt vorzuziehen, wenn ein Repo da ist',
+'Vorzuziehen, wenn das Ergebnis wiederverwendetes Vokabular wird',
     ],
   }}
 />

@@ -9,16 +9,18 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 <SkillHeader category="Hauptfluss" invocation="user" githubPath="engineering/grill-with-docs" />
 
+## Was ist `grill-with-docs`?
+
 **Ein rücksichtsloses Interview, das eine Idee schärft — und dabei Spuren hinterlässt.** Derselbe Frage-Loop wie `grill-me`, aber stateful: Was dabei geklärt wird, landet direkt in `CONTEXT.md` und in ADRs, statt nach der Session zu verpuffen.
 
-## Wann nutzen
+## Wann brauche ich das?
 
-- Startpunkt des Hauptflusses, immer wenn du **in einem Arbeitsverzeichnis** bist (ein Repo, in dem sich das Gelernte festhalten lässt).
-- Kein Arbeitsverzeichnis vorhanden? Dann `grill-me` statt `grill-with-docs` — gleicher Loop, ohne Papierspur.
+- Startpunkt des Hauptflusses, wenn du **in einem Arbeitsverzeichnis** bist *und* das Ergebnis wiederverwendbares Vokabular oder eine schwer umkehrbare Entscheidung ist (ein Repo, in dem sich das Gelernte lohnend festhalten lässt).
+- Kein Arbeitsverzeichnis vorhanden — oder die Entscheidung ist trivial genug, dass sie **keinen Dauereintrag** verdient (z.B. reine Formatierungsfragen)? Dann `grill-me` statt `grill-with-docs` — gleicher Loop, ohne Papierspur. Siehe [Welcher Skill passt zu meiner Situation?](/docs/skills/welcher-skill-passt).
 
 **Wie oft?** Matt Pococks eigene Empfehlung: *"Use them every time you want to make a change"* — auch bei kleinen Änderungen, nicht nur bei großen Features.
 
-## Wie es funktioniert
+## Wie funktioniert das?
 
 <FlowRow
   eyebrow="Der Loop"
