@@ -35,6 +35,17 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 - **Tautologisch** — die Erwartung wird genauso berechnet wie der Code selbst, kann also nie widersprechen.
 - **Horizontal geschnitten** — erst alle Tests, dann alle Implementierung. Richtig ist die **vertikale Scheibe**: ein Test → eine Implementierung → wiederholen.
 
+## Beispiel
+
+Seam: die Funktion `shouldDeliverDuringQuietHours(event, quietHours)`. Ein Zyklus:
+
+1. **Test schreiben:** "kritisches, unterdrückbares Event während stiller Zeit → `false`"
+2. **Rot:** Die Funktion existiert noch nicht.
+3. **Minimaler Code:** gerade genug, damit dieser eine Test grün wird.
+4. **Grün.** Nächste Scheibe: "kritisches, nicht-unterdrückbares Event während stiller Zeit → `true`."
+
+Jede Scheibe testet **eine** Regel, nie die ganze Logik auf einmal — das hält jeden Schritt klein und den nächsten roten Test aussagekräftig.
+
 ## Gut zu wissen
 
 **Refactoring ist nicht Teil des Loops** — das gehört in die Review-Phase (`code-review`), nicht in den rot-grün-Zyklus selbst.

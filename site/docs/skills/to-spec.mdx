@@ -29,6 +29,20 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 Die Spec folgt einem festen Template: **Problem Statement**, **Solution**, eine lange nummerierte Liste an **User Stories** (`Als <Rolle>, möchte ich <Feature>, damit <Nutzen>`), **Implementation Decisions** (Module, Interfaces, Architektur — ohne konkrete Dateipfade, die schnell veralten), **Testing Decisions** und **Out of Scope**.
 
+## Beispiel
+
+Ein Ausschnitt der resultierenden Spec für das Benachrichtigungs-Feature:
+
+> **Problem Statement:** Nutzer erhalten aktuell jede Benachrichtigung sofort und ungefiltert, unabhängig von Tageszeit oder Dringlichkeit.
+>
+> **User Stories** (Auszug):
+> 1. Als Nutzer möchte ich Kanäle pro Event-Typ wählen, damit ich nicht von Kanälen überflutet werde, die mich für dieses Event nicht interessieren.
+> 2. Als Nutzer möchte ich eine stille Zeit festlegen, damit ich nachts nicht gestört werde — außer bei als kritisch markierten Events.
+>
+> **Implementation Decisions:** Kritische Events tragen ein `suppressible: boolean`-Flag (aus dem Prototyp-Verdikt) …
+
+Die zweite User Story trägt die Prototyp-Entscheidung direkt in sich — genau der Fall, in dem ein Snippet aus `prototype` präziser ist als jede Umschreibung.
+
 ## Gut zu wissen
 
 Kam eine Entscheidung aus einem `prototype` (z.B. eine Zustandsmaschine oder ein Schema), darf genau dieser entscheidungsreiche Ausschnitt zitiert werden — nicht die komplette Demo, nur der Teil, der eine Entscheidung präziser festhält als Prosa es könnte.

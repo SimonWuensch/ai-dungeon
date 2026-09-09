@@ -40,6 +40,16 @@ import CompareColumns from '@site/src/components/diagrams/CompareColumns';
 
 Beide Achsen laufen als **parallele Sub-Agenten**, damit sie sich gegenseitig nicht im Kontext verunreinigen. Die Ergebnisse werden danach unter zwei getrennten Überschriften präsentiert — nie zu einer Rangliste zusammengemischt.
 
+## Beispiel
+
+Für den Benachrichtigungs-Diff kommen zwei getrennte Befunde zurück:
+
+> **Standards:** `shouldDeliverDuringQuietHours` verschachtelt drei `if`-Ebenen — möglicher *Repeated Switches*-Geruch, falls diese Kategorie-Logik anderswo im Code ähnlich vorkommt. Prüfen, ob ein gemeinsames Mapping sich lohnt.
+>
+> **Spec:** Ticket #3 verlangt, dass jede Event-Kategorie ihre eigene Unterdrückbarkeit trägt — der Diff hardcodiert aktuell nur "Sicherheitswarnung" als Ausnahme. Andere potenziell kritische Kategorien fehlen.
+
+Der Standards-Befund ist ein Verbesserungsvorschlag, der Spec-Befund eine echte Lücke — beide stehen nebeneinander, keiner wiegt automatisch schwerer.
+
 ## Gut zu wissen
 
 Fehlt eine Spec-Quelle ganz, überspringt der Spec-Sub-Agent seinen Teil und vermerkt "keine Spec verfügbar" — die Standards-Achse läuft trotzdem.

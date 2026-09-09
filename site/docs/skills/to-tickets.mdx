@@ -32,6 +32,16 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 **Ausnahme — der breite Refactor:** eine mechanische Änderung mit riesigem Blast-Radius (Spalte umbenennen, gemeinsamen Typ umbauen) lässt sich nicht in Tracer Bullets pressen. Dafür gibt's **Expand → Migrate (in Batches) → Contract**, jede Phase ihr eigenes Ticket, damit CI zwischen den Batches grün bleibt.
 
+## Beispiel
+
+Drei Tickets aus der Benachrichtigungs-Spec, in Abhängigkeitsreihenfolge:
+
+1. **Kanal-Auswahl pro Event-Typ** — Blocked by: None (kann sofort starten)
+2. **Stille Zeiten konfigurieren** — Blocked by: None (kann parallel zu #1 starten)
+3. **Kritische Events brechen stille Zeiten, sofern als unterdrückbar markiert** — Blocked by: #2 (braucht das Zeitfenster-Konzept aus #2, um es zu testen)
+
+Jedes Ticket ist für sich demonstrierbar: #1 und #2 können parallel angegangen werden, #3 wartet auf #2. Genau das ist die **Frontier** — #1 und #2 sind sofort greifbar, #3 erst danach.
+
 ## Gut zu wissen
 
 Gearbeitet wird an der **Frontier**: jedes Ticket, dessen Blocker alle erledigt sind, ist sofort greifbar — bei einer rein linearen Kette einfach von oben nach unten.

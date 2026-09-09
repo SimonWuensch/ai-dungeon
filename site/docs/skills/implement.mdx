@@ -30,6 +30,10 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 Kurz und bewusst schlank: **`tdd`** übernimmt das eigentliche Bauen an vorher vereinbarten Seams, Typecheck und einzelne Testdateien laufen unterwegs regelmäßig, die volle Testsuite einmal am Ende. Abgeschlossen wird immer mit **`code-review`**, bevor committet wird.
 
+## Beispiel
+
+Du rufst `/implement` mit Ticket #3 auf: *"Kritische Events brechen stille Zeiten, sofern als unterdrückbar markiert."* Der Skill vereinbart mit dir zuerst den Seam (die öffentliche Funktion, die entscheidet "durchlassen oder unterdrücken"), treibt dann `tdd` daran — ein roter Test, minimaler Code, grün, nächste Scheibe — bis das Ticket erfüllt ist. Typecheck läuft nach jeder Scheibe mit, die volle Testsuite einmal am Ende. Erst danach `code-review`, dann Commit.
+
 ## Gut zu wissen
 
 Dieser Skill ist bewusst *nicht* modell-aufrufbar von selbst (`disable-model-invocation`) — er wird explizit angestoßen, meist von `ask-matt`s Hauptfluss oder direkt vom Nutzer pro Ticket.

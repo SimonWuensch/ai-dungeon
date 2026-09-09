@@ -30,6 +30,25 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 Das Dokument **dupliziert nichts**, was bereits in Specs, Plänen, ADRs, Issues, Commits oder Diffs steht — es verweist per Pfad/URL darauf, statt es erneut auszuformulieren. Sensible Inhalte (API-Keys, Passwörter, personenbezogene Daten) werden **redigiert**.
 
+## Beispiel
+
+Die offene Frage aus `grill-with-docs` — *bricht ein kritisches Event die stille Zeit?* — braucht einen Prototyp. `/handoff` schreibt dafür ein kompaktes Dokument, ungefähr:
+
+```
+## Offene Frage
+Bricht ein als "kritisch" markiertes Event eine aktive stille Zeit,
+oder wartet es bis zum Ende?
+
+## Bereits geklärt (siehe CONTEXT.md)
+"Digest" = gesammelte Zusammenfassung, kein Einzel-Event.
+"Stille Zeit" = pro Nutzer konfigurierbares Zeitfenster.
+
+## Nächster Schritt
+prototype — Zustandsautomat für "still + kritisch" durchspielbar machen.
+```
+
+Die neue Session lädt dieses Dokument und ruft direkt [`prototype`](/docs/skills/prototype) — genau den Skill, den `handoff` selbst empfohlen hat.
+
 ## Gut zu wissen
 
 Ein Handoff-Dokument landet bewusst im **Temp-Verzeichnis des Betriebssystems**, nicht im Arbeitsverzeichnis — es ist eine Brücke für die nächste Session, kein Artefakt, das im Repo bleiben soll.

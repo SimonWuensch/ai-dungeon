@@ -36,6 +36,20 @@ Technisch ruft dieser Skill zwei andere Skills nacheinander auf:
 1. **`grilling`** — die reine Interview-Mechanik: Runden, die "Frontier" (der nächste offene Ast des Entscheidungsbaums), Fakten sind Aufgabe des Agenten, Entscheidungen bleiben bei dir.
 2. **`domain-modeling`** — läuft parallel mit: sobald ein Begriff sich klärt oder eine schwer umkehrbare Entscheidung fällt, wird `CONTEXT.md` sofort aktualisiert bzw. ein ADR angelegt — nicht gesammelt fürs Ende.
 
+## Beispiel
+
+Im Repo geht es weiter, wo `grill-me` aufgehört hat — dieselbe Idee, jetzt mit Papierspur:
+
+```
+❓ Q1 - Welche Kanäle soll es geben?
+➡️ E-Mail, Push, gesammelt als Digest.
+
+❓ Q2 - Was ist ein "Digest" genau — ein Einzel-Event oder eine Zusammenfassung?
+➡️ Eine gesammelte Zusammenfassung mehrerer Events.
+```
+
+Sobald "Digest" geklärt ist, landet die Definition sofort in `CONTEXT.md` — nicht erst am Ende der Session. Nach ein paar solchen Runden bleibt eine Frage offen, die kein Gespräch mehr klärt: *Brechen kritische Events die stille Zeit?* Das ist der Punkt, an dem `grill-with-docs` selbst an seine Grenze kommt und der Umweg über [`handoff`](/docs/skills/handoff) beginnt.
+
 ## Gut zu wissen
 
 Der Kontext bleibt bewusst **ein durchgehendes Fenster**, bis die Idee zu Spec und Tickets geworden ist (siehe `ask-matt`) — erst danach lohnt sich ein `/compact` an der nächsten Phasengrenze.

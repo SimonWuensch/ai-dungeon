@@ -46,6 +46,10 @@ import CompareColumns from '@site/src/components/diagrams/CompareColumns';
 - **Kein Polish**: keine Tests, keine Fehlerbehandlung über das Nötigste hinaus.
 - **Zustand sichtbar machen** nach jeder Aktion bzw. bei jedem Varianten-Wechsel.
 
+## Beispiel
+
+Die Frage aus dem `handoff`-Dokument — bricht ein kritisches Event die stille Zeit? — ist eine Logik-Frage, kein Aussehen-Thema. Also der linke Zweig: eine HTML-Datei mit einem Schieberegler für "stille Zeit aktiv/inaktiv", einem Dropdown für Event-Kategorien und einem großen Log, das nach jedem Klick zeigt, was passiert wäre. Ein Produktmensch ohne Entwicklungshintergrund kann selbst durchklicken: *"Wenn ich 'Sicherheitswarnung' als kritisch markiere und die stille Zeit aktiv ist — kommt sie durch?"* Das Ergebnis (ja, aber nur wenn die Kategorie das explizit erlaubt) ist die Antwort, die per `handoff` zurück ins Hauptgespräch geht.
+
 ## Danach
 
 Die validierte Entscheidung fließt in den echten Code ein — der Prototyp selbst wird als **Primärquelle** auf einem `prototype/<name>`-Branch aufbewahrt, referenziert vom Implementierungs-Issue.
