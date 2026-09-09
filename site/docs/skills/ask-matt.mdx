@@ -7,9 +7,9 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 # ask-matt
 
-<SkillHeader category="Router" githubPath="engineering/ask-matt" />
+<SkillHeader category="Router" invocation="user" githubPath="engineering/ask-matt" />
 
-**Ein Router über alle anderen Skills.** Niemand merkt sich 18 Skill-Namen — `ask-matt` kennt die Landkarte und sagt dir, welcher Skill (oder welche Reihenfolge von Skills) zu deiner aktuellen Situation passt.
+**Ein Router über alle anderen Skills.** Niemand merkt sich 25 Skill-Namen — `ask-matt` kennt die Landkarte und sagt dir, welcher Skill (oder welche Reihenfolge von Skills) zu deiner aktuellen Situation passt.
 
 ## Wann nutzen
 
@@ -52,3 +52,6 @@ Ausgangslagen, die auf den Hauptfluss münden:
 ## Gut zu wissen
 
 Der Kontext von Schritt 1–3 bleibt **ein durchgehendes Fenster** (nicht clearen), bis `to-tickets` fertig ist — Grillen, Spec und Tickets bauen auf demselben Denken auf. Jedes `implement` startet danach bewusst frisch.
+
+`ask-matt` selbst ist wie alle Namen auf dieser Seite mit dem ⌨️-Badge **user-invoked** — reine Orchestrierung, du rufst es per `/ask-matt` auf. Die Regel dahinter gilt für jeden Skill hier: Ein user-invoked Skill darf einen model-invoked Skill aufrufen (z.B. treibt `implement` `tdd`), aber **nie einen anderen user-invoked Skill**. Mehr dazu: [Manuell oder automatisch?](/docs/skills#manuell-oder-automatisch)
+

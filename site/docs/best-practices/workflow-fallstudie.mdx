@@ -10,6 +10,12 @@ Die einzelnen Skill-Seiten erklären jeweils **einen** Skill. Hier geht es um da
 (fiktives) Feature, einmal komplett durch den Hauptfluss durchgespielt — mit Scheinwerfer auf
 `grill-me`/`grill-with-docs`, `handoff` und `code-review`.
 
+:::info[Voraussetzung]
+Diese Fallstudie setzt voraus, dass [`/setup-matt-pocock-skills`](/docs/skills/setup-matt-pocock-skills)
+im Repo bereits einmal gelaufen ist — sonst wissen `to-spec` und `to-tickets` in Schritt 3 nicht,
+wo Issues überhaupt hingehören, und fragen erst danach.
+:::
+
 ## Die Ausgangslage
 
 > *"Nutzer sollen selbst einstellen können, wie und wann sie benachrichtigt werden — E-Mail, Push,
@@ -28,11 +34,12 @@ Eine typische, harmlos klingende Anfrage — bis man anfängt, sie zu Ende zu de
   ]}
 />
 
-Im Repo heißt das Werkzeug **`grill-with-docs`**: Jeder geklärte Begriff ("Digest" ist eine
+Im Repo tippst du dafür **`/grill-with-docs`**: Jeder geklärte Begriff ("Digest" ist eine
 gesammelte Zusammenfassung, kein Einzel-Event; "stille Zeit" ist ein pro Nutzer konfigurierbares
 Zeitfenster) landet sofort in `CONTEXT.md` — nicht erst am Ende zusammengefasst. Gäbe es kein Repo
-(z.B. weil erst am Konzept auf einem Whiteboard gearbeitet wird), liefe dasselbe Interview über
-**`grill-me`** — nur ohne die Papierspur.
+(z.B. weil erst am Konzept auf einem Whiteboard gearbeitet wird), tippst du stattdessen
+**`/grill-me`** — dasselbe Interview, nur ohne die Papierspur. Beide sind **user-invoked**: Claude
+wählt sie nie von sich aus, du triffst die Wahl bewusst.
 
 Nach ein paar Runden ist fast alles geklärt. Fast.
 
@@ -52,12 +59,15 @@ Genau dafür gibt es den Umweg über einen Prototyp.
   ]}
 />
 
-**`handoff`** schreibt eine verdichtete Zusammenfassung ins Temp-Verzeichnis des Betriebssystems —
-nicht ins Repo, das ist kein Artefakt, das bleiben soll — und empfiehlt gleich, welchen Skill die
-nächste Session zuerst aufrufen sollte: **`prototype`**. Der Prototyp ist eine einzelne,
-klickbare HTML-Datei, die den Zustandsautomaten ("still + kritisch → ?") frei durchspielbar macht,
-plus ein paar geführte Beispiel-Szenarien. Ergebnis: kritische Events **brechen** die Stille — aber
-nur, wenn ihre eigene Kategorie das explizit erlaubt (nicht jedes "kritisch" ist gleich kritisch).
+Du tippst **`/handoff`** — user-invoked, das entscheidest du. Der Skill schreibt eine verdichtete
+Zusammenfassung ins Temp-Verzeichnis des Betriebssystems — nicht ins Repo, das ist kein Artefakt,
+das bleiben soll — und empfiehlt gleich, welcher Skill als Nächstes drankommt: **`prototype`**.
+Anders als `handoff` ist `prototype` **model-invoked** — in der neuen Session reicht oft schon die
+Beschreibung der offenen Frage, damit Claude selbst zu `prototype` greift, ohne dass du es explizit
+tippen musst. Der Prototyp ist eine einzelne, klickbare HTML-Datei, die den Zustandsautomaten
+("still + kritisch → ?") frei durchspielbar macht, plus ein paar geführte Beispiel-Szenarien.
+Ergebnis: kritische Events **brechen** die Stille — aber nur, wenn ihre eigene Kategorie das
+explizit erlaubt (nicht jedes "kritisch" ist gleich kritisch).
 
 Ein zweiter **`handoff`** trägt dieses Verdikt zurück ins ursprüngliche Gespräch. Der Prototyp selbst
 wird nicht gelöscht, sondern als Primärquelle auf einem `prototype/notification-quiet-hours`-Branch
@@ -96,5 +106,9 @@ der einen Achse bestehen und auf der anderen durchfallen.
 - **`handoff`** ist die Brücke zu einem Prototyp und zurück — ohne sie müsste man entweder raten
   oder das ganze Gespräch manuell in eine neue Session kopieren.
 - **`code-review`** ist die letzte Instanz vor dem Commit, getrennt nach Standards und Spec.
+- **Nicht jeder Skill wird getippt.** `grill-with-docs`, `handoff`, `to-spec`, `to-tickets` und
+  `implement` sind *user-invoked* — du rufst sie explizit auf. `prototype`, `tdd` und `code-review`
+  sind *model-invoked* — Claude kann sie auch von sich aus ziehen, wenn die Situation danach aussieht.
 
 Die vollständige Landkarte aller Skills und wie sie zusammenhängen: [`ask-matt`](/docs/skills/ask-matt).
+Was "user-invoked" und "model-invoked" genau bedeuten: [Skills-Übersicht](/docs/skills#manuell-oder-automatisch).

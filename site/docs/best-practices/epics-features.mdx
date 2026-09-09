@@ -6,18 +6,24 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 # Epics, Features & Stories mit AI
 
-Die klassische Produkt-Hierarchie — **Epic → Feature → Story/Task** — hat direkte Entsprechungen
-in unseren installierten Skills. Wer die Zuordnung kennt, muss nicht zwei Vokabulare im Kopf
-behalten.
+Weder `wayfinder` noch `to-spec` noch `to-tickets` verwenden die Wörter "Epic" oder "Feature" —
+`wayfinder` ist im Original ausdrücklich **domänenagnostisch** gehalten ("engineering work, course
+content, whatever fits the shape"). Die folgende Zuordnung ist deshalb **unsere Analogie**, keine
+Aussage von Matt Pocock selbst — aber eine, die sich in der Praxis anbietet, wenn dein Team ohnehin
+in Epic/Feature/Story denkt:
 
 <FlowRow
-  eyebrow="Ebene → Skill"
+  eyebrow="Ebene → Skill (unsere Analogie)"
   steps={[
     {label: 'Epic', sublabel: 'zu groß, zu neblig für 1 Session'},
-    {label: 'Feature', sublabel: 'eine geschärfte, buildbare Idee', focal: true},
+    {label: 'Feature', sublabel: 'eine geschärfte, buildbare Idee'},
     {label: 'Story / Task', sublabel: 'einzeln greifbar, verifizierbar'},
   ]}
 />
+
+Alle drei Skills sind zudem **user-invoked** — du entscheidest bewusst per `/wayfinder`,
+`/to-spec` bzw. `/to-tickets`, auf welcher Ebene du gerade arbeitest. Keiner der drei wird von
+Claude von sich aus gewählt (siehe [Wann greift Claude selbst zu?](/docs/skills#manuell-oder-automatisch)).
 
 ## Epic → `wayfinder`
 

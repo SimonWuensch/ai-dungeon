@@ -23,6 +23,12 @@
   color: var(--dd-accent);
 }
 
+.badgeInvocation {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--dd-muted);
+}
+
 .githubLink {
   margin-left: auto;
   display: inline-flex;

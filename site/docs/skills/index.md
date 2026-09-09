@@ -11,6 +11,26 @@ ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die ei
 nachschlägt, sobald die aktuelle Aufgabe dazu passt.
 :::
 
+## Manuell oder automatisch?
+
+Jede Skill-Seite trägt einen zweiten Badge neben der Kategorie. Das ist keine Nebensächlichkeit —
+Matt Pocock selbst zieht diese Grenze in seinem Repo bewusst:
+
+- **⌨️ Nur manuell** (`disable-model-invocation: true`) — der Skill reagiert **nur**, wenn du ihn
+  per Namen aufrufst (`/grill-me`, `/to-tickets`, …). Sein Job ist zu **orchestrieren** — er trifft
+  Entscheidungen, die eigentlich dir gehören, deshalb wartet er auf dich.
+- **🤖 Claude kann selbst wählen** — der Skill kann sowohl von dir aufgerufen werden als auch von
+  Claude selbst gezogen werden, wenn die Aufgabe dazu passt. Er kapselt **wiederverwendbare
+  Disziplin** (wie man testet, wie man einen Diff reviewt) statt einer Entscheidung.
+
+**Eine Kompositionsregel gilt fest:** Ein nur-manueller Skill darf einen Claude-wählbaren Skill
+aufrufen (z.B. `implement` treibt `tdd`), aber **nie einen anderen nur-manuellen Skill**. Das hält
+die Verantwortlichkeiten sauber: Orchestrierung bleibt bei dir, Disziplin bei der Ausführung.
+
+**Nutzungsfrequenz** (Empfehlungen aus Matt Pococks eigenem README): `/grill-me`/`/grill-with-docs`
+lohnen sich *bei jeder* Änderung, so klein sie auch scheint. `/improve-codebase-architecture`
+dagegen ist als gelegentlicher Gesundheitscheck gedacht — alle paar Tage, nicht bei jedem Commit.
+
 ## Installierte Skills (Matt Pocock Engineering-Set)
 
 Die Engineering-Skills aus [mattpocock/skills](https://github.com/mattpocock/skills)
