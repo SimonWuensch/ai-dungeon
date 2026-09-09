@@ -1,0 +1,34 @@
+---
+sidebar_position: 10
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# triage
+
+<SkillHeader category="On-Ramp" githubPath="triage" />
+
+**Bewegt Issues (und optional externe PRs) durch eine kleine Zustandsmaschine aus Triage-Rollen** — bis sie entweder agent-fertig sind oder sauber abgelehnt wurden.
+
+## Wann nutzen
+
+- Für Bugs und Feature-Requests, die **du nicht selbst erstellt hast** — rohe eingehende Meldungen, nicht Tickets aus `to-tickets` (die sind schon agent-fertig).
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Zustandsrollen"
+  steps={[
+    {label: 'needs-triage', sublabel: 'noch unbewertet'},
+    {label: 'needs-info', sublabel: 'wartet auf Reporter'},
+    {label: 'ready-for-agent', sublabel: 'agent-fertig', focal: true},
+    {label: 'ready-for-human / wontfix', sublabel: 'zwei Ausgänge'},
+  ]}
+/>
+
+Pro Issue: **Kontext sammeln** (Body, Kommentare, frühere Triage-Notizen, Codebase-Suche nach bereits Existierendem) → **Empfehlung** mit Begründung → **Behauptung verifizieren** (Bug reproduzieren, PR-Diff wirklich prüfen) → bei Bedarf **grillen** (`grilling` + `domain-modeling`) → **Ergebnis anwenden**: agent-fertiger Brief, Rückfrage-Notizen, oder Schließen mit passendem Grund.
+
+## Gut zu wissen
+
+Jeder während der Triage geschriebene Kommentar beginnt mit einem Hinweis, dass er KI-generiert ist — Transparenz gegenüber Reporter:innen ist nicht optional.

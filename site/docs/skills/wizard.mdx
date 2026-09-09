@@ -1,0 +1,34 @@
+---
+sidebar_position: 18
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# wizard
+
+<SkillHeader category="Standalone" githubPath="wizard" />
+
+**Erzeugt ein interaktives Bash-Skript für Schritte, die nur ein Mensch ausführen kann** — Infrastruktur bereitstellen, Zugangsdaten oder CI-Secrets einrichten, ein unbekanntes Drittanbieter-Dashboard durchklicken, eine einmalige Migration fahren. Nicht für Schritte, die der Agent selbst erledigen könnte.
+
+## Wann nutzen
+
+- Ein Vorgang lässt sich nicht automatisieren, weil er zwingend einen Menschen braucht (klicken, kopieren, bestätigen) — aber der Vorgang selbst soll strukturiert und wiederholbar sein.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Prozess scopen', sublabel: '.env, CI-Secrets, Docs lesen'},
+    {label: 'Stationen kartieren', sublabel: 'URL → Klick → Wert', focal: true},
+    {label: 'Wizard bauen', sublabel: 'aus template.sh'},
+    {label: 'Verifizieren', sublabel: 'shellcheck, statisch prüfen'},
+  ]}
+/>
+
+Die eigentliche UX (Fortschrittsanzeige, Bestätigungs-Gates, plattformübergreifendes URL-Öffnen, versteckte Secret-Eingabe, `.env`- und `gh secret`-Schreiben) ist bereits in `template.sh` gelöst — die Aufgabe dieses Skills ist nur, den Ablauf zu scopen und seine Stationen zu verfassen.
+
+## Gut zu wissen
+
+Ein Wizard ist **standardmäßig Wegwerfcode** für einen einzigen Lauf. Erst wenn der Nutzer einen wiederholbaren Einrichtungspfad will, wird er committet und aus der README verlinkt.

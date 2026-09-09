@@ -1,0 +1,46 @@
+---
+sidebar_position: 9
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# code-review
+
+<SkillHeader category="Hauptfluss" githubPath="code-review" />
+
+**Review des Diffs seit einem fixen Punkt, entlang zweier getrennter Achsen** — die absichtlich nicht zu einer einzigen Bewertung verschmolzen werden, weil eine Änderung auf der einen Achse bestehen und auf der anderen durchfallen kann.
+
+## Wann nutzen
+
+- Am Ende von `implement`, vor dem Commit.
+- Eigenständig, wenn du einen Branch oder eine PR gegen einen fixen Punkt reviewen willst ("review since X").
+
+## Zwei Achsen, zwei parallele Subagenten
+
+<CompareColumns
+  eyebrow="Standards vs. Spec"
+  left={{
+    heading: 'Standards',
+    items: [
+      'Folgt der Code den dokumentierten Repo-Standards?',
+      'Plus eine feste Fowler-Smell-Baseline',
+      'Repo-Standard schlägt immer die Baseline',
+    ],
+  }}
+  right={{
+    heading: 'Spec',
+    focal: true,
+    items: [
+      'Setzt der Code das ursprüngliche Issue/die Spec um?',
+      'Fehlende oder unvollständige Anforderungen',
+      'Scope Creep: Verhalten, das nicht gefordert war',
+    ],
+  }}
+/>
+
+Beide Achsen laufen als **parallele Sub-Agenten**, damit sie sich gegenseitig nicht im Kontext verunreinigen. Die Ergebnisse werden danach unter zwei getrennten Überschriften präsentiert — nie zu einer Rangliste zusammengemischt.
+
+## Gut zu wissen
+
+Fehlt eine Spec-Quelle ganz, überspringt der Spec-Sub-Agent seinen Teil und vermerkt "keine Spec verfügbar" — die Standards-Achse läuft trotzdem.

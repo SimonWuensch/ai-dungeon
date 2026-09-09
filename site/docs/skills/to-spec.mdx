@@ -1,0 +1,34 @@
+---
+sidebar_position: 5
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# to-spec
+
+<SkillHeader category="Hauptfluss" githubPath="to-spec" />
+
+**Synthese, kein Interview.** Verwandelt das bereits Besprochene in eine strukturierte Spec und veröffentlicht sie im Issue-Tracker — ohne noch einmal nachzufragen, was längst geklärt ist.
+
+## Wann nutzen
+
+- Direkt nach `grill-with-docs`, sobald die Idee im Gespräch ausreichend geschärft ist und mehrere Sessions zur Umsetzung braucht.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Repo verstehen', sublabel: 'falls noch nicht geschehen'},
+    {label: 'Seams festlegen', sublabel: 'möglichst wenige, höchste Ebene', focal: true},
+    {label: 'Spec-Template füllen', sublabel: 'Problem, Lösung, User Stories …'},
+    {label: 'Veröffentlichen', sublabel: 'Label ready-for-agent'},
+  ]}
+/>
+
+Die Spec folgt einem festen Template: **Problem Statement**, **Solution**, eine lange nummerierte Liste an **User Stories** (`Als <Rolle>, möchte ich <Feature>, damit <Nutzen>`), **Implementation Decisions** (Module, Interfaces, Architektur — ohne konkrete Dateipfade, die schnell veralten), **Testing Decisions** und **Out of Scope**.
+
+## Gut zu wissen
+
+Kam eine Entscheidung aus einem `prototype` (z.B. eine Zustandsmaschine oder ein Schema), darf genau dieser entscheidungsreiche Ausschnitt zitiert werden — nicht die komplette Demo, nur der Teil, der eine Entscheidung präziser festhält als Prosa es könnte.

@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# setup-matt-pocock-skills
+
+<SkillHeader category="Setup" githubPath="setup-matt-pocock-skills" />
+
+**Einmalige Konfiguration, bevor die anderen Engineering-Skills zum ersten Mal laufen.** Sie legt fest, wo Issues für dieses Repo leben, wie die Triage-Labels heißen und wie die Domain-Doku aufgebaut ist — Dinge, auf die sich `to-tickets`, `triage`, `to-spec` und andere Skills sonst blind verlassen müssten.
+
+## Wann nutzen
+
+- Einmal, bevor du zum ersten Mal einen anderen Engineering-Skill in einem Repo einsetzt.
+- Erneut nur, wenn du den Issue-Tracker wechseln oder die Konfiguration neu aufsetzen willst.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Repo erkunden', sublabel: 'Remote, CLAUDE.md, CONTEXT.md …'},
+    {label: 'Fragen, Sektion für Sektion', sublabel: 'Tracker, Labels, Doku-Layout', focal: true},
+    {label: 'Entwurf zeigen', sublabel: 'zum Bearbeiten'},
+    {label: 'Dateien schreiben', sublabel: 'CLAUDE.md + docs/agents/*.md'},
+  ]}
+/>
+
+1. **Erkunden statt annehmen** — schaut nach, ob es schon einen GitHub-/GitLab-Remote gibt, ob `CLAUDE.md`/`AGENTS.md` existieren, ob `CONTEXT.md`, `.scratch/` oder ein Monorepo-Setup vorhanden sind.
+2. **Drei Sektionen, eine nach der anderen**, jeweils mit empfohlener Standardantwort:
+   - **Issue-Tracker**: GitHub, GitLab, lokale Markdown-Dateien unter `.scratch/`, oder ein frei beschriebener anderer Tracker.
+   - **Triage-Label-Vokabular** (nur falls der `triage`-Skill installiert ist): die fünf kanonischen Rollen, standardmäßig `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`.
+   - **Domain-Doku-Layout**: ein `CONTEXT.md` am Root (Standard) oder, bei erkannten Monorepo-Signalen, mehrere `CONTEXT.md` pro Kontext plus eine `CONTEXT-MAP.md`.
+3. **Entwurf zeigen, editierbar** — bevor irgendetwas geschrieben wird.
+4. **Schreiben**: ergänzt `CLAUDE.md` (oder `AGENTS.md`) um einen `## Agent skills`-Block und legt `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md` und `docs/agents/domain.md` an.
+
+## Gut zu wissen
+
+Läuft ein `## Agent skills`-Block bereits, wird er **aktualisiert**, nicht dupliziert — eigene Ergänzungen drumherum bleiben unangetastet.

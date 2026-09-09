@@ -1,0 +1,35 @@
+---
+sidebar_position: 14
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# domain-modeling
+
+<SkillHeader category="Vokabular" githubPath="domain-modeling" />
+
+**Die aktive Disziplin, das Domain-Modell eines Projekts scharf zu halten** — nicht bloß `CONTEXT.md` zum Nachschlagen zu lesen (das kann jeder Skill nebenbei), sondern Begriffe zu hinterfragen, Kanten-Szenarien zu erfinden und Glossar sowie Entscheidungen im Moment ihres Entstehens festzuhalten.
+
+## Wann nutzen
+
+- Läuft unter `grill-with-docs` und mehreren anderen Skills automatisch mit.
+- Direkt, wenn ein Begriff im Gespräch unscharf wird oder eine ADR ansteht.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Während der Session"
+  steps={[
+    {label: 'Begriff hinterfragt', sublabel: 'widerspricht Glossar?'},
+    {label: 'Präzisieren', sublabel: 'welches der beiden Dinge?', focal: true},
+    {label: 'Szenario stresstesten', sublabel: 'Kanten erzwingen Klarheit'},
+    {label: 'CONTEXT.md aktualisieren', sublabel: 'sofort, nicht gesammelt'},
+  ]}
+/>
+
+`CONTEXT.md` ist **nur ein Glossar** — keine Spec, kein Scratchpad, keine Implementierungsentscheidungen. Ein ADR wird nur angeboten, wenn **alle drei** zutreffen: schwer umkehrbar, ohne Kontext überraschend, und das Ergebnis eines echten Trade-offs.
+
+## Gut zu wissen
+
+Bei mehreren Bounded Contexts (Monorepo) übernimmt eine `CONTEXT-MAP.md` am Root die Rolle des Wegweisers zu den einzelnen `CONTEXT.md`-Dateien pro Kontext.

@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: -0.5rem 0 1.5rem;
+}
+
+.badge {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--dd-rule-solid);
+  color: var(--dd-muted);
+  white-space: nowrap;
+}
+
+.badgeHauptfluss {
+  border-color: var(--dd-accent);
+  color: var(--dd-accent);
+}
+
+.githubLink {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  border: 1px solid var(--dd-rule-solid);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.4rem 0.8rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.githubLink:hover {
+  border-color: var(--dd-accent);
+  transform: translateY(-1px);
+  color: var(--dd-accent);
+}

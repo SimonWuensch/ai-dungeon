@@ -1,0 +1,52 @@
+---
+sidebar_position: 4
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# prototype
+
+<SkillHeader category="Hauptfluss" githubPath="prototype" />
+
+**Wegwerfcode, der genau eine Frage beantwortet.** Kein Feature-Vorbau, kein Testfundament — ein Prototyp existiert nur, damit du (oder jemand ohne Entwicklungshintergrund) etwas Konkretes anfassen und beurteilen kann, bevor die echte Implementierung beginnt.
+
+## Wann nutzen
+
+- Als Umweg innerhalb von `grill-with-docs`, wenn eine Frage sich nicht mehr im Gespräch klären lässt.
+- Immer wenn "fühlt sich dieser Zustandsautomat richtig an?" oder "wie soll das aussehen?" nur mit Anfassen zu beantworten ist.
+
+## Zwei Zweige, zwei Artefakte
+
+<CompareColumns
+  eyebrow="Welche Frage wird beantwortet?"
+  left={{
+    heading: '„Fühlt sich die Logik richtig an?"',
+    items: [
+      'Eine einzelne, teilbare HTML-Datei',
+      'Freies Spielen + geführte Tabs',
+      'Auch von Nicht-Entwicklern bedienbar',
+    ],
+  }}
+  right={{
+    heading: '„Wie soll das aussehen?"',
+    focal: true,
+    items: [
+      'Mehrere UI-Varianten auf einer Route',
+      'Umschaltbar per URL-Parameter',
+      'Schwebende Leiste zum Durchklicken',
+    ],
+  }}
+/>
+
+## Regeln, die für beide Zweige gelten
+
+- **Von Tag eins als Wegwerfcode markiert** — liegt nah am Zielort im echten Projekt, ist aber klar als Prototyp erkennbar benannt.
+- **Trivial startbar**: ein Befehl, mehr nicht.
+- **Keine Persistenz** außer die Frage betrifft explizit eine Datenbank — dann eine klar "PROTOTYPE, wipe me" markierte Scratch-DB.
+- **Kein Polish**: keine Tests, keine Fehlerbehandlung über das Nötigste hinaus.
+- **Zustand sichtbar machen** nach jeder Aktion bzw. bei jedem Varianten-Wechsel.
+
+## Danach
+
+Die validierte Entscheidung fließt in den echten Code ein — der Prototyp selbst wird als **Primärquelle** auf einem `prototype/<name>`-Branch aufbewahrt, referenziert vom Implementierungs-Issue.

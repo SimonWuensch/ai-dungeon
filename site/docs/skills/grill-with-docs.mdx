@@ -1,0 +1,39 @@
+---
+sidebar_position: 3
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# grill-with-docs
+
+<SkillHeader category="Hauptfluss" githubPath="grill-with-docs" />
+
+**Ein rücksichtsloses Interview, das eine Idee schärft — und dabei Spuren hinterlässt.** Derselbe Frage-Loop wie `grill-me`, aber stateful: Was dabei geklärt wird, landet direkt in `CONTEXT.md` und in ADRs, statt nach der Session zu verpuffen.
+
+## Wann nutzen
+
+- Startpunkt des Hauptflusses, immer wenn du **in einem Arbeitsverzeichnis** bist (ein Repo, in dem sich das Gelernte festhalten lässt).
+- Kein Arbeitsverzeichnis vorhanden? Dann `grill-me` statt `grill-with-docs` — gleicher Loop, ohne Papierspur.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Der Loop"
+  steps={[
+    {label: 'Frage stellen', sublabel: 'eine nach der anderen'},
+    {label: 'Antwort hören', sublabel: 'mit Empfehlung vorschlagen', focal: true},
+    {label: 'Frontier verschieben', sublabel: 'nächster offener Ast'},
+    {label: 'Doku aktualisieren', sublabel: 'CONTEXT.md / ADR'},
+  ]}
+  loopsBack
+/>
+
+Technisch ruft dieser Skill zwei andere Skills nacheinander auf:
+
+1. **`grilling`** — die reine Interview-Mechanik: Runden, die "Frontier" (der nächste offene Ast des Entscheidungsbaums), Fakten sind Aufgabe des Agenten, Entscheidungen bleiben bei dir.
+2. **`domain-modeling`** — läuft parallel mit: sobald ein Begriff sich klärt oder eine schwer umkehrbare Entscheidung fällt, wird `CONTEXT.md` sofort aktualisiert bzw. ein ADR angelegt — nicht gesammelt fürs Ende.
+
+## Gut zu wissen
+
+Der Kontext bleibt bewusst **ein durchgehendes Fenster**, bis die Idee zu Spec und Tickets geworden ist (siehe `ask-matt`) — erst danach lohnt sich ein `/compact` an der nächsten Phasengrenze.

@@ -1,0 +1,38 @@
+---
+sidebar_position: 11
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# diagnosing-bugs
+
+<SkillHeader category="On-Ramp" githubPath="diagnosing-bugs" />
+
+**Für die harten Bugs** — den, der beim ersten Blick standhält, den seltenen Flake, die Regression, die sich zwischen zwei bekannt-guten Zuständen eingeschlichen hat. Verweigert sich jeder Theorie, bis ein **straffer Feedback-Loop** steht, der auf genau diesem Bug rot wird.
+
+## Wann nutzen
+
+- Der Nutzer sagt "diagnose das" / "debug das", oder meldet etwas als kaputt/wirft einen Fehler/ist langsam.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="6 Phasen"
+  steps={[
+    {label: 'Feedback-Loop bauen', sublabel: 'straff, deterministisch', focal: true},
+    {label: 'Reproduzieren & minimieren', sublabel: 'kleinstes rotes Szenario'},
+    {label: 'Hypothesen', sublabel: '3–5, falsifizierbar'},
+    {label: 'Instrumentieren', sublabel: 'eine Variable pro Probe'},
+    {label: 'Fix + Regressionstest', sublabel: 'Test vor dem Fix'},
+    {label: 'Cleanup', sublabel: 'Debug-Logs entfernen'},
+  ]}
+/>
+
+**Phase 1 ist der eigentliche Skill** — alles danach ist mechanisch. Ohne einen Befehl, der schon einmal lief und rot wurde, gibt es keine Phase 2. Erlaubte Wege zu einem Loop reichen von einem fehlschlagenden Test über ein Curl-Skript bis zum letzten Mittel, einem HITL-Bash-Skript für Schritte, die nur ein Mensch klicken kann.
+
+Bei nicht-deterministischen Bugs zählt nicht ein sauberer Repro, sondern eine **höhere Reproduktionsrate** — bis sie hoch genug ist, um debuggbar zu sein.
+
+## Gut zu wissen
+
+Jeder Debug-Log trägt ein eindeutiges Tag (`[DEBUG-a4f2]`) — Cleanup am Ende wird damit zu einem einzigen `grep`.

@@ -1,0 +1,37 @@
+---
+sidebar_position: 6
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# to-tickets
+
+<SkillHeader category="Hauptfluss" githubPath="to-tickets" />
+
+**Zerlegt eine Spec (oder das laufende Gespräch) in Tickets, die man tatsächlich einzeln greifen kann.** Jedes Ticket ist eine vertikale, komplette Scheibe durch alle Schichten — keine horizontale "nur die DB-Migration"-Häppchen — und erklärt selbst, welche anderen Tickets es blockieren.
+
+## Wann nutzen
+
+- Direkt nach `to-spec`, wenn die Arbeit zu groß für eine einzelne Session ist.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Kontext sammeln', sublabel: 'Spec, Issue, Gespräch'},
+    {label: 'Vertikale Slices', sublabel: 'Tracer Bullets schneiden', focal: true},
+    {label: 'Blocking Edges', sublabel: 'wer blockiert wen'},
+    {label: 'Nutzer-Review', sublabel: 'Granularität, Kanten'},
+    {label: 'Veröffentlichen', sublabel: 'Tracker oder .scratch/'},
+  ]}
+/>
+
+**Vertikale-Slice-Regeln:** jede Scheibe schneidet einen schmalen, aber vollständigen Pfad durch Schema, API, UI und Tests; ist für sich demonstrierbar; passt in ein einzelnes frisches Kontextfenster.
+
+**Ausnahme — der breite Refactor:** eine mechanische Änderung mit riesigem Blast-Radius (Spalte umbenennen, gemeinsamen Typ umbauen) lässt sich nicht in Tracer Bullets pressen. Dafür gibt's **Expand → Migrate (in Batches) → Contract**, jede Phase ihr eigenes Ticket, damit CI zwischen den Batches grün bleibt.
+
+## Gut zu wissen
+
+Gearbeitet wird an der **Frontier**: jedes Ticket, dessen Blocker alle erledigt sind, ist sofort greifbar — bei einer rein linearen Kette einfach von oben nach unten.

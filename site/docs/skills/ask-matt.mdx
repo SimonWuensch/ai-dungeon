@@ -1,0 +1,54 @@
+---
+sidebar_position: 2
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# ask-matt
+
+<SkillHeader category="Router" githubPath="ask-matt" />
+
+**Ein Router über alle anderen Skills.** Niemand merkt sich 18 Skill-Namen — `ask-matt` kennt die Landkarte und sagt dir, welcher Skill (oder welche Reihenfolge von Skills) zu deiner aktuellen Situation passt.
+
+## Wann nutzen
+
+- Du weißt, was du erreichen willst, aber nicht, mit welchem Skill du anfangen sollst.
+- Du willst dich daran erinnern lassen, wie zwei Skills zusammenhängen.
+
+## Der Hauptfluss: Idee → Ship
+
+Der Pfad, den die meiste Arbeit nimmt.
+
+<FlowRow
+  eyebrow="Hauptfluss"
+  steps={[
+    {label: 'grill-with-docs', sublabel: 'Idee schärfen'},
+    {label: 'to-spec', sublabel: 'Spec synthetisieren'},
+    {label: 'to-tickets', sublabel: 'Tracer-Bullet-Tickets'},
+    {label: 'implement', sublabel: 'TDD + Code-Review', focal: true},
+  ]}
+/>
+
+1. **`grill-with-docs`** schärft die Idee per Interview — bleibt im selben Kontextfenster bis Schritt 3.
+2. **Verzweigung:** Lässt sich jede Frage im Gespräch klären? Wenn nicht (Zustand, Business-Logik, UI), Umweg über **`prototype`**, hin und zurück per `/handoff`.
+3. **Verzweigung:** Mehrere Sessions nötig? Dann **`to-spec`** → **`to-tickets`**, sonst direkt **`implement`** im selben Kontext.
+4. **`implement`** treibt intern **`tdd`** (eine rot-grün-Scheibe nach der anderen) und schließt mit **`code-review`** ab, bevor committet wird.
+
+## On-Ramps
+
+Ausgangslagen, die auf den Hauptfluss münden:
+
+- **Bugs/Requests stauen sich** → **`triage`**, produziert agent-fertige Issues für `implement`.
+- **Etwas ist kaputt** → **`diagnosing-bugs`**, verweigert Theorien ohne straffen Feedback-Loop.
+- **Riesiger, unklarer Umfang** (Greenfield, Mega-Feature) → **`wayfinder`**, kartiert Entscheidungs-Tickets statt direkt zu bauen.
+
+## Codebase-Pflege, Vokabular, Standalone
+
+- **`improve-codebase-architecture`** sucht "Deepening"-Kandidaten, wenn gerade Luft ist — ein Treffer wird zur Idee für `grill-with-docs`.
+- **`domain-modeling`** und **`codebase-design`** sind Vokabular-Schichten, die andere Skills darunter mitlaufen lassen.
+- **`resolving-merge-conflicts`**, **`prototype`**, **`research`** und **`wizard`** stehen für sich, außerhalb jedes Flusses.
+
+## Gut zu wissen
+
+Der Kontext von Schritt 1–3 bleibt **ein durchgehendes Fenster** (nicht clearen), bis `to-tickets` fertig ist — Grillen, Spec und Tickets bauen auf demselben Denken auf. Jedes `implement` startet danach bewusst frisch.

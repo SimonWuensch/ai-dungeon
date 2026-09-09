@@ -1,0 +1,40 @@
+---
+sidebar_position: 8
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# tdd
+
+<SkillHeader category="Hauptfluss" githubPath="tdd" />
+
+**Der rot → grün-Loop — und die Referenz, die dafür sorgt, dass dabei Tests entstehen, die es wert sind, behalten zu werden.** Nicht nur "schreib zuerst einen Test", sondern was einen *guten* Test ausmacht, wo Tests hingehören und welche Fallen es zu vermeiden gilt.
+
+## Wann nutzen
+
+- Immer, wenn Verhalten testgetrieben gebaut werden soll — eigenständig, oder als Unterprogramm von `implement`.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Eine Scheibe"
+  steps={[
+    {label: 'Test schreiben', sublabel: 'an vereinbartem Seam', focal: true},
+    {label: 'Rot sehen', sublabel: 'schlägt fehl'},
+    {label: 'Minimaler Code', sublabel: 'gerade genug'},
+    {label: 'Grün sehen', sublabel: 'Test besteht'},
+  ]}
+  loopsBack
+/>
+
+**Seams zuerst vereinbaren.** Ein Seam ist die öffentliche Grenze, an der getestet wird — niemals gegen Interna. Vor dem ersten Test werden die zu testenden Seams mit dem Nutzer abgestimmt: *"Was ist das öffentliche Interface, und welche Seams testen wir?"*
+
+**Drei Anti-Pattern, auf die geachtet wird:**
+- **Implementation-gekoppelt** — bricht bei Refactoring, obwohl sich das Verhalten nicht geändert hat.
+- **Tautologisch** — die Erwartung wird genauso berechnet wie der Code selbst, kann also nie widersprechen.
+- **Horizontal geschnitten** — erst alle Tests, dann alle Implementierung. Richtig ist die **vertikale Scheibe**: ein Test → eine Implementierung → wiederholen.
+
+## Gut zu wissen
+
+**Refactoring ist nicht Teil des Loops** — das gehört in die Review-Phase (`code-review`), nicht in den rot-grün-Zyklus selbst.

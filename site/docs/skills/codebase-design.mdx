@@ -1,0 +1,47 @@
+---
+sidebar_position: 15
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# codebase-design
+
+<SkillHeader category="Vokabular" githubPath="codebase-design" />
+
+**Das gemeinsame Vokabular für tiefe Module** — Modul, Interface, Depth, Seam, Adapter, Leverage, Locality. Kein Prozess, sondern eine Sprache, die `tdd` und `improve-codebase-architecture` beide sprechen, damit "Boundary", "Service" und "API" nicht durcheinander gewürfelt werden.
+
+## Wann nutzen
+
+- Wenn ein Modul-Interface entworfen oder verbessert wird, ein Seam gesucht wird, oder ein anderer Skill das Vokabular für tiefe Module braucht.
+
+## Tief vs. flach
+
+<CompareColumns
+  eyebrow="Deep vs. Shallow Module"
+  left={{
+    heading: 'Tiefes Modul',
+    focal: true,
+    items: [
+      'Kleines Interface',
+      'Viel Verhalten dahinter verborgen',
+      'Viel Leverage pro gelerntem Interface',
+    ],
+  }}
+  right={{
+    heading: 'Flaches Modul (vermeiden)',
+    items: [
+      'Großes Interface',
+      'Dünne Implementierung, reicht nur durch',
+      'Kaum Leverage — fast reiner Pass-Through',
+    ],
+  }}
+/>
+
+**Der Löschtest:** Stell dir vor, das Modul verschwindet. Taucht die Komplexität bei den Aufrufern wieder auf, hat es seinen Platz verdient. Löst sie sich einfach auf, war es nur ein Durchreicher.
+
+**Ein Adapter = ein hypothetischer Seam. Zwei Adapter = ein echter.** Kein Seam ohne echte Varianz dahinter.
+
+## Gut zu wissen
+
+Depth ist eine Eigenschaft des **Interfaces**, nicht der Implementierung — ein tiefes Modul darf innen aus vielen kleinen, austauschbaren Teilen bestehen, solange die nach außen nicht sichtbar werden.

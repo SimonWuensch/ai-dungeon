@@ -1,0 +1,36 @@
+---
+sidebar_position: 13
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# improve-codebase-architecture
+
+<SkillHeader category="Codebase-Health" githubPath="improve-codebase-architecture" />
+
+**Kein Feature-Skill, sondern Pflege.** Durchsucht eine Codebasis nach "Deepening"-Kandidaten — Stellen, an denen ein flaches Modul zu einem tiefen werden könnte — und präsentiert sie als visuellen HTML-Report, statt sie direkt umzusetzen.
+
+## Wann nutzen
+
+- Wenn gerade Luft ist, um die Codebasis für Agenten (und Menschen) navigierbarer zu machen — nicht als Teil eines Feature-Auftrags.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Hotspots finden', sublabel: 'Commit-Historie, Reibung'},
+    {label: 'HTML-Report', sublabel: 'Vorher/Nachher-Diagramme', focal: true},
+    {label: 'Kandidat wählen', sublabel: 'Nutzer entscheidet'},
+    {label: 'Grilling-Loop', sublabel: 'Interface im Detail'},
+  ]}
+/>
+
+Der Report wird als eigenständige HTML-Datei ins Temp-Verzeichnis geschrieben (nichts landet im Repo) und pro Kandidat mit **Files**, **Problem**, **Solution**, **Benefits** (in Begriffen von Leverage und Locality) sowie einem **Vorher/Nachher-Diagramm** dargestellt — plus einer Einschätzung `Strong` / `Worth exploring` / `Speculative`.
+
+Wählt der Nutzer einen Kandidaten, geht es in einen **Grilling-Loop** über, der `CONTEXT.md` und ADRs live aktualisiert, während Entscheidungen fallen.
+
+## Gut zu wissen
+
+Widerspricht ein Kandidat einem bestehenden ADR, wird das explizit markiert — nicht stillschweigend übergangen, aber auch nicht jeder theoretische Bruch aufgelistet.

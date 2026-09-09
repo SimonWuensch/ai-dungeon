@@ -1,0 +1,34 @@
+---
+sidebar_position: 17
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# research
+
+<SkillHeader category="Standalone" githubPath="research" />
+
+**Delegiert Lesearbeit an einen Hintergrund-Agenten**, damit du weiterarbeiten kannst, während er recherchiert. Das Ergebnis ist eine einzige, zitierte Markdown-Datei im Repo — kein Chat-Verlauf, der wieder verloren geht.
+
+## Wann nutzen
+
+- Ein Thema soll recherchiert werden: Dokumentation, API-Fakten, Hintergrundwissen.
+- Das Ergebnis soll später in `grill-with-docs` einfließen, statt das Denken zu ersetzen.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Frage übergeben', sublabel: 'an den Hintergrund-Agenten'},
+    {label: 'Primärquellen', sublabel: 'offizielle Docs, Quellcode, Specs', focal: true},
+    {label: 'Markdown-Datei', sublabel: 'jede Aussage zitiert'},
+  ]}
+/>
+
+Jede Behauptung wird bis zur **Primärquelle** zurückverfolgt — nicht bis zu einer sekundären Zusammenfassung davon. Die Datei landet dort, wo das Repo solche Notizen bereits sammelt; gibt es keine Konvention, wird ein sinnvoller Ort gewählt und offen benannt.
+
+## Gut zu wissen
+
+`research` ersetzt nicht das Denken — es füttert es. Das Ergebnis ist Material, das man mit in `grill-with-docs` nimmt, nicht ein fertiges Urteil.

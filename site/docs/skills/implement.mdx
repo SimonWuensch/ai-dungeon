@@ -1,0 +1,35 @@
+---
+sidebar_position: 7
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# implement
+
+<SkillHeader category="Hauptfluss" githubPath="implement" />
+
+**Setzt eine Spec oder ein Ticket tatsächlich um** — und zieht dabei zwei andere Skills als Unterprogramme heran, statt das Rad neu zu erfinden.
+
+## Wann nutzen
+
+- Am Ende des Hauptflusses: entweder direkt nach `grill-with-docs` (kleine Aufgabe, ein Kontextfenster) oder pro Ticket nach `to-tickets` (jedes Mal mit frisch gecleartem Kontext).
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Spec / Ticket', sublabel: 'Ausgangspunkt'},
+    {label: 'tdd', sublabel: 'an vereinbarten Seams', focal: true},
+    {label: 'Typecheck + Tests', sublabel: 'regelmäßig, am Ende komplett'},
+    {label: 'code-review', sublabel: 'Standards + Spec'},
+    {label: 'Commit', sublabel: 'auf den aktuellen Branch'},
+  ]}
+/>
+
+Kurz und bewusst schlank: **`tdd`** übernimmt das eigentliche Bauen an vorher vereinbarten Seams, Typecheck und einzelne Testdateien laufen unterwegs regelmäßig, die volle Testsuite einmal am Ende. Abgeschlossen wird immer mit **`code-review`**, bevor committet wird.
+
+## Gut zu wissen
+
+Dieser Skill ist bewusst *nicht* modell-aufrufbar von selbst (`disable-model-invocation`) — er wird explizit angestoßen, meist von `ask-matt`s Hauptfluss oder direkt vom Nutzer pro Ticket.

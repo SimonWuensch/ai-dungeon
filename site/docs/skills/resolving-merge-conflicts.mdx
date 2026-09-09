@@ -1,0 +1,35 @@
+---
+sidebar_position: 16
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# resolving-merge-conflicts
+
+<SkillHeader category="Standalone" githubPath="resolving-merge-conflicts" />
+
+**Arbeitet einen laufenden Merge- oder Rebase-Konflikt Hunk für Hunk ab** — nach der ursprünglichen Absicht jeder Seite, nicht nach Bauchgefühl. Bricht niemals mit `--abort` ab.
+
+## Wann nutzen
+
+- Du steckst bereits mitten in einem Merge- oder Rebase-Konflikt.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Zustand sichten', sublabel: 'Historie, betroffene Dateien'},
+    {label: 'Primärquellen finden', sublabel: 'Commit-Nachrichten, Issues', focal: true},
+    {label: 'Hunk für Hunk lösen', sublabel: 'beide Absichten erhalten'},
+    {label: 'Checks laufen lassen', sublabel: 'Typecheck, Tests, Format'},
+    {label: 'Merge abschließen', sublabel: 'committen / weiter-rebasen'},
+  ]}
+/>
+
+Bei unvereinbaren Änderungen gewinnt die Seite, die zum **erklärten Ziel des Merges** passt — mit einer notierten Begründung für den Trade-off. Es wird **nie neues Verhalten erfunden**, das keine der beiden Seiten je hatte.
+
+## Gut zu wissen
+
+Nach dem Lösen aller Hunks werden automatisierte Checks (Typecheck, Tests, Format) ausgeführt und alles repariert, was der Merge selbst kaputt gemacht hat — erst danach gilt der Merge/Rebase als abgeschlossen.
