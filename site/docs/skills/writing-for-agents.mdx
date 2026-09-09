@@ -1,0 +1,45 @@
+---
+sidebar_position: 25
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# writing-for-agents
+
+<SkillHeader category="Standalone" githubPath="productivity/writing-for-agents" />
+
+**Die Referenz zum Schreiben von allem, was ein Agent konsumiert** — ein Skill, ein `AGENTS.md`/`CLAUDE.md`, ein per Pointer erreichtes Dokument. Die Verpackung unterscheidet sich, das Schreiben nicht: dieselben Hebel machen jedes Dokument vorhersagbar.
+
+## Wann nutzen
+
+- Beim Erstellen oder Bearbeiten eines Skills, oder beim Ändern von `AGENTS.md`/`CLAUDE.md`.
+
+## Zwei Budgets
+
+<CompareColumns
+  eyebrow="Context Load vs. Cognitive Load"
+  left={{
+    heading: 'Context Load',
+    items: [
+      'Kosten auf das Kontextfenster des Agenten',
+      'Zahlt jede Zeile, jede Runde — ob sie feuert oder nicht',
+      'Minimieren ist das Ziel',
+    ],
+  }}
+  right={{
+    heading: 'Cognitive Load',
+    focal: true,
+    items: [
+      'Kosten für den Menschen',
+      'Der Mensch ist der Index über die Dokumente',
+      'Kein Kostenfaktor zum Minimieren — der Preis menschlicher Urteilskraft',
+    ],
+  }}
+/>
+
+Material, das nur über einen **Context Pointer** erreicht wird, entkommt dem ständigen Context Load — zum Preis der einen Pointer-Zeile. Die **Information Hierarchy** ordnet Inhalte danach, wie unmittelbar der Agent sie braucht: Schritt im Dokument → Referenz im Dokument → ausgelagerte Referenz hinter einem Pointer.
+
+## Gut zu wissen
+
+**Leading Words** (ein kompakter, im Modell bereits vorgeprägter Begriff wie *tight* oder *fog of war*) verankern Verhalten in wenigen Tokens — eigene Wortschöpfungen funktionieren, kosten aber Definitions-Tokens, die ein bereits bekanntes Wort umsonst mitbringt.

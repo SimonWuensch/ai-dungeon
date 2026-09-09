@@ -1,0 +1,44 @@
+---
+sidebar_position: 19
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# grill-me
+
+<SkillHeader category="Standalone" githubPath="productivity/grill-me" />
+
+**Dasselbe rücksichtslose Interview wie `grill-with-docs` — nur ohne Papierspur.** Ruft intern nur `grilling` auf, speichert aber nichts lokal und legt kein `CONTEXT.md` an. Der richtige Skill, wenn es gar kein Arbeitsverzeichnis gibt, in dem sich etwas festhalten ließe.
+
+## Wann nutzen
+
+- Du schärfst einen Plan, ein Design oder einen Text, aber **arbeitest nicht in einem Repo** — kein Ort, an dem eine Papierspur überhaupt hinginge.
+- Bist du in einem Arbeitsverzeichnis, ist `grill-with-docs` **strikt die bessere Wahl**: gleicher Loop, plus Gedächtnis.
+
+## Stateless vs. stateful
+
+<CompareColumns
+  eyebrow="grill-me vs. grill-with-docs"
+  left={{
+    heading: 'grill-me',
+    items: [
+      'Kein Arbeitsverzeichnis nötig',
+      'Speichert nichts — reine Konversation',
+      'Für Pläne, Designs, Texte ohne Repo-Bezug',
+    ],
+  }}
+  right={{
+    heading: 'grill-with-docs',
+    focal: true,
+    items: [
+      'Setzt ein Arbeitsverzeichnis voraus',
+      'Schreibt live in CONTEXT.md und ADRs',
+      'Strikt vorzuziehen, wenn ein Repo da ist',
+    ],
+  }}
+/>
+
+## Gut zu wissen
+
+Beide rufen denselben Mechanismus auf: `grilling` — Runden, eine Frontier aus offenen Fragen, Fakten sind Aufgabe des Agenten, Entscheidungen bleiben immer bei dir.

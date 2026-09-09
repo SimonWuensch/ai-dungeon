@@ -1,0 +1,36 @@
+---
+sidebar_position: 20
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# grilling
+
+<SkillHeader category="Standalone" githubPath="productivity/grilling" />
+
+**Das Interview-Prinzip selbst** — ohne Wrapper drumherum. `grill-me`, `grill-with-docs` und intern auch `triage`, `wayfinder` und `improve-codebase-architecture` rufen alle diesen einen Mechanismus auf.
+
+## Wann nutzen
+
+- Direkt, wenn du das Interview ohne jede Zusatzfunktion (Papierspur, Prototyp-Umweg) willst.
+- Meistens indirekt: andere Skills bringen dich hierher, ohne dass du `grilling` selbst tippst.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Eine Runde"
+  steps={[
+    {label: 'Frontier berechnen', sublabel: 'was ist jetzt beantwortbar?'},
+    {label: 'Ganze Runde stellen', sublabel: 'nummeriert, mit Empfehlung', focal: true},
+    {label: 'Antworten abwarten', sublabel: 'nie vorgreifen'},
+    {label: 'Baum reshapen', sublabel: 'neue Fragen freigeschaltet'},
+  ]}
+  loopsBack
+/>
+
+Die **Frontier** ist jede Frage, deren Voraussetzungen bereits geklärt sind — eine Frage, deren Antwort von einer noch offenen Frage abhängt, gehört in eine **spätere** Runde, nie in diese. **Fakten sind Aufgabe des Agenten** (braucht die Frontier eine Tatsache aus Dateisystem/Tools, wird ein Sub-Agent losgeschickt, ohne den Nutzer zu fragen) — **Entscheidungen bleiben immer beim Nutzer**.
+
+## Gut zu wissen
+
+Fertig ist die Session, wenn die Frontier **leer** ist — jeder Ast des Entscheidungsbaums besucht, nichts still angenommen.

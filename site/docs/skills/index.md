@@ -52,6 +52,19 @@ umsetzen.
 - **[research](/docs/skills/research)** — Lesearbeit an einen Hintergrund-Agenten delegieren
 - **[wizard](/docs/skills/wizard)** — einen interaktiven Wizard für rein menschliche Schritte erzeugen
 
+## Installierte Skills (Matt Pocock Produktivitäts-Set)
+
+Ergänzend zum Engineering-Set: Skills rund ums Interviewen, Übergeben und Schreiben für Agenten,
+aus [mattpocock/skills](https://github.com/mattpocock/skills), Verzeichnis `skills/productivity/`.
+
+- **[grill-me](/docs/skills/grill-me)** — dasselbe Interview wie `grill-with-docs`, ohne Papierspur
+- **[grilling](/docs/skills/grilling)** — das Interview-Prinzip selbst, ohne Wrapper
+- **[handoff](/docs/skills/handoff)** — die Konversation für eine andere Session verdichten
+- **[wait-what](/docs/skills/wait-what)** — eine nicht angekommene Antwort neu formulieren
+- **[to-questionnaire](/docs/skills/to-questionnaire)** — eine unbeantwortbare Frage zum Fragebogen für jemand anderen machen
+- **[teach](/docs/skills/teach)** — ein Thema über mehrere Sessions hinweg lernen
+- **[writing-for-agents](/docs/skills/writing-for-agents)** — Referenz zum Schreiben von Skills und AGENTS.md/CLAUDE.md
+
 ### Setup & Router
 
 - **[setup-matt-pocock-skills](/docs/skills/setup-matt-pocock-skills)** — einmalige Konfiguration pro Repo

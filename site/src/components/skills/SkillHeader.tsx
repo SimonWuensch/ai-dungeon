@@ -12,7 +12,7 @@ export type SkillCategory =
 
 type SkillHeaderProps = {
   category: SkillCategory;
-  /** Folder name under mattpocock/skills/tree/main/skills/engineering/ */
+  /** Path under mattpocock/skills/tree/main/skills/, e.g. "engineering/tdd" or "productivity/grill-me" */
   githubPath: string;
 };
 
@@ -25,7 +25,7 @@ export default function SkillHeader({category, githubPath}: SkillHeaderProps) {
       </span>
       <a
         className={styles.githubLink}
-        href={`https://github.com/mattpocock/skills/tree/main/skills/engineering/${githubPath}`}
+        href={`https://github.com/mattpocock/skills/tree/main/skills/${githubPath}`}
         target="_blank"
         rel="noopener noreferrer">
         Auf GitHub ansehen ↗

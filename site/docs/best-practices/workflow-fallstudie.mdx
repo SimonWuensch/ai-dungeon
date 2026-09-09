@@ -1,0 +1,100 @@
+---
+sidebar_position: 2
+---
+
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# Workflow-Fallstudie: von der Idee zum Merge
+
+Die einzelnen Skill-Seiten erklären jeweils **einen** Skill. Hier geht es um das Zusammenspiel: ein
+(fiktives) Feature, einmal komplett durch den Hauptfluss durchgespielt — mit Scheinwerfer auf
+`grill-me`/`grill-with-docs`, `handoff` und `code-review`.
+
+## Die Ausgangslage
+
+> *"Nutzer sollen selbst einstellen können, wie und wann sie benachrichtigt werden — E-Mail, Push,
+> gesammelt als Digest, mit stillen Zeiten."*
+
+Eine typische, harmlos klingende Anfrage — bis man anfängt, sie zu Ende zu denken.
+
+## Schritt 1 — Idee schärfen
+
+<FlowRow
+  eyebrow="grill-with-docs (im Repo) / grill-me (ohne Repo)"
+  steps={[
+    {label: 'Frage stellen', sublabel: 'welche Kanäle? welche Events?'},
+    {label: 'Antwort + Empfehlung', sublabel: 'eine nach der anderen', focal: true},
+    {label: 'CONTEXT.md wächst', sublabel: '„Digest", „stille Zeit" definiert'},
+  ]}
+/>
+
+Im Repo heißt das Werkzeug **`grill-with-docs`**: Jeder geklärte Begriff ("Digest" ist eine
+gesammelte Zusammenfassung, kein Einzel-Event; "stille Zeit" ist ein pro Nutzer konfigurierbares
+Zeitfenster) landet sofort in `CONTEXT.md` — nicht erst am Ende zusammengefasst. Gäbe es kein Repo
+(z.B. weil erst am Konzept auf einem Whiteboard gearbeitet wird), liefe dasselbe Interview über
+**`grill-me`** — nur ohne die Papierspur.
+
+Nach ein paar Runden ist fast alles geklärt. Fast.
+
+## Schritt 2 — Eine Frage, die sich nicht im Gespräch klären lässt
+
+Offen bleibt: *Was passiert, wenn während einer stillen Zeit ein als "kritisch" markiertes Event
+eintrifft — bricht es die Stille, oder wartet es bis zum Ende?* Das ist keine Wissensfrage, sondern
+eine **Gefühlsfrage** — die Antwort hängt davon ab, wie sich beide Varianten in der Praxis anfühlen.
+Genau dafür gibt es den Umweg über einen Prototyp.
+
+<FlowRow
+  eyebrow="Der Umweg: handoff → prototype → handoff"
+  steps={[
+    {label: 'handoff', sublabel: 'Kontext verdichten, ins Temp-Verzeichnis', focal: true},
+    {label: 'prototype', sublabel: 'Wegwerf-HTML, Zustandsautomat durchklicken'},
+    {label: 'handoff zurück', sublabel: 'Ergebnis + Verdikt ins Hauptgespräch'},
+  ]}
+/>
+
+**`handoff`** schreibt eine verdichtete Zusammenfassung ins Temp-Verzeichnis des Betriebssystems —
+nicht ins Repo, das ist kein Artefakt, das bleiben soll — und empfiehlt gleich, welchen Skill die
+nächste Session zuerst aufrufen sollte: **`prototype`**. Der Prototyp ist eine einzelne,
+klickbare HTML-Datei, die den Zustandsautomaten ("still + kritisch → ?") frei durchspielbar macht,
+plus ein paar geführte Beispiel-Szenarien. Ergebnis: kritische Events **brechen** die Stille — aber
+nur, wenn ihre eigene Kategorie das explizit erlaubt (nicht jedes "kritisch" ist gleich kritisch).
+
+Ein zweiter **`handoff`** trägt dieses Verdikt zurück ins ursprüngliche Gespräch. Der Prototyp selbst
+wird nicht gelöscht, sondern als Primärquelle auf einem `prototype/notification-quiet-hours`-Branch
+aufbewahrt und vom Ticket aus verlinkt.
+
+## Schritt 3 — Spec, Tickets, Umsetzung
+
+Ab hier läuft der Rest des Hauptflusses, kurz zusammengefasst:
+
+<FlowRow
+  eyebrow="Der Rest des Hauptflusses"
+  steps={[
+    {label: 'to-spec', sublabel: 'Gespräch → Spec-Dokument'},
+    {label: 'to-tickets', sublabel: 'vertikale Tracer-Bullet-Tickets'},
+    {label: 'implement', sublabel: 'treibt tdd, ein Ticket nach dem anderen', focal: true},
+  ]}
+/>
+
+**`to-spec`** synthetisiert das Gespräch (inklusive Prototyp-Verdikt) zu einer Spec mit User Stories
+und Implementierungsentscheidungen. **`to-tickets`** zerlegt sie in Tickets wie *"Nutzer kann Kanäle
+pro Event-Typ konfigurieren"* oder *"Kritische Events brechen stille Zeiten, sofern als
+unterdrückbar markiert"* — jedes für sich verifizierbar. **`implement`** arbeitet sie ab, treibt
+`tdd` an vorher vereinbarten Seams.
+
+## Schritt 4 — Review vor dem Commit
+
+Bevor irgendetwas committet wird, läuft **`code-review`**: zwei parallele Sub-Agenten prüfen den
+Diff getrennt gegen **Standards** (folgt der Code den Repo-Konventionen?) und **Spec** (setzt er
+genau das um, was die Tickets verlangt haben — inklusive der Prototyp-Entscheidung zu kritischen
+Events?). Beide Berichte stehen nebeneinander, nie zu einer Note verschmolzen — ein Diff kann auf
+der einen Achse bestehen und auf der anderen durchfallen.
+
+## Was diese Fallstudie zeigt
+
+- **`grill-me`/`grill-with-docs`** schärfen die Idee, bevor irgendein Code entsteht.
+- **`handoff`** ist die Brücke zu einem Prototyp und zurück — ohne sie müsste man entweder raten
+  oder das ganze Gespräch manuell in eine neue Session kopieren.
+- **`code-review`** ist die letzte Instanz vor dem Commit, getrennt nach Standards und Spec.
+
+Die vollständige Landkarte aller Skills und wie sie zusammenhängen: [`ask-matt`](/docs/skills/ask-matt).

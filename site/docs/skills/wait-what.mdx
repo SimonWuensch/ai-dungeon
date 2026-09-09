@@ -1,0 +1,43 @@
+---
+sidebar_position: 22
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import CompareColumns from '@site/src/components/diagrams/CompareColumns';
+
+# wait-what
+
+<SkillHeader category="Standalone" githubPath="productivity/wait-what" />
+
+**Die Korrektur für eine Nachricht, die nicht angekommen ist.** Mitten in jedem anderen Skill nutzbar: Der Agent formuliert genau das, was er gerade gesagt hat, noch einmal — einfacher, mit dem Kontext, der gefehlt hat.
+
+## Wann nutzen
+
+- Eine Antwort des Agenten war zu fachsprachlich, zu knapp, oder hat einen Sprung gemacht, den du nicht mitgehen konntest.
+
+## Vorher / Nachher
+
+<CompareColumns
+  eyebrow="Ohne vs. mit wait-what"
+  left={{
+    heading: 'Ohne',
+    items: [
+      'Fachjargon ohne Erklärung',
+      'Begriffe, die nicht zum Projekt-Glossar passen',
+      'Du nickst mit, verstehst es aber nicht wirklich',
+    ],
+  }}
+  right={{
+    heading: 'Mit wait-what',
+    focal: true,
+    items: [
+      'Re-Pitch in einfacher, technischer Sprache',
+      'Nutzt die Begriffe aus CONTEXT.md',
+      'Etwas Kontext vorweg, statt vorauszusetzen',
+    ],
+  }}
+/>
+
+## Gut zu wissen
+
+`wait-what` ist die reaktive Korrektur, **nachdem** etwas nicht gelandet ist. `grill-with-docs` ist die vorbeugende Variante: eine früh vereinbarte gemeinsame Sprache verhindert, dass der Jargon überhaupt erst ankommt.

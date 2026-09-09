@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+---
+
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# Epics, Features & Stories mit AI
+
+Die klassische Produkt-Hierarchie — **Epic → Feature → Story/Task** — hat direkte Entsprechungen
+in unseren installierten Skills. Wer die Zuordnung kennt, muss nicht zwei Vokabulare im Kopf
+behalten.
+
+<FlowRow
+  eyebrow="Ebene → Skill"
+  steps={[
+    {label: 'Epic', sublabel: 'zu groß, zu neblig für 1 Session'},
+    {label: 'Feature', sublabel: 'eine geschärfte, buildbare Idee', focal: true},
+    {label: 'Story / Task', sublabel: 'einzeln greifbar, verifizierbar'},
+  ]}
+/>
+
+## Epic → `wayfinder`
+
+Ein Epic ist per Definition **zu groß für eine Session** und der Weg dahin liegt noch im Nebel —
+genau der Anwendungsfall von `wayfinder`. Statt direkt Tickets zu schreiben, entsteht eine
+**Landkarte aus Entscheidungs-Tickets**: offene Fragen, die geklärt werden müssen, bevor überhaupt
+klar ist, was gebaut wird. Wichtig: `wayfinder` **plant, es baut nicht** — am Ende steht eine
+geklärte Richtung, keine fertige Umsetzung.
+
+Beispiel-Epic: *"Selbstbedienungs-Portal für Enterprise-Kunden"* — bevor hier ein einziges Ticket
+sinnvoll ist, müssen Fragen wie Berechtigungsmodell, Abrechnung, Single-Sign-on-Anbindung erst
+geklärt sein. Jede dieser Fragen wird ein eigenes Entscheidungs-Ticket auf der Landkarte.
+
+## Feature → `to-spec`
+
+Ist die Landkarte klar (oder war die Idee von Anfang an klein genug, direkt aus `grill-with-docs`
+zu kommen), wird daraus ein **Feature**: eine geschärfte, in sich buildbare Idee. `to-spec`
+synthetisiert das bereits Besprochene — **kein neues Interview** — zu einer Spec mit
+Problem-Statement, User Stories und Implementierungsentscheidungen.
+
+## Story / Task → `to-tickets`
+
+Die Spec wird in **vertikale Tracer-Bullet-Tickets** zerlegt — jedes ein schmaler, aber
+vollständiger Pfad durch Schema, API, UI und Tests, mit klaren **Blocking Edges**. Das entspricht
+der Story-/Task-Ebene: einzeln zuweisbar, einzeln verifizierbar, in einem einzelnen frischen
+Kontextfenster umsetzbar.
+
+## Warum diese Zuordnung hilft
+
+- **Ein Vokabular für zwei Welten.** Product Owner sprechen von Epics/Features/Stories, die Skills
+  sprechen von Wayfinder-Tickets/Specs/Tracer-Bullets — es ist dieselbe Hierarchie, nur anders
+  benannt.
+- **Die Ebene bestimmt den Skill, nicht umgekehrt.** Bevor du `to-tickets` aufrufst, lohnt sich die
+  Frage: Ist das hier wirklich schon Feature-Ebene, oder steckt eigentlich noch ein ungeklärtes
+  Epic dahinter?
+- **Nicht jedes Feature braucht ein Epic davor.** Viele Features entstehen direkt aus
+  `grill-with-docs`, ohne je eine Wayfinder-Landkarte gebraucht zu haben — das ist der Normalfall,
+  nicht die Ausnahme.
+
+Mehr zu den einzelnen Skills: [`wayfinder`](/docs/skills/wayfinder),
+[`to-spec`](/docs/skills/to-spec), [`to-tickets`](/docs/skills/to-tickets).

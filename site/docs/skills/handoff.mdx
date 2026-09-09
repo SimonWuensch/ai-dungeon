@@ -1,0 +1,35 @@
+---
+sidebar_position: 21
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# handoff
+
+<SkillHeader category="Hauptfluss" githubPath="productivity/handoff" />
+
+**Verdichtet die aktuelle Konversation zu einem Übergabe-Dokument für eine andere Session.** Die Brücke, über die man zu einem `prototype` hinüber- und mit dem Ergebnis wieder zurückwechselt — ohne dass der ursprüngliche Kontext verloren geht oder unnötig aufgebläht wird.
+
+## Wann nutzen
+
+- Eine Frage lässt sich im Gespräch nicht klären und braucht einen `prototype`-Umweg in einem eigenen Verzeichnis — hin per `handoff`, zurück genauso.
+- Immer, wenn ein **neues Harness**, ein **neues Verzeichnis**, eine **Kollegin** oder ein abgespaltener Nebenschauplatz mitten in einer Phase eine portable Markdown-Datei braucht.
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Konversation verdichten', sublabel: 'Kernpunkte, keine Duplikate'},
+    {label: 'Ins Temp-Verzeichnis', sublabel: 'nicht ins Repo', focal: true},
+    {label: 'Skills empfehlen', sublabel: 'welche die nächste Session braucht'},
+    {label: 'Neue Session lädt', sublabel: 'macht weiter'},
+  ]}
+/>
+
+Das Dokument **dupliziert nichts**, was bereits in Specs, Plänen, ADRs, Issues, Commits oder Diffs steht — es verweist per Pfad/URL darauf, statt es erneut auszuformulieren. Sensible Inhalte (API-Keys, Passwörter, personenbezogene Daten) werden **redigiert**.
+
+## Gut zu wissen
+
+Ein Handoff-Dokument landet bewusst im **Temp-Verzeichnis des Betriebssystems**, nicht im Arbeitsverzeichnis — es ist eine Brücke für die nächste Session, kein Artefakt, das im Repo bleiben soll.

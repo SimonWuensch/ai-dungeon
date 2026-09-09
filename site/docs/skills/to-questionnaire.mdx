@@ -1,0 +1,34 @@
+---
+sidebar_position: 23
+---
+
+import SkillHeader from '@site/src/components/skills/SkillHeader';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# to-questionnaire
+
+<SkillHeader category="Standalone" githubPath="productivity/to-questionnaire" />
+
+**Verwandelt eine Frage, die du nicht selbst beantworten kannst, in einen Fragebogen für jemand anderen.** Die Umkehrung von `grill-me`: Statt dich zu interviewen, interviewt dieser Skill dich über den **Versand** — und zielt die eigentlichen Fragen auf die Wissenslücke.
+
+## Wann nutzen
+
+- Das, was dich blockiert, steckt nicht in deinem Kopf oder der Codebasis, sondern im Kopf einer anderen Person (Fachbereich, ein anderes Team, eine externe Stelle).
+
+## Wie es funktioniert
+
+<FlowRow
+  eyebrow="Ablauf"
+  steps={[
+    {label: 'Wer bekommt es?', sublabel: 'Rolle, Expertise'},
+    {label: 'Was brauchst du zurück?', sublabel: 'konkrete Entscheidungen/Fakten', focal: true},
+    {label: 'Fragebogen schreiben', sublabel: 'wichtigstes zuerst'},
+    {label: 'Async versenden', sublabel: 'oder gemeinsam im Meeting'},
+  ]}
+/>
+
+Jede Frage ist **eine Idee, nie zusammengesetzt**, mit Antwortfeld direkt darunter — und einem "Warum das wichtig ist"-Hinweis nur dort, wo die Frage sonst missverstanden werden könnte.
+
+## Gut zu wissen
+
+Das Dokument landet als `to-questionnaire-<slug>.md` im aktuellen Verzeichnis — die zurückkommenden Antworten sind dann wieder Material für `grill-with-docs` oder `to-spec`.
