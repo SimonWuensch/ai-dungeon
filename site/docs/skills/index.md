@@ -4,12 +4,13 @@ sidebar_position: 1
 
 # Skills
 
-:::info[Inhalt folgt]
-Was genau ein Claude Code Skill ist, wie ein `SKILL.md` aufgebaut ist und wann sich ein Skill
-gegenüber einem einfachen Prompt lohnt, entsteht hier noch als eigener Abschnitt. Für den Moment:
-ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die ein Agent selbst
-nachschlägt, sobald die aktuelle Aufgabe dazu passt.
+:::tip[Neu hier?]
+Bevor du dich durch alle 25 Skills klickst: **[Welcher Skill passt zu meiner Situation?](/docs/skills/welcher-skill-passt)**
+— ein Entscheidungsbaum nach Aufgabengröße, mit drei konkreten Beispielen.
 :::
+
+Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die ein Agent selbst
+nachschlägt, sobald die aktuelle Aufgabe dazu passt.
 
 ## Manuell oder automatisch?
 

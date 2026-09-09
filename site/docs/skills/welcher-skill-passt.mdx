@@ -1,0 +1,96 @@
+---
+sidebar_position: 0
+---
+
+import DecisionTree from '@site/src/components/diagrams/DecisionTree';
+import FlowRow from '@site/src/components/diagrams/FlowRow';
+
+# Welcher Skill passt zu meiner Situation?
+
+## Was ist ein Skill?
+
+Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die Claude selbst nachschlägt oder die du per Namen aufrufst — je nachdem, ob er *user-invoked* oder *model-invoked* ist (dazu unten mehr). Er kapselt eine bestimmte Denk- oder Arbeitsweise, damit du sie nicht bei jeder Aufgabe neu erklären musst.
+
+## Wie gehe ich vor?
+
+Die wichtigste Frage zuerst — und sie hat keine einzige richtige Antwort, sondern hängt davon ab, **wie groß und wie klar deine Aufgabe schon ist**:
+
+<DecisionTree
+  eyebrow="Wie groß ist deine Aufgabe?"
+  question="Wie groß und wie klar ist das, was du vorhast?"
+  branches={[
+    {
+      title: 'Winzig',
+      description: 'Eine kleine, klar umrissene Änderung — ein Bugfix, eine Textkorrektur, eine Zeile Logik.',
+    },
+    {
+      title: 'Ein Feature',
+      description: 'Eine neue Fähigkeit mit mehreren Anforderungen, aber der Umfang ist grundsätzlich schon greifbar.',
+    },
+    {
+      title: 'Riesig & neblig',
+      description: 'Ein großes Vorhaben, bei dem noch nicht einmal klar ist, welche Fragen überhaupt offen sind.',
+    },
+  ]}
+/>
+
+### 💡 Warum welcher Skill?
+
+- **Winzig → `grill-me`, nicht `grill-with-docs`.** Klingt paradox — `grill-me` ist doch die Variante *ohne* Papierspur, `grill-with-docs` doch "strikt besser", wenn ein Repo da ist? Bei einer wirklich trivialen Entscheidung (welches Datumsformat?) stimmt das nicht mehr: Diese Entscheidung verdient **keinen Dauereintrag** in `CONTEXT.md` — nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. `grill-me` bleibt hier bewusst flüchtig.
+- **Feature → `grill-with-docs` → `to-spec` → `to-tickets`.** Hier lohnt sich die Papierspur: Begriffe wie "Digest" oder "stille Zeit" werden wiederverwendetes Projekt-Vokabular, das später andere Features wieder brauchen.
+- **Riesig & neblig → `wayfinder`.** Die Frage ist nicht "wie baue ich das", sondern "was müssen wir überhaupt erst entscheiden, bevor klar ist, was gebaut wird". Das ist eine andere Aufgabe als Bauen — Planen.
+
+## Drei Beispiele, eine Welt
+
+Alle drei Beispiele spielen im selben (fiktiven) Produkt, damit der Größenunterschied greifbar wird — nicht weil das eine zwingend aus dem anderen folgen *muss*. Die meisten Features entstehen ohne vorheriges Epic; das dritte Beispiel zeigt nur, dass es *manchmal* zusammenhängt.
+
+### Winzig: ein Formatierungsfehler
+
+> *"Die Digest-E-Mail zeigt das Datum als MM/DD an, wir wollen DD.MM."*
+
+<FlowRow
+  eyebrow="Winzig"
+  steps={[
+    {label: 'grill-me', sublabel: 'kurz klären, nichts speichern', focal: true},
+    {label: 'implement', sublabel: 'direkt umsetzen'},
+  ]}
+/>
+
+Kein `to-spec`, keine Tickets — die Klärung ist in einem Satz erledigt, dann wird direkt umgesetzt.
+
+### Feature: Benachrichtigungs-Einstellungen
+
+> *"Nutzer sollen selbst einstellen können, wie und wann sie benachrichtigt werden."*
+
+<FlowRow
+  eyebrow="Feature"
+  steps={[
+    {label: 'grill-with-docs', sublabel: 'Idee schärfen, mit Papierspur'},
+    {label: 'to-spec', sublabel: 'Spec-Dokument'},
+    {label: 'to-tickets', sublabel: 'Tracer-Bullet-Tickets', focal: true},
+    {label: 'implement', sublabel: 'ein Ticket nach dem anderen'},
+  ]}
+/>
+
+Die ausführliche Version davon (inklusive dem `handoff`/`prototype`-Umweg für eine Detailfrage) steht in der [Workflow-Fallstudie](/docs/best-practices/workflow-fallstudie).
+
+### Riesig & neblig: ein ganzes Portal
+
+> *"Wir wollen ein komplettes Selbstbedienungs-Portal für Enterprise-Kunden einführen."*
+
+<FlowRow
+  eyebrow="Riesig & neblig"
+  steps={[
+    {label: 'wayfinder', sublabel: 'Landkarte aus Entscheidungs-Tickets', focal: true},
+    {label: 'Eine Frage nach der anderen', sublabel: 'Berechtigungen, Abrechnung, SSO …'},
+    {label: 'Nebel lichtet sich', sublabel: 'einzelne Features werden sichtbar'},
+  ]}
+/>
+
+Eines der Features, die aus dieser Landkarte hervorgehen könnten, ist genau das Benachrichtigungs-Feature von oben — jetzt aber mit geklärtem Kontext (welche Kundengruppe, welche Berechtigungsstufe), statt bei null anzufangen.
+
+## Wie geht's jetzt weiter?
+
+- Willst du wissen, wie ein einzelner Skill im Detail funktioniert? → [Alle Skills im Überblick](/docs/skills)
+- Willst du das Feature-Beispiel komplett von vorne bis hinten sehen? → [Workflow-Fallstudie](/docs/best-practices/workflow-fallstudie)
+- Willst du wissen, wie sich das auf Epics/Features/Stories abbildet? → [Epics, Features & Stories mit AI](/docs/best-practices/epics-features)

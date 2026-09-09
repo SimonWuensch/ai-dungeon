@@ -1,0 +1,98 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root {
+  position: relative;
+  max-width: 420px;
+  padding: 1rem 1.25rem;
+  border-radius: calc(var(--ifm-global-radius) * 0.75);
+  border: 1.5px solid var(--dd-accent);
+  background: var(--dd-accent-tint);
+  text-align: center;
+  font-weight: 600;
+}
+
+.rootStem {
+  width: 1.5px;
+  height: 1.75rem;
+  background: var(--dd-rule-solid);
+}
+
+.bar {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 1.75rem;
+}
+
+.bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 1.5px;
+  background: var(--dd-rule-solid);
+}
+
+.bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14%;
+  width: 1.5px;
+  height: 100%;
+  background: var(--dd-rule-solid);
+  box-shadow: calc((100% - 28%) / 2) 0 0 var(--dd-rule-solid), calc(100% - 28%) 0 0 var(--dd-rule-solid);
+}
+
+.branches {
+  display: flex;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 900px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.branch {
+  flex: 1 1 220px;
+  max-width: 280px;
+  padding: 1rem 1.1rem;
+  border-radius: calc(var(--ifm-global-radius) * 0.75);
+  border: 1px solid var(--dd-rule-solid);
+  background: var(--dd-paper);
+}
+
+.branchTitle {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.branchDescription {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--dd-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .bar::before {
+    display: none;
+  }
+
+  .branches {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .branch {
+    max-width: 320px;
+    width: 100%;
+  }
+}
