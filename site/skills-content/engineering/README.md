@@ -2,6 +2,12 @@
 
 Skills I use daily for code work.
 
+> **Hinweis (Atruvia-Fit):** `triage` und `setup-matt-pocock-skills` wurden aus diesem Ordner
+> entfernt — beide bauen fast vollständig auf CLI-/API-Tracker-Automatisierung auf, die im
+> Atruvia-Setup (kein Jira-Zugriff für die KI) nicht existiert. Siehe
+> [../ATRUVIA-FIT-ANALYSIS.md](../ATRUVIA-FIT-ANALYSIS.md) für die Begründung und den Status aller
+> anderen Skills. Diese README ist ansonsten unverändert die Original-Quelle.
+
 ## User-invoked
 
 Reachable only when you type them (Claude Code: `disable-model-invocation: true`; Codex: `policy.allow_implicit_invocation: false` in `agents/openai.yaml`).
