@@ -5,7 +5,7 @@ sidebar_position: 4
 
 import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
 
-# to-tickets — In Tracer-Bullet-Tickets zerlegen
+# to-tickets: In Tracer-Bullet-Tickets zerlegen
 
 <AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="to-tickets" />
 
@@ -30,12 +30,12 @@ Ticket-Titel und -Beschreibungen im Domain-Vokabular. Nach Prefaktorisierung suc
 ### 3. Vertikale Slices entwerfen
 
 Jeder Slice schneidet einen schmalen, aber vollständigen Pfad durch alle Schichten (Schema, API,
-UI, Tests) — demonstrierbar oder verifizierbar für sich allein, passt in ein einzelnes frisches
+UI, Tests), demonstrierbar oder verifizierbar für sich allein, passt in ein einzelnes frisches
 Kontextfenster.
 
-**Ausnahme — breiter Umbau**: ein mechanischer Umbau mit großem Blast-Radius (Spalte umbenennen,
+**Ausnahme, breiter Umbau**: ein mechanischer Umbau mit großem Blast-Radius (Spalte umbenennen,
 gemeinsam genutzten Typ umtypisieren) wird nicht in vertikale Slices gezwungen, sondern als
-**Expand–Contract** sequenziert: erst die neue Form daneben einführen, dann Aufrufer batchweise
+**Expand-Contract** sequenziert: erst die neue Form daneben einführen, dann Aufrufer batchweise
 migrieren (grün bleibt CI dabei), zuletzt die alte Form löschen.
 
 ### 4. Mit dir abstimmen
@@ -45,7 +45,7 @@ Granularität? Sind die Blocking-Kanten korrekt? Iterieren, bis du zustimmst.
 
 ### 5. Tickets manuell nach Jira übertragen
 
-**Kein automatisches Anlegen** — du überträgst jeden Ticket-Text selbst in Jira und verknüpfst die
+**Kein automatisches Anlegen**: du überträgst jeden Ticket-Text selbst in Jira und verknüpfst die
 Blocking-Kanten dort manuell (Jira unterstützt "blocked by"-Links, nur eben nicht automatisiert
 durch die KI).
 
@@ -61,7 +61,11 @@ durch die KI).
 - [ ] Akzeptanzkriterium 2
 ```
 
+## Wo passt das rein?
+
+Kettenschritt im Hauptfluss nach `to-spec`, mündet in `implement`. Gesamtüberblick: `ask-matt`.
+
 ## Was sich gegenüber dem Original geändert hat
 
-- Kein automatisches Anlegen pro Ticket auf dem Tracker — Ticket-Texte inkl. Blocking-Hinweisen
-  kommen zum manuellen Übertragen und Verknüpfen in Jira.
+Kein automatisches Anlegen pro Ticket auf dem Tracker, Ticket-Texte inkl. Blocking-Hinweisen
+kommen zum manuellen Übertragen und Verknüpfen in Jira.

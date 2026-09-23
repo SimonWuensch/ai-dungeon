@@ -1,10 +1,11 @@
 ---
 name: wayfinder
+description: Kartiert ein riesiges, unklares Vorhaben als Landkarte aus Entscheidungs-Tickets.
+disable-model-invocation: true
 kategorie: On-Ramp
-aufruf: Nur manuell (/wayfinder)
 ---
 
-# wayfinder — Ein riesiges, neblig es Vorhaben kartieren
+# wayfinder: Ein riesiges, neblig es Vorhaben kartieren
 
 Für ein großes, unklares Vorhaben, das größer als eine Sitzung ist und im Nebel liegt: statt
 loszubauen, kartiert dieser Skill eine gemeinsame **Landkarte** aus **Entscheidungs-Tickets**
@@ -13,8 +14,8 @@ anderen ab, bis der Weg klar ist.
 
 ## Wann brauche ich das?
 
-Ein Greenfield-Projekt oder ein Mega-Feature, dessen Weg von hier zum Ziel noch nicht sichtbar ist
-— **nicht** für ein gut umrissenes Feature (dafür reicht `grill-with-docs`).
+Ein Greenfield-Projekt oder ein Mega-Feature, dessen Weg von hier zum Ziel noch nicht sichtbar ist.
+**Nicht** für ein gut umrissenes Feature (dafür reicht `grill-with-docs`).
 
 ## Planen, nicht Tun
 
@@ -22,13 +23,13 @@ Jedes Ticket löst eine Entscheidung; die Karte ist fertig, wenn der Weg klar is
 entscheiden bleibt, bevor jemand losbaut. Standardmäßig entstehen **Entscheidungen, keine
 Deliverables**.
 
-## Die Karte — angepasst: ein Dokument, das du pflegst
+## Die Karte: angepasst, ein Dokument, das du pflegst
 
 Im Original ist die Karte ein Issue auf dem Tracker mit nativen Kind-Ticket-/Blocking-Beziehungen.
 **Ohne Jira-Anbindung wird die Karte stattdessen ein Markdown-Dokument**, das du selbst pflegst
-(z.B. `.scratch/wayfinder/<vorhaben>.md` im Repo, oder eine Confluence-Seite) — nach jeder
-aufgelösten Frage schlage ich den aktualisierten Abschnitt als Snippet vor, du fügst ihn ein. Genau
-dasselbe Copy-Paste-Muster wie bei `to-spec`/`to-tickets`.
+(z.B. `.scratch/wayfinder/<vorhaben>.md` im Repo, oder eine Confluence-Seite): nach jeder
+aufgelösten Frage schlägt die KI den aktualisierten Abschnitt als Snippet vor, du fügst ihn ein.
+Genau dasselbe Copy-Paste-Muster wie bei `to-spec`/`to-tickets`.
 
 ```markdown
 ## Ziel
@@ -54,62 +55,65 @@ Vorhaben den Weg findet. Ein bis zwei Zeilen.>
 ```
 
 Tickets (einzelne Fragen) können optional als echte Jira-Issues angelegt werden, wenn Sichtbarkeit
-fürs Team wichtig ist — dann trägst du sie manuell ein und verknüpfst Blocking-Kanten selbst. Für
+fürs Team wichtig ist, dann trägst du sie manuell ein und verknüpfst Blocking-Kanten selbst. Für
 eine reine Solo-Planung reicht das Dokument allein.
 
 ## Ticket-Typen
 
-- **Recherche**: eine Faktenfrage, die eine Entscheidung braucht — läuft über `research`, **seriell
-  im selben Chat statt parallel über Subagenten**.
-- **Prototyp**: die Diskussion mit einem billigen, konkreten Artefakt anheben — läuft über
-  `prototype`.
-- **Grillen**: der Normalfall — ein Gespräch, läuft über das Interview-Prinzip aus
-  `grill-with-docs`.
-- **Aufgabe**: manuelle Arbeit, die vor einer Entscheidung erledigt sein muss (Zugang beantragen,
-  Daten verschieben) — nichts zu entscheiden, aber blockierend.
+| Typ | Läuft über |
+|---|---|
+| **Recherche**: eine Faktenfrage, die eine Entscheidung braucht | `research`, seriell im selben Chat statt parallel über Subagenten |
+| **Prototyp**: die Diskussion mit einem billigen, konkreten Artefakt anheben | `prototype` |
+| **Grillen**: der Normalfall, ein Gespräch | das Interview-Prinzip aus `grill-with-docs` |
+| **Aufgabe**: manuelle Arbeit, die vor einer Entscheidung erledigt sein muss (Zugang beantragen, Daten verschieben) | nichts zu entscheiden, aber blockierend |
 
 ## Was entfällt: Claiming
 
-Im Original weist eine Sitzung sich selbst ein Ticket zu, damit parallele Sitzungen es überspringen
-— das löst ein Problem, das nur bei **mehreren gleichzeitig laufenden Agenten-Sessions** entsteht.
+Im Original weist eine Sitzung sich selbst ein Ticket zu, damit parallele Sitzungen es überspringen.
+Das löst ein Problem, das nur bei **mehreren gleichzeitig laufenden Agenten-Sessions** entsteht.
 Ohne Agenten gibt es bei uns keine Nebenläufigkeit zu koordinieren: du arbeitest ohnehin ein Ticket
-nach dem anderen, in genau einer Sitzung. Der Abschnitt fällt ersatzlos weg — das ist eine
+nach dem anderen, in genau einer Sitzung. Der Abschnitt fällt ersatzlos weg, das ist eine
 Vereinfachung, keine Lücke.
 
 ## Nebel des Krieges
 
 Die Karte ist bewusst unvollständig: nicht kartieren, was man noch nicht sehen kann. Jenseits der
-aktuellen Tickets liegt der **Nebel** — Fragen, die absehbar kommen, aber noch nicht scharf genug
+aktuellen Tickets liegt der **Nebel**: Fragen, die absehbar kommen, aber noch nicht scharf genug
 sind. **Ticket oder Nebel?** Der Test ist, ob sich die Frage *jetzt schon präzise formulieren*
 lässt, nicht ob sie *jetzt schon beantwortbar* ist.
 
 ## Ablauf
 
-**Karte anlegen** (einmalig, User startet mit einer losen Idee):
+**Karte anlegen** (einmalig, du startest mit einer losen Idee):
 
-1. **Ziel benennen** — grillen, um festzulegen, worauf diese Karte zusteuert.
-2. **Nebel breitensuchend kartieren** — nochmal grillen, diesmal in die Breite: was ist offen,
+1. **Ziel benennen**: grillen, um festzulegen, worauf diese Karte zusteuert.
+2. **Nebel breitensuchend kartieren**: nochmal grillen, diesmal in die Breite: was ist offen,
    was ist jetzt schon startbar. Ergibt sich dabei kein Nebel (der Weg ist schon klar genug für eine
    Sitzung), braucht es keine Karte.
 3. **Dokument anlegen**: Ziel und Notizen ausgefüllt, bisherige Entscheidungen leer, der Nebel unter
    "Noch nicht spezifiziert".
 4. Die Tickets, die sich schon spezifizieren lassen, als Abschnitt/Liste anlegen.
 
-**Karte abarbeiten** (User startet mit einer bestehenden Karte, ein Ticket ist optional — ohne
-gewähltes Ticket wählst du selbst die nächste Frage aus der Karte):
+**Karte abarbeiten** (du startest mit einer bestehenden Karte, ein Ticket ist optional, ohne
+gewähltes Ticket wählt die KI selbst die nächste Frage aus der Karte):
 
 1. Karte laden (die Kurzfassung, nicht jedes Detail).
 2. Ticket wählen.
-3. Auflösen — bei Bedarf grillen und domain-modeling aufrufen.
+3. Auflösen, bei Bedarf grillen und domain-modeling aufrufen.
 4. Auflösung als Ergänzung zu "Bisherige Entscheidungen" vorschlagen, du fügst sie ins Dokument ein.
 5. Neu sichtbar gewordene Tickets ergänzen; Nebel, der jetzt spezifizierbar ist, aus "Noch nicht
    spezifiziert" herauslösen.
+
+## Wo passt das rein?
+
+On-Ramp für ein riesiges, neblig es Vorhaben. Wenn die Karte klar ist, mündet sie in `to-spec`, das
+die verlinkten Entscheidungen zu einem umsetzbaren Plan zusammenfasst. Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
 - Die Karte ist ein von dir gepflegtes Markdown-Dokument statt eines lebenden Tracker-Issues mit
   nativen Blocking-Links.
-- Der Claiming-Mechanismus für parallele Sessions entfällt ersatzlos — das Problem, das er löst,
+- Der Claiming-Mechanismus für parallele Sessions entfällt ersatzlos, das Problem, das er löst,
   existiert ohne Agenten nicht.
 - Recherche-Tickets laufen seriell im selben Chat statt parallel über Subagenten.
 - Die eigentliche Planungsdisziplin (Ziel zuerst, breitensuchend, Ticket-Typen,

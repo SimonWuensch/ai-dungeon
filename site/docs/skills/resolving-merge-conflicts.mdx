@@ -5,7 +5,7 @@ sidebar_position: 13
 
 import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
 
-# resolving-merge-conflicts — Einen laufenden Merge-Konflikt auflösen
+# resolving-merge-conflicts: Einen laufenden Merge-Konflikt auflösen
 
 <AtruviaSkillHeader category="Standalone" invocation="model" slug="resolving-merge-conflicts" />
 
@@ -15,19 +15,23 @@ Wenn ein Merge oder Rebase mit Konflikten steckengeblieben ist.
 
 ## Wie funktioniert das?
 
-1. **Aktuellen Zustand sehen**: Git-Historie und die konfliktbehafteten Dateien — direkt über die
+1. **Aktuellen Zustand sehen**: Git-Historie und die konfliktbehafteten Dateien, direkt über die
    verfügbare Git-Introspektion (`log`, `diff`, `status`) abrufbar.
 2. **Primärquellen für jeden Konflikt finden**: warum wurde jede Seite geändert? Commit-Nachrichten,
    PRs, ursprüngliche Tickets lesen, um die Absicht zu verstehen.
-3. **Jeden Hunk auflösen** — beide Absichten erhalten, wo möglich; wo unvereinbar, die dem
+3. **Jeden Hunk auflösen**: beide Absichten erhalten, wo möglich; wo unvereinbar, die dem
    Merge-Ziel entsprechende wählen und den Trade-off benennen. Nie neues Verhalten erfinden, nie
    `--abort`. Die Auflösung kommt als **Snippet**, das du im IDE-Merge-Tool in die konfliktbehaftete
-   Datei einfügst — direkte Dateiänderung ist hier nicht möglich.
-4. **Automatisierte Checks laufen lassen** (Typecheck, dann Tests, dann Format) — auf Zuruf einzeln
+   Datei einfügst, direkte Dateiänderung ist hier nicht möglich.
+4. **Automatisierte Checks laufen lassen** (Typecheck, dann Tests, dann Format), auf Zuruf einzeln
    angestoßen, nicht autonom verkettet. Alles reparieren, was der Merge kaputt gemacht hat.
 5. **Merge/Rebase abschließen**: Staging, Commit, bei Rebase Fortsetzung bis alle Commits
-   durchgerebast sind. **Das bleibt bei dir** — Stage/Commit/Rebase-Fortsetzung sind schreibende
+   durchgerebast sind. **Das bleibt bei dir**, Stage/Commit/Rebase-Fortsetzung sind schreibende
    Git-Operationen, die außerhalb der Snippet-und-Apply-Logik liegen.
+
+## Wo passt das rein?
+
+Standalone, reach-for-it, sobald du mitten in einem Konflikt steckst. Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 

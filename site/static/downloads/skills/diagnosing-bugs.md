@@ -1,10 +1,10 @@
 ---
 name: diagnosing-bugs
+description: Diagnose-Loop für harte Bugs und Performance-Regressionen. Automatisch wählbar, wenn etwas kaputt ist, sich aber nicht auf den ersten Blick erklärt, oder bei einem intermittierenden Fehler.
 kategorie: On-Ramp
-aufruf: Kann automatisch gewählt werden
 ---
 
-# diagnosing-bugs — Diagnose-Loop für harte Bugs
+# diagnosing-bugs: Diagnose-Loop für harte Bugs
 
 Eine Disziplin für harte Bugs: den flüchtigen Fehler, den intermittierenden Flake, die Regression,
 die sich zwischen zwei bekannt-guten Zuständen eingeschlichen hat.
@@ -15,10 +15,10 @@ Wenn etwas kaputt ist, sich aber nicht auf den ersten Blick erklärt.
 
 ## Wie funktioniert das?
 
-### Phase 1: Eine scharfe Rot/Grün-Schleife bauen — das ist der Kern
+### Phase 1: Eine scharfe Rot/Grün-Schleife bauen, das ist der Kern
 
 Alles andere ist danach mechanisch. Testläufe sind bei uns möglich (bestätigt), also gilt: **du**
-stößt den Lauf an, wenn ich ihn vorschlage, und gibst mir das Ergebnis zurück. Wege, eine Schleife
+stößt den Lauf an, wenn die KI ihn vorschlägt, und gibst das Ergebnis zurück. Wege, eine Schleife
 zu bauen, ungefähr in dieser Reihenfolge:
 
 1. **Fehlschlagender Test** an der Stelle, die den Bug erreicht (Unit, Integration, E2E).
@@ -30,10 +30,10 @@ zu bauen, ungefähr in dieser Reihenfolge:
 
 Was **nicht** autonom läuft: `git bisect run` über viele Commits unbeaufsichtigt, ein
 Property-/Fuzz-Loop mit 1000 automatischen Durchläufen, Debugger-Fernsteuerung. Diese Automatisierung
-setzt eine Verkettung vieler Schritte ohne Zwischenschau voraus — das fällt unter "keine Agenten".
-Stattdessen: **du** führst die Iterationen einzeln aus, auf meinen Vorschlag hin, und meldest das
-Ergebnis zurück. Bei Bisection heißt das: ich schlage vor, welchen Commit als Nächstes zu prüfen ist,
-du checkst ihn aus und lässt den Test laufen, wir wiederholen das gemeinsam statt automatisiert.
+setzt eine Verkettung vieler Schritte ohne Zwischenschau voraus, das fällt unter "keine Agenten".
+Stattdessen führst **du** die Iterationen einzeln aus, auf Vorschlag hin, und meldest das Ergebnis
+zurück. Bei Bisection heißt das: die KI schlägt vor, welchen Commit als Nächstes zu prüfen ist,
+du checkst ihn aus und lässt den Test laufen, ihr wiederholt das gemeinsam statt automatisiert.
 
 **Fertig ist Phase 1**, wenn du einen **einzigen Befehl** nennen kannst, den du **schon mindestens
 einmal ausgeführt hast** (zeig den Aufruf und die Ausgabe, Secrets geschwärzt), und der:
@@ -42,7 +42,7 @@ einmal ausgeführt hast** (zeig den Aufruf und die Ausgabe, Secrets geschwärzt)
 - **deterministisch** ist: gleiches Ergebnis bei jedem Lauf.
 - **schnell** ist: Sekunden, nicht Minuten.
 
-### Phase 2: Reproduzieren + minimieren
+### Phase 2: Reproduzieren und minimieren
 
 Lauf laufen lassen, bestätigen, dass er das **vom Nutzer beschriebene** Symptom zeigt (nicht ein
 ähnliches). Dann schrittweise verkleinern: Eingaben, Aufrufer, Konfiguration einzeln streichen,
@@ -50,9 +50,9 @@ nach jedem Schritt erneut laufen lassen, bis alles Verbleibende tragend ist.
 
 ### Phase 3: Hypothesen bilden
 
-**3–5 rangierte Hypothesen**, bevor irgendeine getestet wird — eine einzelne Hypothese verankert zu
+**3-5 rangierte Hypothesen**, bevor irgendeine getestet wird. Eine einzelne Hypothese verankert zu
 früh auf der ersten plausiblen Idee. Jede muss **falsifizierbar** sein: "Wenn X die Ursache ist,
-dann macht das Ändern von Y den Bug verschwinden." Zeig mir die Rangfolge, bevor wir testen — du
+dann macht das Ändern von Y den Bug verschwinden." Zeig die Rangfolge, bevor ihr testet, du
 kennst oft Kontext, der sofort umsortiert.
 
 ### Phase 4: Instrumentieren
@@ -61,10 +61,10 @@ Jede Sonde bildet genau eine Vorhersage aus Phase 3 ab, **eine Variable pro Schr
 Debugger/REPL-Inspektion in der IDE (ein Breakpoint schlägt zehn Logs), sonst gezielte Logs mit
 eindeutigem Tag (`[DEBUG-a4f2]`), niemals "alles loggen und grep".
 
-### Phase 5: Fix + Regressionstest
+### Phase 5: Fix und Regressionstest
 
 Regressionstest **vor** dem Fix schreiben, aber nur an einer **korrekten Naht** (die den echten
-Bug-Pfad trifft). Gibt es keine passende Naht, ist das selbst ein Befund — die Architektur
+Bug-Pfad trifft). Gibt es keine passende Naht, ist das selbst ein Befund: die Architektur
 verhindert, dass sich der Bug festschreiben lässt.
 
 ### Phase 6: Aufräumen
@@ -74,9 +74,15 @@ verhindert, dass sich der Bug festschreiben lässt.
 - Alle `[DEBUG-...]`-Instrumentierung entfernt
 - Die bestätigte Hypothese steht in der Commit-/PR-Nachricht
 
+## Wo passt das rein?
+
+Standalone, jederzeit erreichbar, sobald etwas kaputt ist. Der Fix mündet zurück in `implement`;
+fehlt eine korrekte Naht für den Regressionstest, ist das ein Fall für
+`improve-codebase-architecture`. Gesamtüberblick: `ask-matt`.
+
 ## Was sich gegenüber dem Original geändert hat
 
 - Vollautomatisierte Loops (`git bisect run`, Fuzz-Loop mit 1000 Durchläufen) werden zu von dir
-  einzeln ausgeführten Iterationen — die Disziplin (erst Schleife, dann minimieren, dann
+  einzeln ausgeführten Iterationen. Die Disziplin (erst Schleife, dann minimieren, dann
   hypothetisieren) bleibt vollständig erhalten.
 - Kein HITL-Bash-Skript für "ein Mensch muss klicken" nötig, da Testläufe direkt möglich sind.

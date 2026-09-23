@@ -10,11 +10,11 @@ import FlowRow from '@site/src/components/diagrams/FlowRow';
 
 ## Was ist ein Skill?
 
-Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die Claude selbst nachschlägt oder die du per Namen aufrufst — je nachdem, ob er *user-invoked* oder *model-invoked* ist (dazu unten mehr). Er kapselt eine bestimmte Denk- oder Arbeitsweise, damit du sie nicht bei jeder Aufgabe neu erklären musst.
+Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die Claude selbst nachschlägt oder die du per Namen aufrufst, je nachdem, ob er *user-invoked* oder *model-invoked* ist (dazu unten mehr). Er kapselt eine bestimmte Denk- oder Arbeitsweise, damit du sie nicht bei jeder Aufgabe neu erklären musst.
 
 ## Wie gehe ich vor?
 
-Die wichtigste Frage zuerst — und sie hat keine einzige richtige Antwort, sondern hängt davon ab, **wie groß und wie klar deine Aufgabe schon ist**:
+Die wichtigste Frage zuerst, und sie hat keine einzige richtige Antwort, sondern hängt davon ab, **wie groß und wie klar deine Aufgabe schon ist**:
 
 <DecisionTree
   eyebrow="Wie groß ist deine Aufgabe?"
@@ -22,7 +22,7 @@ Die wichtigste Frage zuerst — und sie hat keine einzige richtige Antwort, sond
   branches={[
     {
       title: 'Winzig',
-      description: 'Eine kleine, klar umrissene Änderung — ein Bugfix, eine Textkorrektur, eine Zeile Logik.',
+      description: 'Eine kleine, klar umrissene Änderung: ein Bugfix, eine Textkorrektur, eine Zeile Logik.',
     },
     {
       title: 'Ein Feature',
@@ -47,14 +47,14 @@ Die wichtigste Frage zuerst — und sie hat keine einzige richtige Antwort, sond
     },
     {
       skill: 'wayfinder',
-      text: 'Die Frage ist nicht "wie baue ich das", sondern "was müssen wir überhaupt erst entscheiden, bevor klar ist, was gebaut wird". Das ist eine andere Aufgabe als Bauen — Planen.',
+      text: 'Die Frage ist nicht "wie baue ich das", sondern "was müssen wir überhaupt erst entscheiden, bevor klar ist, was gebaut wird". Das ist eine andere Aufgabe als Bauen: Planen.',
     },
   ]}
 />
 
 ## Drei Beispiele, eine Welt
 
-Alle drei Beispiele spielen im selben (fiktiven) Produkt, damit der Größenunterschied greifbar wird — nicht weil das eine zwingend aus dem anderen folgen *muss*. Die meisten Features entstehen ohne vorheriges Epic; das dritte Beispiel zeigt nur, dass es *manchmal* zusammenhängt.
+Alle drei Beispiele spielen im selben (fiktiven) Produkt, damit der Größenunterschied greifbar wird, nicht weil das eine zwingend aus dem anderen folgen *muss*. Die meisten Features entstehen ohne vorheriges Epic; das dritte Beispiel zeigt nur, dass es *manchmal* zusammenhängt.
 
 ### Winzig: ein Formatierungsfehler
 
@@ -68,7 +68,7 @@ Alle drei Beispiele spielen im selben (fiktiven) Produkt, damit der Größenunte
   ]}
 />
 
-Kein `to-spec`, keine Tickets — die Klärung ist in einem Satz erledigt, dann wird direkt umgesetzt.
+Kein `to-spec`, keine Tickets: die Klärung ist in einem Satz erledigt, dann wird direkt umgesetzt.
 
 ### Feature: Benachrichtigungs-Einstellungen
 
@@ -99,7 +99,7 @@ Die ausführliche Version davon (inklusive dem `handoff`/`prototype`-Umweg für 
   ]}
 />
 
-Eines der Features, die aus dieser Landkarte hervorgehen könnten, ist genau das Benachrichtigungs-Feature von oben — jetzt aber mit geklärtem Kontext (welche Kundengruppe, welche Berechtigungsstufe), statt bei null anzufangen.
+Eines der Features, die aus dieser Landkarte hervorgehen könnten, ist genau das Benachrichtigungs-Feature von oben, jetzt aber mit geklärtem Kontext (welche Kundengruppe, welche Berechtigungsstufe), statt bei null anzufangen.
 
 ## Wie geht's jetzt weiter?
 

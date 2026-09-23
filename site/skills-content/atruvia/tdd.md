@@ -1,12 +1,12 @@
 ---
 name: tdd
+description: Test-Driven Development im Rot-Grün-Loop. Automatisch wählbar, wenn ein Feature oder Bugfix test-first entstehen soll.
 kategorie: Hauptfluss
-aufruf: Kann automatisch gewählt werden
 ---
 
-# tdd — Test-Driven Development
+# tdd: Test-Driven Development
 
-Der Rot→Grün-Loop. Diese Referenz sorgt dafür, dass dabei Tests entstehen, die sich lohnen:
+Der Rot-Grün-Loop. Diese Referenz sorgt dafür, dass dabei Tests entstehen, die sich lohnen:
 was ein guter Test ist, wo Tests hingehören, welche Anti-Patterns zu vermeiden sind.
 
 ## Wann brauche ich das?
@@ -22,7 +22,7 @@ interne Struktur interessiert.
 ## Nähte: wo Tests hingehören
 
 Eine **Naht** ist die öffentliche Grenze, an der getestet wird. **Nur an vorher vereinbarten Nähten
-testen** — vor dem ersten Test die Nähte festlegen und mit dir abstimmen: "Was ist die öffentliche
+testen**: vor dem ersten Test die Nähte festlegen und mit dir abstimmen: "Was ist die öffentliche
 Schnittstelle, und welche Nähte sollten wir testen?"
 
 ## Anti-Patterns
@@ -30,19 +30,24 @@ Schnittstelle, und welche Nähte sollten wir testen?"
 - **Implementierungsgekoppelt**: mockt interne Kollaborateure, testet private Methoden.
 - **Tautologisch**: die Assertion berechnet den Erwartungswert genauso wie der Code selbst.
 - **Horizontales Schneiden**: erst alle Tests, dann alle Implementierung. Stattdessen **vertikale
-  Slices**: ein Test → eine Implementierung → wiederholen.
+  Slices**: ein Test, eine Implementierung, wiederholen.
 
 ## Regeln des Loops
 
 - **Rot vor Grün.** Erst den fehlschlagenden Test schreiben, dann nur so viel Code wie nötig.
 - **Eine Naht, ein Test, eine minimale Implementierung pro Runde.**
-- **Refactoring gehört nicht zum Loop** — das ist Aufgabe von `code-review`.
+- **Refactoring gehört nicht zum Loop**, das ist Aufgabe von `code-review`.
 
 Testläufe (rot bestätigen, grün bestätigen) sind bei uns direkt möglich, sowohl bei Angular/npm-
-als auch bei Java/Maven-Projekten — auf Zuruf einzeln angestoßen, der Loop läuft also nicht
+als auch bei Java/Maven-Projekten, auf Zuruf einzeln angestoßen. Der Loop läuft also nicht
 autonom durch, sondern Runde für Runde mit dir als Ausführendem dazwischen.
+
+## Wo passt das rein?
+
+Kettenschritt im Hauptfluss, von `implement` an vereinbarten Nähten angetrieben. Bei einer
+unklaren Schnittstellenform hilft `codebase-design` als Vokabular. Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-- Fast nichts inhaltlich — der einzige Unterschied ist, dass der Testlauf zwischen den Runden
-  jeweils von dir angestoßen wird, statt dass ich ihn selbst autonom auslöse.
+Fast nichts inhaltlich. Der einzige Unterschied ist, dass der Testlauf zwischen den Runden
+jeweils von dir angestoßen wird, statt dass die KI ihn selbst autonom auslöst.

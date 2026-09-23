@@ -1,13 +1,14 @@
 ---
 name: to-spec
+description: Verdichtet das aktuelle Gespräch zu einer Spec.
+disable-model-invocation: true
 kategorie: Hauptfluss
-aufruf: Nur manuell (/to-spec)
 ---
 
-# to-spec — Das Gespräch zur Spec verdichten
+# to-spec: Das Gespräch zur Spec verdichten
 
 Verdichtet das aktuelle Gespräch und das Codebase-Verständnis zu einer Spec. **Kein neues
-Interview** — reine Synthese dessen, was schon besprochen wurde.
+Interview**, reine Synthese dessen, was schon besprochen wurde.
 
 ## Wann brauche ich das?
 
@@ -17,12 +18,12 @@ Umsetzung nötig sind.
 ## Wie funktioniert das?
 
 1. Codebase verstehen (falls noch nicht geschehen), Domain-Vokabular und ADRs berücksichtigen.
-2. Die Testnähte skizzieren — möglichst wenige, möglichst hoch im Stack, im Idealfall genau eine.
+2. Die Testnähte skizzieren, möglichst wenige, möglichst hoch im Stack, im Idealfall genau eine.
    Mit dir abstimmen, ob das passt.
 3. Die Spec nach dem Template unten schreiben.
 
 **Kein Auto-Publish.** Im Original wird die Spec automatisch auf den Issue-Tracker publiziert und
-mit einem Label versehen — das geht ohne Jira-Anbindung nicht. **Die Spec kommt stattdessen als
+mit einem Label versehen, das geht ohne Jira-Anbindung nicht. **Die Spec kommt stattdessen als
 fertiger Markdown-Block, den du selbst in Jira einfügst.**
 
 ```markdown
@@ -36,12 +37,12 @@ Die Lösung aus Sicht des Nutzers.
 
 ## User Stories
 
-Eine LANGE, nummerierte Liste: "Als \<Rolle\>, möchte ich \<Fähigkeit\>, damit \<Nutzen\>."
+Eine LANGE, nummerierte Liste: "Als <Rolle>, möchte ich <Fähigkeit>, damit <Nutzen>."
 
 ## Umsetzungsentscheidungen
 
 Betroffene Module, geänderte Schnittstellen, technische Klärungen, Architekturentscheidungen,
-Schema-Änderungen, API-Verträge. Keine konkreten Dateipfade oder Code — die veralten schnell.
+Schema-Änderungen, API-Verträge. Keine konkreten Dateipfade oder Code, die veralten schnell.
 Ausnahme: ein Prototyp-Snippet, das eine Entscheidung präziser kodiert als Prosa.
 
 ## Test-Entscheidungen
@@ -53,7 +54,12 @@ Was einen guten Test ausmacht, welche Module getestet werden, Vorbilder im Code.
 ## Weitere Notizen
 ```
 
+## Wo passt das rein?
+
+Kettenschritt im Hauptfluss nach `grill-with-docs`, mündet in `to-tickets`. Gesamtüberblick:
+`ask-matt`.
+
 ## Was sich gegenüber dem Original geändert hat
 
-- Kein automatisches Publizieren + Labeln auf dem Tracker — die fertige Spec kommt als Text zum
-  manuellen Einfügen in Jira.
+Kein automatisches Publizieren und Labeln auf dem Tracker, die fertige Spec kommt als Text zum
+manuellen Einfügen in Jira.

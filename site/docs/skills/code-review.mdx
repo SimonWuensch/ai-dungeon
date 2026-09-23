@@ -5,7 +5,7 @@ sidebar_position: 7
 
 import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
 
-# code-review — Review entlang zweier Achsen
+# code-review: Review entlang zweier Achsen
 
 <AtruviaSkillHeader category="Hauptfluss" invocation="model" slug="code-review" />
 
@@ -25,12 +25,12 @@ willst.
 ### 1. Fixpunkt festlegen
 
 Du nennst den Fixpunkt (Commit-SHA, Branch, Tag, `main`, `HEAD~5`, …). `git diff <fixpunkt>...HEAD`
-und `git log <fixpunkt>..HEAD --oneline` sind über die Git-Introspektion des Chats abrufbar — das
+und `git log <fixpunkt>..HEAD --oneline` sind über die Git-Introspektion des Chats abrufbar, das
 funktioniert direkt.
 
 ### 2. Spec-Quelle
 
-Da keine Tracker-Anbindung existiert: **du fügst den Spec-/Ticket-Text manuell ein** (Copy-Paste aus
+Da keine Tracker-Anbindung existiert, fügst du den Spec-/Ticket-Text manuell ein (Copy-Paste aus
 Jira), oder verweist auf eine Datei im Repo (`docs/`, `.scratch/`). Ohne Spec markiert die
 Spec-Achse sich selbst als "keine Spec verfügbar" statt sie zu überspringen.
 
@@ -38,38 +38,44 @@ Spec-Achse sich selbst als "keine Spec verfügbar" statt sie zu überspringen.
 
 Alles im Repo, das dokumentiert, wie Code geschrieben werden soll (`CODING_STANDARDS.md`,
 `CONTRIBUTING.md`, ESLint-/Checkstyle-Konfiguration). Zusätzlich gilt immer die
-**Fowler-Smell-Baseline** (siehe unten) — der Repo-Standard hat aber immer Vorrang, wo er etwas
+**Fowler-Smell-Baseline** (siehe unten), der Repo-Standard hat aber immer Vorrang, wo er etwas
 ausdrücklich erlaubt, was die Baseline anmahnen würde.
 
 **Smell-Baseline** (jeder Fund ist eine Einschätzung, kein hartes Urteil):
 
-- **Mysterious Name** — Name verrät nicht, was etwas tut/hält → umbenennen.
-- **Duplicated Code** — dieselbe Logik mehrfach im Diff → gemeinsame Form extrahieren.
-- **Feature Envy** — eine Methode greift mehr auf fremde Daten zu als auf eigene → verschieben.
-- **Data Clumps** — dieselben Felder reisen immer zusammen → in einen Typ bündeln.
-- **Primitive Obsession** — ein Primitive/String steht für ein Domain-Konzept → eigener Typ.
-- **Repeated Switches** — dieselbe Fallunterscheidung wiederholt sich → Polymorphie oder eine Map.
-- **Shotgun Surgery** — eine fachliche Änderung verstreut sich über viele Dateien → bündeln.
-- **Divergent Change** — eine Datei ändert sich aus mehreren unabhängigen Gründen → aufteilen.
-- **Speculative Generality** — Abstraktion für einen Bedarf, den die Spec nicht hat → löschen.
-- **Message Chains** — lange `a.b().c().d()`-Ketten → hinter einer Methode verstecken.
-- **Middle Man** — eine Klasse, die nur weiterreicht → weglassen, direkt aufrufen.
-- **Refused Bequest** — eine Unterklasse ignoriert das meiste, was sie erbt → Komposition statt Vererbung.
+- **Mysterious Name**: Name verrät nicht, was etwas tut/hält → umbenennen.
+- **Duplicated Code**: dieselbe Logik mehrfach im Diff → gemeinsame Form extrahieren.
+- **Feature Envy**: eine Methode greift mehr auf fremde Daten zu als auf eigene → verschieben.
+- **Data Clumps**: dieselben Felder reisen immer zusammen → in einen Typ bündeln.
+- **Primitive Obsession**: ein Primitive/String steht für ein Domain-Konzept → eigener Typ.
+- **Repeated Switches**: dieselbe Fallunterscheidung wiederholt sich → Polymorphie oder eine Map.
+- **Shotgun Surgery**: eine fachliche Änderung verstreut sich über viele Dateien → bündeln.
+- **Divergent Change**: eine Datei ändert sich aus mehreren unabhängigen Gründen → aufteilen.
+- **Speculative Generality**: Abstraktion für einen Bedarf, den die Spec nicht hat → löschen.
+- **Message Chains**: lange `a.b().c().d()`-Ketten → hinter einer Methode verstecken.
+- **Middle Man**: eine Klasse, die nur weiterreicht → weglassen, direkt aufrufen.
+- **Refused Bequest**: eine Unterklasse ignoriert das meiste, was sie erbt → Komposition statt Vererbung.
 
 ### 4. Beide Achsen nacheinander statt parallel
 
-Im Original laufen Standards- und Spec-Review als zwei parallele Subagenten. **Ohne Agenten laufen
-sie sequenziell im selben Chat**: erst die eine Achse komplett durchgehen und das Ergebnis notieren,
-dann die andere — inhaltlich identisch, nur nacheinander statt gleichzeitig.
+Im Original laufen Standards- und Spec-Review als zwei parallele Subagenten. Ohne Agenten laufen
+sie sequenziell im selben Chat: erst die eine Achse komplett durchgehen und das Ergebnis notieren,
+dann die andere. Inhaltlich identisch, nur nacheinander statt gleichzeitig.
 
 ### 5. Zusammenfassen
 
-Beide Berichte unter eigenen Überschriften `## Standards` und `## Spec` — nicht mischen, nicht
-gegeneinander aufwiegen. Ein Fund kann eine Achse bestehen und die andere durchfallen lassen; das
+Beide Berichte unter eigenen Überschriften `## Standards` und `## Spec`, nicht mischen, nicht
+gegeneinander aufwiegen. Ein Fund kann eine Achse bestehen und die andere durchfallen lassen, das
 ist der Grund für die Trennung.
+
+## Wo passt das rein?
+
+Letzter Kettenschritt im Hauptfluss (`grill-with-docs → to-spec → to-tickets → implement →
+code-review`), von `implement` am Ende aufgerufen. Reicht auch standalone, wenn du selbst einen
+Branch reviewen willst. Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-- Keine parallelen Subagenten → sequenzieller Zwei-Pass-Review im selben Chat.
-- Keine automatische Spec-Beschaffung über den Issue-Tracker → du kopierst den Spec-Text manuell
+- Keine parallelen Subagenten, sondern ein sequenzieller Zwei-Pass-Review im selben Chat.
+- Keine automatische Spec-Beschaffung über den Issue-Tracker, du kopierst den Spec-Text manuell
   rein.

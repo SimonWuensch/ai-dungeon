@@ -1,10 +1,10 @@
 ---
 name: wizard
+description: Erzeugt ein Skript für Schritte, die nur ein Mensch tun kann. Automatisch wählbar bei Zugängen, Zertifikaten, unbekannten Dashboards oder einmaligen Migrationen.
 kategorie: Standalone
-aufruf: Kann automatisch gewählt werden
 ---
 
-# wizard — Ein Skript für Schritte, die nur ein Mensch tun kann
+# wizard: Ein Skript für Schritte, die nur ein Mensch tun kann
 
 Ein **Wizard** ist ein Bash-Skript, das einen Menschen Schritt für Schritt durch eine manuelle
 Prozedur führt, die mühsam per Hand zu tun und mühsam jedes Mal neu einer KI zu erklären ist. Es
@@ -19,12 +19,12 @@ selbst erledigen könnte.
 
 ## Wie funktioniert das?
 
-Dieser Skill wurde nie als autonome Agenten-Ausführung gedacht — das Skript ist für **dich**, um es
+Dieser Skill wurde nie als autonome Agenten-Ausführung gedacht, das Skript ist für **dich**, um es
 selbst auszuführen. Passt damit unverändert in unser Setup.
 
 ### 1. Prozedur abstecken
 
-Jeden manuellen Schritt und jeden dabei erfassten Wert ermitteln — Repo zuerst lesen (`.env`,
+Jeden manuellen Schritt und jeden dabei erfassten Wert ermitteln: Repo zuerst lesen (`.env`,
 `.env.example`, README, `.github/workflows/*` für jede `secrets.*`-Referenz), dann die geordnete
 Stufenliste mit dir abstimmen.
 
@@ -38,15 +38,20 @@ vielleicht nicht existiert.
 
 Auf Basis der vorgegebenen Bibliothek (Stage-Fortschritt, Bestätigungs-Gates, plattformübergreifendes
 URL-Öffnen, verstecktes Secret-Eingeben, idempotente `.env`-Updates, abschließende Zusammenfassung).
-Deine Aufgabe ist nur, die Prozedur abzustecken und die Stufen zu verfassen — die Bibliothek selbst
+Deine Aufgabe ist nur, die Prozedur abzustecken und die Stufen zu verfassen, die Bibliothek selbst
 nicht von Hand anfassen.
 
 ### 4. Prüfen und übergeben
 
 Syntax-Check, ausführbar machen, **nicht selbst durchlaufen** (öffnet Browser, blockiert auf
-menschliche Eingabe) — stattdessen statisch nachvollziehen: jeder Wert landet dort, wo er soll.
+menschliche Eingabe), stattdessen statisch nachvollziehen: jeder Wert landet dort, wo er soll.
+
+## Wo passt das rein?
+
+Standalone, reach-for-it, sobald ein Setup-Schritt ansteht, den nur ein Mensch klicken kann.
+Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-Inhaltlich nichts — dieser Skill war von Anfang an für menschliche Ausführung gedacht, nicht für
+Inhaltlich nichts, dieser Skill war von Anfang an für menschliche Ausführung gedacht, nicht für
 einen autonomen Agenten. Nur ins Deutsche übertragen.

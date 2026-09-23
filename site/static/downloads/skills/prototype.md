@@ -1,27 +1,26 @@
 ---
 name: prototype
+description: Beantwortet eine Design-Frage mit Wegwerfcode. Automatisch wählbar, wenn unklar ist, ob ein Zustandsmodell stimmt, oder wie eine UI aussehen soll.
 kategorie: Standalone
-aufruf: Kann automatisch gewählt werden
 ---
 
-# prototype — Eine Design-Frage mit Wegwerfcode beantworten
+# prototype: Eine Design-Frage mit Wegwerfcode beantworten
 
 Ein Prototyp ist **Wegwerfcode, der eine Frage beantwortet**. Die Frage entscheidet die Form.
 
 ## Wann brauche ich das?
 
 Wenn unklar ist, ob ein Zustandsmodell/eine Logik sich richtig anfühlt, oder wie eine UI aussehen
-soll — und das schwer auf Papier zu klären ist.
+soll, und das schwer auf Papier zu klären ist.
 
 ## Wie funktioniert das?
 
 Zwei Zweige, je nach Frage:
 
-- **"Fühlt sich diese Logik/dieses Zustandsmodell richtig an?"** → eine einzelne, teilbare
-  HTML-Datei (Freispiel-Buttons plus geführte Walkthroughs), die den Zustandsautomaten durch schwer
-  auf Papier durchdenkbare Fälle treibt.
-- **"Wie soll das aussehen?"** → mehrere UI-Varianten auf einer Route, umschaltbar über einen
-  URL-Parameter.
+| Frage | Artefakt |
+|---|---|
+| "Fühlt sich diese Logik/dieses Zustandsmodell richtig an?" | Eine einzelne, teilbare HTML-Datei (Freispiel-Buttons plus geführte Walkthroughs), die den Zustandsautomaten durch schwer auf Papier durchdenkbare Fälle treibt. |
+| "Wie soll das aussehen?" | Mehrere UI-Varianten auf einer Route, umschaltbar über einen URL-Parameter. |
 
 ## Regeln, die für beide gelten
 
@@ -36,11 +35,16 @@ Zwei Zweige, je nach Frage:
    Prototyp selbst wird als Referenz behalten (z.B. in einem eigenen Ordner mit klarem
    "PROTOTYP"-Namen im Repo) statt gelöscht zu werden.
 
-Der Prototyp-Code selbst kommt als **Snippet**, das du speicherst und selbst ausführst — wie jeder
+Der Prototyp-Code selbst kommt als **Snippet**, das du speicherst und selbst ausführst, wie jeder
 andere Code-Vorschlag auch.
+
+## Wo passt das rein?
+
+Standalone, jederzeit erreichbar, oft als Umweg im Hauptfluss (eine Frage, die sich im Gespräch mit
+`grill-with-docs` nicht klären lässt). Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-- Keine autonome Dateierzeugung/-ausführung — du speicherst die eine Datei und startest sie selbst.
+- Keine autonome Dateierzeugung/-ausführung, du speicherst die eine Datei und startest sie selbst.
 - Statt eines Commits auf einen eigenen `prototype/<name>`-Branch: ablegen, wo es bei euch für
   Referenzcode üblich ist (z.B. ein `prototype/`-Unterordner im Feature-Branch).
