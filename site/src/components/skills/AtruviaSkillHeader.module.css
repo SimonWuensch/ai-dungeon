@@ -17,3 +17,9 @@
 .actions > a {
   margin-left: 0;
 }
+
+.buttonReset {
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}

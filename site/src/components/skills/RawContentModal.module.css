@@ -1,0 +1,64 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  z-index: 1000;
+}
+
+.dialog {
+  background: var(--dd-paper);
+  color: var(--dd-ink);
+  border: 1px solid var(--dd-rule);
+  border-radius: calc(var(--ifm-global-radius) * 1.25);
+  max-width: 760px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--dd-rule);
+}
+
+.dialogTitle {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: 1px solid var(--dd-rule-solid);
+  border-radius: var(--ifm-global-radius);
+  color: var(--dd-ink);
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  line-height: 1.4;
+}
+
+.closeButton:hover {
+  border-color: var(--dd-accent);
+  color: var(--dd-accent);
+}
+
+.dialogBody {
+  overflow-y: auto;
+  padding: 1.1rem;
+}
+
+.pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+}
