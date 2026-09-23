@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
+import {marked} from 'marked';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './RawContentModal.module.css';
 
@@ -9,7 +10,13 @@ type RawContentModalProps = {
   onClose: () => void;
 };
 
-/** A dialog that fetches and shows the raw, portable Markdown source of one skill. */
+/** Strips a leading YAML frontmatter block (--- ... ---) so the reading view starts at the title. */
+function stripFrontmatter(md: string): string {
+  const match = md.match(/^---\n[\s\S]*?\n---\n+/);
+  return match ? md.slice(match[0].length) : md;
+}
+
+/** A dialog that fetches and shows the raw, portable Markdown source of one skill, nicely rendered. */
 export default function RawContentModal({slug, open, onClose}: RawContentModalProps) {
   const rawUrl = useBaseUrl(`/downloads/skills/${slug}.md`);
   const [content, setContent] = useState<string | null>(null);
@@ -37,6 +44,11 @@ export default function RawContentModal({slug, open, onClose}: RawContentModalPr
     return () => document.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
+  const html = useMemo(() => {
+    if (content === null) return '';
+    return marked.parse(stripFrontmatter(content), {breaks: false}) as string;
+  }, [content]);
+
   if (!open) return null;
 
   return (
@@ -45,18 +57,25 @@ export default function RawContentModal({slug, open, onClose}: RawContentModalPr
         className={styles.dialog}
         role="dialog"
         aria-modal="true"
-        aria-label={`Rohtext: ${slug}`}
+        aria-label={`Skill-Inhalt: ${slug}`}
         onClick={(e) => e.stopPropagation()}>
         <div className={styles.dialogHeader}>
           <span className={styles.dialogTitle}>{slug}.md</span>
-          <button className={styles.closeButton} onClick={onClose} aria-label="Schließen">
-            ✕
-          </button>
+          <span className={styles.dialogHeaderActions}>
+            <a className={styles.downloadButton} href={rawUrl} download>
+              Herunterladen ↓
+            </a>
+            <button className={styles.closeButton} onClick={onClose} aria-label="Schließen">
+              ✕
+            </button>
+          </span>
         </div>
         <div className={styles.dialogBody}>
-          {error && <p>Konnte den Rohtext nicht laden.</p>}
+          {error && <p>Konnte den Inhalt nicht laden.</p>}
           {!error && content === null && <p>Lädt …</p>}
-          {content !== null && <pre className={styles.pre}>{content}</pre>}
+          {content !== null && (
+            <div className={styles.rendered} dangerouslySetInnerHTML={{__html: html}} />
+          )}
         </div>
       </div>
     </div>

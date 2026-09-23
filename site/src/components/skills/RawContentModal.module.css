@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   padding: 0.9rem 1.1rem;
   border-bottom: 1px solid var(--dd-rule);
 }
@@ -33,6 +34,29 @@
 .dialogTitle {
   font-family: var(--ifm-font-family-monospace);
   font-weight: 600;
+  white-space: nowrap;
+}
+
+.dialogHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.downloadButton {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  border: 1px solid var(--dd-rule-solid);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.35rem 0.7rem;
+  white-space: nowrap;
+  transition: border-color 0.15s ease;
+}
+
+.downloadButton:hover {
+  border-color: var(--dd-accent);
+  color: var(--dd-accent);
 }
 
 .closeButton {
@@ -52,13 +76,85 @@
 
 .dialogBody {
   overflow-y: auto;
-  padding: 1.1rem;
+  padding: 1.25rem 1.5rem;
 }
 
-.pre {
-  white-space: pre-wrap;
-  word-break: break-word;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  margin: 0;
+.rendered {
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.rendered :global(h1) {
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem;
+}
+
+.rendered :global(h2) {
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.6rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--dd-rule);
+}
+
+.rendered :global(h2:first-child) {
+  padding-top: 0;
+  border-top: none;
+  margin-top: 0;
+}
+
+.rendered :global(h3) {
+  font-size: 1rem;
+  margin: 1.1rem 0 0.5rem;
+}
+
+.rendered :global(p) {
+  margin: 0 0 0.85rem;
+}
+
+.rendered :global(ul),
+.rendered :global(ol) {
+  margin: 0 0 0.85rem;
+  padding-left: 1.3rem;
+}
+
+.rendered :global(li) {
+  margin: 0.25rem 0;
+}
+
+.rendered :global(code) {
+  font-size: 0.85em;
+  background: var(--dd-paper-2);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.rendered :global(pre) {
+  background: var(--dd-paper-2);
+  border: 1px solid var(--dd-rule);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  margin: 0 0 0.85rem;
+}
+
+.rendered :global(pre code) {
+  background: none;
+  padding: 0;
+}
+
+.rendered :global(blockquote) {
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 1rem;
+  border-left: 3px solid var(--dd-accent);
+  color: var(--dd-muted);
+}
+
+.rendered :global(hr) {
+  border: none;
+  border-top: 1px solid var(--dd-rule);
+  margin: 1.25rem 0;
+}
+
+.rendered :global(strong) {
+  font-weight: 700;
 }
