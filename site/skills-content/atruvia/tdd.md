@@ -1,12 +1,10 @@
 ---
-sidebar_position: 6
+name: tdd
+kategorie: Hauptfluss
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # tdd — Test-Driven Development
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="model" slug="tdd" />
 
 Der Rot→Grün-Loop. Diese Referenz sorgt dafür, dass dabei Tests entstehen, die sich lohnen:
 was ein guter Test ist, wo Tests hingehören, welche Anti-Patterns zu vermeiden sind.

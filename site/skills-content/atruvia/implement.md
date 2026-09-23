@@ -1,12 +1,10 @@
 ---
-sidebar_position: 5
+name: implement
+kategorie: Hauptfluss
+aufruf: Nur manuell (/implement)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # implement — Ein Ticket umsetzen
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="implement" />
 
 Setzt die Arbeit um, die eine Spec oder ein Ticket beschreibt.
 

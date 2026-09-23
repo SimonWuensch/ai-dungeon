@@ -1,12 +1,10 @@
 ---
-sidebar_position: 16
+name: wizard
+kategorie: Standalone
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # wizard — Ein Skript für Schritte, die nur ein Mensch tun kann
-
-<AtruviaSkillHeader category="Standalone" invocation="model" slug="wizard" />
 
 Ein **Wizard** ist ein Bash-Skript, das einen Menschen Schritt für Schritt durch eine manuelle
 Prozedur führt, die mühsam per Hand zu tun und mühsam jedes Mal neu einer KI zu erklären ist. Es

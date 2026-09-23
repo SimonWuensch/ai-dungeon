@@ -1,12 +1,10 @@
 ---
-sidebar_position: 12
+name: codebase-design
+kategorie: Vokabular
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # codebase-design — Vokabular für tiefe Module
-
-<AtruviaSkillHeader category="Vokabular" invocation="model" slug="codebase-design" />
 
 Gemeinsame Sprache, um **tiefe Module** zu entwerfen: viel Verhalten hinter einer kleinen
 Schnittstelle, an einer sauberen Naht platziert, testbar über genau diese Schnittstelle. Ziel:

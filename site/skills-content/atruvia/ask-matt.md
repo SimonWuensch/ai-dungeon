@@ -1,12 +1,10 @@
 ---
-sidebar_position: 17
+name: ask-matt
+kategorie: Standalone (Router)
+aufruf: Nur manuell (/ask-matt)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # ask-matt — Welcher Skill passt gerade?
-
-<AtruviaSkillHeader category="Standalone" invocation="user" slug="ask-matt" />
 
 Ein Router über die anderen Skills in diesem Set. Du weißt nicht mehr, welcher Skill gerade passt —
 frag einfach.

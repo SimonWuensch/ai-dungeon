@@ -1,0 +1,19 @@
+.adaptedBadge {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px dashed var(--dd-accent);
+  color: var(--dd-accent);
+  white-space: nowrap;
+}
+
+.actions {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.actions > a {
+  margin-left: 0;
+}

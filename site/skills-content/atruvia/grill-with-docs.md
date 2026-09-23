@@ -1,12 +1,10 @@
 ---
-sidebar_position: 2
+name: grill-with-docs
+kategorie: Hauptfluss
+aufruf: Nur manuell (/grill-with-docs)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # grill-with-docs — Idee schärfen, mit Papierspur
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="grill-with-docs" />
 
 Ein rücksichtsloses Interview, das eine Idee schärft — und dabei Spuren hinterlässt. Was dabei
 geklärt wird, landet in `CONTEXT.md` und in ADRs.

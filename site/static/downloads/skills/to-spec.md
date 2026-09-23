@@ -1,12 +1,10 @@
 ---
-sidebar_position: 3
+name: to-spec
+kategorie: Hauptfluss
+aufruf: Nur manuell (/to-spec)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # to-spec — Das Gespräch zur Spec verdichten
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="to-spec" />
 
 Verdichtet das aktuelle Gespräch und das Codebase-Verständnis zu einer Spec. **Kein neues
 Interview** — reine Synthese dessen, was schon besprochen wurde.

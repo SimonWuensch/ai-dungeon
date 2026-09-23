@@ -1,12 +1,10 @@
 ---
-sidebar_position: 11
+name: domain-modeling
+kategorie: Vokabular
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # domain-modeling — Das Domain-Glossar scharf halten
-
-<AtruviaSkillHeader category="Vokabular" invocation="model" slug="domain-modeling" />
 
 Aktiv das Domain-Modell eines Projekts aufbauen und schärfen: Begriffe herausfordern,
 Grenzfall-Szenarien erfinden, das Glossar und Entscheidungen genau dann festhalten, wenn sie sich

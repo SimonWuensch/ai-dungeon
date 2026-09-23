@@ -1,12 +1,10 @@
 ---
-sidebar_position: 7
+name: code-review
+kategorie: Hauptfluss
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # code-review — Review entlang zweier Achsen
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="model" slug="code-review" />
 
 Review des Diffs zwischen `HEAD` und einem fixen Punkt, den du angibst, entlang zweier getrennter
 Achsen:

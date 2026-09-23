@@ -4,21 +4,19 @@ sidebar_position: 4
 
 # Jira ohne native AI-Anbindung
 
-Unsere Skills sind auf GitHub, GitLab oder lokale Markdown-Dateien zugeschnitten (siehe
-[`setup-matt-pocock-skills`](/docs/skills/setup-matt-pocock-skills)) — Jira ist dort nicht direkt
-vorgesehen, und viele Unternehmen erlauben ohnehin (noch) keine direkte API-/MCP-Anbindung eines
-KI-Tools an den eigenen Jira-Tenant. Das bedeutet nicht, dass `to-spec` und `to-tickets` nutzlos
-werden — nur, dass der letzte Schritt manuell bleibt.
+Unser angepasstes Skill-Set (siehe [Skills-Übersicht](/docs/skills)) geht bei `to-spec` und
+`to-tickets` standardmäßig von genau dieser Situation aus: keine direkte API-/MCP-Anbindung eines
+KI-Tools an den eigenen Jira-Tenant. Das bedeutet nicht, dass die beiden Skills nutzlos werden —
+nur, dass der letzte Schritt manuell bleibt.
 
 ## Der Weg: Copy-Paste, bewusst strukturiert
 
 1. **`to-spec`/`to-tickets` normal laufen lassen.** Die Skills wissen nichts von Jira — sie liefern
    Spec und Tickets als Markdown im Chat, exakt wie bei jedem anderen Tracker auch.
-2. **`setup-matt-pocock-skills` mit Tracker "Other" konfigurieren.** In `docs/agents/issue-tracker.md`
-   in eigenen Worten festhalten: *"Issues werden manuell in Jira angelegt. Ich kopiere Titel und
-   Beschreibung aus dem Ticket-Markdown, setze Issue-Typ (Story/Task) und den Epic-Link von Hand."*
-   Damit wissen zukünftige Sessions, dass sie Markdown erzeugen sollen, das sich gut von Hand
-   übertragen lässt — nicht `gh issue create` versuchen.
+2. **Die Konvention einmal festhalten**, z.B. in einer README oder Notiz: *"Issues werden manuell
+   in Jira angelegt. Ich kopiere Titel und Beschreibung aus dem Ticket-Markdown, setze Issue-Typ
+   (Story/Task) und den Epic-Link von Hand."* — unser Skill-Set setzt das ohnehin standardmäßig
+   voraus, keine gesonderte Konfiguration nötig.
 3. **Pro Ticket ein Jira-Issue anlegen.** Titel → Summary, "What to build" → Description,
    Acceptance Criteria → Checkliste in der Description oder als Sub-Tasks, "Blocked by" → Jiras
    native "is blocked by"-Verknüpfung.

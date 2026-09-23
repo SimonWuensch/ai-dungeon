@@ -1,12 +1,10 @@
 ---
-sidebar_position: 9
+name: wayfinder
+kategorie: On-Ramp
+aufruf: Nur manuell (/wayfinder)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # wayfinder — Ein riesiges, neblig es Vorhaben kartieren
-
-<AtruviaSkillHeader category="On-Ramp" invocation="user" slug="wayfinder" />
 
 Für ein großes, unklares Vorhaben, das größer als eine Sitzung ist und im Nebel liegt: statt
 loszubauen, kartiert dieser Skill eine gemeinsame **Landkarte** aus **Entscheidungs-Tickets**

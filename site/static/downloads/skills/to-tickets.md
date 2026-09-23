@@ -1,12 +1,10 @@
 ---
-sidebar_position: 4
+name: to-tickets
+kategorie: Hauptfluss
+aufruf: Nur manuell (/to-tickets)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # to-tickets — In Tracer-Bullet-Tickets zerlegen
-
-<AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="to-tickets" />
 
 Zerlegt einen Plan, eine Spec oder ein Gespräch in **Tickets**: vertikale Slices, jedes mit seinen
 **Blocking-Kanten** (welche Tickets vorher fertig sein müssen).

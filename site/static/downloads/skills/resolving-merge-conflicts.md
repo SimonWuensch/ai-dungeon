@@ -1,12 +1,10 @@
 ---
-sidebar_position: 13
+name: resolving-merge-conflicts
+kategorie: Standalone
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # resolving-merge-conflicts — Einen laufenden Merge-Konflikt auflösen
-
-<AtruviaSkillHeader category="Standalone" invocation="model" slug="resolving-merge-conflicts" />
 
 ## Wann brauche ich das?
 

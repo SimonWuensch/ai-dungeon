@@ -1,12 +1,10 @@
 ---
-sidebar_position: 14
+name: research
+kategorie: Standalone
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # research — Gegen Primärquellen recherchieren
-
-<AtruviaSkillHeader category="Standalone" invocation="model" slug="research" />
 
 Eine Frage gegen hochwertige Primärquellen untersuchen (offizielle Docs, Quellcode, Specs,
 First-Party-APIs) und das Ergebnis zitiert als Markdown-Datei festhalten.

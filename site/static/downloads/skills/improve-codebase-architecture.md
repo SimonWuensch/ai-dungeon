@@ -1,12 +1,10 @@
 ---
-sidebar_position: 10
+name: improve-codebase-architecture
+kategorie: Codebase-Health
+aufruf: Nur manuell (/improve-codebase-architecture)
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # improve-codebase-architecture — Deepening-Kandidaten finden
-
-<AtruviaSkillHeader category="Codebase-Health" invocation="user" slug="improve-codebase-architecture" />
 
 Architektur-Reibung aufdecken und **Deepening-Kandidaten** vorschlagen: Refactorings, die flache
 Module in tiefe verwandeln. Ziel: Testbarkeit und Navigierbarkeit für Menschen und KI.

@@ -1,12 +1,10 @@
 ---
-sidebar_position: 8
+name: diagnosing-bugs
+kategorie: On-Ramp
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # diagnosing-bugs — Diagnose-Loop für harte Bugs
-
-<AtruviaSkillHeader category="On-Ramp" invocation="model" slug="diagnosing-bugs" />
 
 Eine Disziplin für harte Bugs: den flüchtigen Fehler, den intermittierenden Flake, die Regression,
 die sich zwischen zwei bekannt-guten Zuständen eingeschlichen hat.

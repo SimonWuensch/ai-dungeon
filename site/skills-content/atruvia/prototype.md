@@ -1,12 +1,10 @@
 ---
-sidebar_position: 15
+name: prototype
+kategorie: Standalone
+aufruf: Kann automatisch gewählt werden
 ---
 
-import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
-
 # prototype — Eine Design-Frage mit Wegwerfcode beantworten
-
-<AtruviaSkillHeader category="Standalone" invocation="model" slug="prototype" />
 
 Ein Prototyp ist **Wegwerfcode, der eine Frage beantwortet**. Die Frage entscheidet die Form.
 
