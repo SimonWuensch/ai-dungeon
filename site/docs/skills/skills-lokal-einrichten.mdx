@@ -10,13 +10,12 @@ import DownloadAllButton from '@site/src/components/skills/DownloadAllButton';
 ## Was ist das?
 
 Eine einmalige Einrichtung pro Rechner (plus ein kleiner Schritt pro Projekt), damit du in **jedem**
-Projekt einfach `/tdd`, `/grill-with-docs`, `/implement` usw. schreiben kannst, und der Chat den
-passenden Skill aus einem zentralen Ordner nachlädt, statt dass du den Inhalt jedes Mal von Hand
-reinkopierst.
+Projekt schnell auf einen Skill zugreifen kannst, statt seinen Inhalt jedes Mal von Hand
+reinzukopieren.
 
 ## Wie funktioniert das?
 
-Drei Teile greifen ineinander:
+Zwei Teile greifen ineinander:
 
 1. **Ein zentraler Skill-Ordner** auf deinem Rechner (z.B. `C:\dev\ai\skills`), einmal befüllt mit
    den heruntergeladenen Skills. Jeder Skill liegt darin als eigener Unterordner mit einer
@@ -24,9 +23,10 @@ Drei Teile greifen ineinander:
 2. **Ein Junction-Link `.ai-skills`** im Root jedes Projekts, der auf diesen zentralen Ordner zeigt.
    Kein echter Ordner, nur ein Verweis, deshalb reicht es, den zentralen Ordner an einer Stelle zu
    pflegen.
-3. **Eine feste Chat-Anweisung** in IntelliJ (gilt für jede neue Chat-Sitzung, in jedem Projekt), die
-   der KI sagt: sobald eine Nachricht mit `/<name>` beginnt, lies `.ai-skills/<name>/SKILL.md` im
-   Projekt-Root und folge dem, was dort steht.
+
+Im Chat rufst du einen Skill dann direkt über die `#`-Referenz auf: `#` tippen, den passenden
+Skill-Ordner aus `.ai-skills` auswählen, danach deine eigentliche Frage oder Anweisung dazuschreiben.
+Kein Chat-Instructions-Eintrag nötig, die Referenz reicht der KI als Kontext.
 
 ## Einmalige Einrichtung
 
@@ -50,21 +50,6 @@ mklink /J .ai-skills C:\dev\ai\skills
 `.ai-skills` gehört in die `.gitignore` (lokal oder projektweit): es ist ein persönlicher Verweis
 auf deinen Rechner, kein Repo-Inhalt, den andere mitbekommen sollen.
 
-### 3. Chat Instructions in IntelliJ setzen
-
-**Settings → Tools → AI Assistant → Prompt Library → Chat Instructions**, folgenden Text einfügen:
-
-```
-Wenn meine Nachricht mit "/" beginnt, gefolgt von einem Namen ohne Leerzeichen (z.B. "/tdd", "/grill-with-docs"):
-1. Lies die Datei ".ai-skills/<name>/SKILL.md" im Projekt-Root.
-2. Existiert sie: folge ab jetzt den Anweisungen darin, für den Rest dieser Antwort und des weiteren Gesprächs, bis ein anderer "/name" aufgerufen wird.
-3. Existiert sie nicht: sag das explizit ("Kein Skill '<name>' in .ai-skills gefunden") und liste, falls der Ordner ".ai-skills" existiert, die dort vorhandenen Skills auf (die Unterordnernamen).
-Nachrichten, die nicht mit "/" beginnen, beantworte ganz normal.
-```
-
-Das gilt IDE-weit, für jedes Projekt, das du in dieser IntelliJ-Installation öffnest, nicht nur für
-eines.
-
 ## Skills aktualisieren
 
 Neue oder geänderte Skills laden sich alle über denselben ZIP-Download nach: alten Inhalt im
@@ -73,22 +58,17 @@ richtigen Ort.
 
 ## Fehlerbehebung
 
-Meldet die KI "Skill nicht bekannt", obwohl du sicher bist, dass er existiert, der Reihe nach
-prüfen:
+Taucht `.ai-skills` in der `#`-Liste nicht auf, obwohl der Junction-Link existiert:
 
 1. **Existiert die Datei wirklich?** Im Projekt-Root: `dir .ai-skills\<name>`, steht da
    `SKILL.md` drin?
-2. **Neue Chat-Sitzung gestartet?** IntelliJ übernimmt Chat Instructions laut eigenem Tooltip nur
-   *"each time you start a new chat"*. Ein bereits offener Chat zieht eine neu gespeicherte
-   Anweisung nicht rückwirkend, ein IDE-Neustart allein reicht dafür nicht, es muss ein **neuer
-   Chat-Tab** sein.
-3. **Blendet IntelliJ `.ai-skills` aus?** JetBrains-IDEs schließen Punkt-Ordner oft von der
-   Indexierung aus. Check: **Settings → Editor → File Types → Ignored Files and Folders**, und im
-   Project-Tool-Fenster per Rechtsklick auf `.ai-skills`, ob er als "Excluded" markiert ist.
+2. **Blendet IntelliJ `.ai-skills` aus?** JetBrains-IDEs schließen Punkt-Ordner oft von der
+   Indexierung aus, und was nicht indexiert ist, taucht auch in der `#`-Auswahl nicht auf. Check:
+   **Settings → Editor → File Types → Ignored Files and Folders**, und im Project-Tool-Fenster per
+   Rechtsklick auf `.ai-skills`, ob er als "Excluded" markiert ist.
 
 ## Für Kollegen
 
-Diese drei Schritte gelten pro Rechner, nicht pro Projekt: einmal einrichten, danach funktioniert
-`/<skill>` in jedem Projekt, das einen `.ai-skills`-Junction bekommt. Wer mitmachen will, braucht
-nur den ZIP-Download, den `mklink /J`-Befehl im jeweiligen Projekt-Root, und die Chat Instructions
-oben, einmalig in den eigenen IntelliJ-Einstellungen.
+Diese zwei Schritte gelten pro Rechner, nicht pro Projekt: einmal einrichten, danach reicht in
+jedem Projekt mit `.ai-skills`-Junction die `#`-Referenz im Chat. Wer mitmachen will, braucht nur
+den ZIP-Download und den `mklink /J`-Befehl im jeweiligen Projekt-Root.
