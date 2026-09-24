@@ -31,7 +31,7 @@ während du weiterarbeitest: du bekommst das Ergebnis direkt in der Antwort.
 ## Wo passt das rein?
 
 Standalone, jederzeit erreichbar. Das Ergebnis fließt oft in `grill-with-docs`, da Recherche das
-Denken füttert statt es zu ersetzen. Gesamtüberblick: `ask-matt`.
+Denken füttert statt es zu ersetzen. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

@@ -61,7 +61,7 @@ durch die KI).
 
 ## Wo passt das rein?
 
-Kettenschritt im Hauptfluss nach `to-spec`, mündet in `implement`. Gesamtüberblick: `ask-matt`.
+Kettenschritt im Hauptfluss nach `to-spec`, mündet in `implement`. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

@@ -64,7 +64,7 @@ Snippet hingehört, das kostet Zeit und ist eine der häufigsten Fehlerquellen b
 ## Wo passt das rein?
 
 Kettenschritt im Hauptfluss nach `to-tickets` (oder direkt nach `grill-with-docs` bei kleineren
-Änderungen), treibt `tdd` und schließt mit `code-review` ab. Gesamtüberblick: `ask-matt`.
+Änderungen), treibt `tdd` und schließt mit `code-review` ab. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

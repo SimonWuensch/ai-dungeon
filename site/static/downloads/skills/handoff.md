@@ -37,7 +37,7 @@ In der neuen Sitzung fügst du es als ersten Chat-Beitrag ein.
 ## Wo passt das rein?
 
 Standalone, reach-for-it an jeder Phasen-Grenze: ein neues Kontextfenster, ein neuer Bearbeiter,
-oder ein bewusster Themenwechsel mitten in einer Sitzung. Gesamtüberblick: `ask-matt`.
+oder ein bewusster Themenwechsel mitten in einer Sitzung. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

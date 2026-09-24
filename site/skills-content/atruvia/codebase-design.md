@@ -74,7 +74,7 @@ vereinfachen? Mehr Komplexität nach innen verstecken?
 ## Wo passt das rein?
 
 Vokabular, das `tdd` und `improve-codebase-architecture` beide nutzen, um beim Entwurf oder bei
-der Bewertung einer Schnittstelle dieselbe Sprache zu sprechen. Gesamtüberblick: `ask-matt`.
+der Bewertung einer Schnittstelle dieselbe Sprache zu sprechen. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

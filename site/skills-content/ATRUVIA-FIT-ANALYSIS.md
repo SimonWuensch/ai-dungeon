@@ -56,7 +56,7 @@ Zwei Einschränkungen tragen praktisch jede Anpassung unten:
 |---|---|---|
 | `codebase-design` | ✅ Passt unverändert | Reine Vokabular-Referenz, keine Ausführung nötig |
 | `wizard` | ✅ Passt unverändert | War immer schon "Skript für einen Menschen", nie Agent-Ausführung |
-| `ask-matt` | ✅ Passt, kleine Retusche | Verweist auf Subagenten/`/compact`, die es hier nicht gibt |
+| `ask-simon` | ✅ Passt, kleine Retusche | Verweist auf Subagenten/`/compact`, die es hier nicht gibt |
 | `domain-modeling` | ✅ Passt, kleine Retusche | "Inline aktualisieren" wird zu "Snippet vorschlagen, du übernimmst" |
 | `grill-with-docs` | ✅ Passt, kleine Retusche | Vereint jetzt `grill-me` + `grilling` + `grill-with-docs` als eine Betriebsart-Wahl |
 | `handoff` (neu, aus `productivity/`) | ✅ Passt, kleine Retusche | Reine Textarbeit; Dokument kommt als Snippet statt automatischem Dateischreiben in den OS-Temp-Ordner |
@@ -85,7 +85,7 @@ Zeile davon setzt Ausführung oder Dateizugriff voraus. Passt 1:1.
 Migrationen). War nie als Agenten-Ausführung gedacht — das Modell liefert das Skript als Snippet,
 du führst es lokal aus. Bestmöglicher Fit im ganzen Set.
 
-**`ask-matt`** — der Router-Text selbst ist reine Orientierung. Muss nur an zwei Stellen retuschiert
+**`ask-simon`** — der Router-Text selbst ist reine Orientierung. Muss nur an zwei Stellen retuschiert
 werden: die "Phase Boundaries"-Optionen "Subagent" und teilweise "`/compact`" existieren so nicht;
 die Downstream-Verweise auf `to-spec`/`to-tickets`/`triage`/`wayfinder` müssen auf deren
 "passt mit Anpassung/entfernen"-Realität verweisen, sonst verspricht der Router mehr, als die

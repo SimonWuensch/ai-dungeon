@@ -1,11 +1,11 @@
 ---
-name: ask-matt
+name: ask-simon
 description: Zeigt, welcher Skill oder Ablauf gerade passt. Router über die user-invoked Skills in diesem Set.
 disable-model-invocation: true
 kategorie: Standalone (Router)
 ---
 
-# ask-matt: Welcher Skill passt gerade?
+# ask-simon: Welcher Skill passt gerade?
 
 Ein Router über die anderen Skills in diesem Set. Du weißt nicht mehr, welcher Skill gerade passt,
 frag einfach.
@@ -73,3 +73,4 @@ zusammenhängen.
   siehe dort).
 - `grill-me`, `grilling` und `grill-with-docs` waren im Original drei Skills, hier ist daraus einer
   geworden (`grill-with-docs`, mit oder ohne Papierspur als Betriebsart).
+- Der Skill heißt im Original `ask-matt`, hier `ask-simon`. Inhaltlich unverändert.

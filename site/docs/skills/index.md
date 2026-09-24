@@ -66,7 +66,7 @@ umsetzen.
 - **[prototype](/docs/skills/prototype)**: eine harte Frage mit Wegwerfcode statt Prosa beantworten
 - **[wizard](/docs/skills/wizard)**: ein Skript für Schritte erzeugen, die nur ein Mensch tun kann
 - **[handoff](/docs/skills/handoff)**: ein Gespräch für eine neue Chat-Sitzung verdichten
-- **[ask-matt](/docs/skills/ask-matt)**: die Landkarte über alle Skills, wenn unklar ist, wo man anfängt
+- **[ask-simon](/docs/skills/ask-simon)**: die Landkarte über alle Skills, wenn unklar ist, wo man anfängt
 
 ## Entfernt oder zusammengeführt
 

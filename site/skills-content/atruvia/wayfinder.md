@@ -107,7 +107,7 @@ gewähltes Ticket wählt die KI selbst die nächste Frage aus der Karte):
 ## Wo passt das rein?
 
 On-Ramp für ein riesiges, neblig es Vorhaben. Wenn die Karte klar ist, mündet sie in `to-spec`, das
-die verlinkten Entscheidungen zu einem umsetzbaren Plan zusammenfasst. Gesamtüberblick: `ask-matt`.
+die verlinkten Entscheidungen zu einem umsetzbaren Plan zusammenfasst. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

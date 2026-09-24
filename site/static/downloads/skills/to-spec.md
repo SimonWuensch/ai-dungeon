@@ -57,7 +57,7 @@ Was einen guten Test ausmacht, welche Module getestet werden, Vorbilder im Code.
 ## Wo passt das rein?
 
 Kettenschritt im Hauptfluss nach `grill-with-docs`, mündet in `to-tickets`. Gesamtüberblick:
-`ask-matt`.
+`ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 

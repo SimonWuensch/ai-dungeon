@@ -70,7 +70,7 @@ nur das Festhalten des Ergebnisses unterscheidet sich.
 ## Wo passt das rein?
 
 Erster Kettenschritt im Hauptfluss, mündet in `to-spec`. Läuft parallel mit `domain-modeling`, das
-die `CONTEXT.md`-/ADR-Disziplin trägt. Gesamtüberblick: `ask-matt`.
+die `CONTEXT.md`-/ADR-Disziplin trägt. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 
