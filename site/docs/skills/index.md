@@ -11,6 +11,12 @@ import DownloadAllButton from '@site/src/components/skills/DownloadAllButton';
 ein Entscheidungsbaum nach Aufgabengröße, mit drei konkreten Beispielen.
 :::
 
+:::info[Skills direkt in IntelliJ per `/name` aufrufen]
+**[Skills lokal einrichten](/docs/skills/skills-lokal-einrichten)**: einmalige Einrichtung, danach
+lädt der Chat den passenden Skill automatisch nach, sobald du `/tdd`, `/grill-with-docs` & Co.
+schreibst, statt dass du Inhalte von Hand reinkopierst.
+:::
+
 Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die eine KI selbst
 nachschlägt oder die du per Namen aufrufst, sobald die aktuelle Aufgabe dazu passt.
 
