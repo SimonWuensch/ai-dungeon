@@ -66,9 +66,8 @@ zusammenhängen.
 - Keine "Subagent"-Option mehr bei Kontext-Übergängen, es gibt keine Subagenten in diesem Setup.
   Ohne persistenten Chat-Verlauf über Sitzungen hinweg ist `handoff` hier die einzige Brücke
   zwischen zwei Kontextfenstern, nicht nur eine von mehreren Optionen.
-- `triage` und `setup-matt-pocock-skills` sind komplett entfernt (siehe
-  `ATRUVIA-FIT-ANALYSIS.md`): sie bauten fast vollständig auf Tracker-Automatisierung auf, die es
-  bei uns nicht gibt.
+- `triage` und `setup-matt-pocock-skills` sind komplett entfernt: sie bauten fast vollständig
+  auf Tracker-Automatisierung auf, die es bei uns nicht gibt.
 - `wayfinder` ist geblieben, aber mit einer anderen Landkarten-Ablage (Dokument statt Tracker-Issue,
   siehe dort).
 - `grill-me`, `grilling` und `grill-with-docs` waren im Original drei Skills, hier ist daraus einer
