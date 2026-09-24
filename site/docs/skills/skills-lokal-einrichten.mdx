@@ -19,20 +19,22 @@ reinkopierst.
 Drei Teile greifen ineinander:
 
 1. **Ein zentraler Skill-Ordner** auf deinem Rechner (z.B. `C:\dev\ai\skills`), einmal befüllt mit
-   den heruntergeladenen Skill-Dateien.
+   den heruntergeladenen Skills. Jeder Skill liegt darin als eigener Unterordner mit einer
+   `SKILL.md`, z.B. `C:\dev\ai\skills\wizard\SKILL.md`, das ZIP unten ist schon so aufgebaut.
 2. **Ein Junction-Link `.ai-skills`** im Root jedes Projekts, der auf diesen zentralen Ordner zeigt.
    Kein echter Ordner, nur ein Verweis, deshalb reicht es, den zentralen Ordner an einer Stelle zu
    pflegen.
 3. **Eine feste Chat-Anweisung** in IntelliJ (gilt für jede neue Chat-Sitzung, in jedem Projekt), die
-   der KI sagt: sobald eine Nachricht mit `/<name>` beginnt, lies `.ai-skills/<name>.md` im
+   der KI sagt: sobald eine Nachricht mit `/<name>` beginnt, lies `.ai-skills/<name>/SKILL.md` im
    Projekt-Root und folge dem, was dort steht.
 
 ## Einmalige Einrichtung
 
 ### 1. Zentralen Ordner anlegen und befüllen
 
-Einen Ordner an einer festen Stelle anlegen (z.B. `C:\dev\ai\skills`), dann alle 17 Skills dort
-hinein entpacken:
+Einen Ordner an einer festen Stelle anlegen (z.B. `C:\dev\ai\skills`), dann das ZIP dort hinein
+entpacken. Danach liegt in `C:\dev\ai\skills` pro Skill ein Unterordner mit `SKILL.md` darin
+(`C:\dev\ai\skills\wizard\SKILL.md`, `C:\dev\ai\skills\tdd\SKILL.md`, …):
 
 <DownloadAllButton />
 
@@ -54,9 +56,9 @@ auf deinen Rechner, kein Repo-Inhalt, den andere mitbekommen sollen.
 
 ```
 Wenn meine Nachricht mit "/" beginnt, gefolgt von einem Namen ohne Leerzeichen (z.B. "/tdd", "/grill-with-docs"):
-1. Lies die Datei ".ai-skills/<name>.md" im Projekt-Root.
+1. Lies die Datei ".ai-skills/<name>/SKILL.md" im Projekt-Root.
 2. Existiert sie: folge ab jetzt den Anweisungen darin, für den Rest dieser Antwort und des weiteren Gesprächs, bis ein anderer "/name" aufgerufen wird.
-3. Existiert sie nicht: sag das explizit ("Kein Skill '<name>' in .ai-skills gefunden") und liste, falls der Ordner ".ai-skills" existiert, die dort vorhandenen Skills auf (Dateinamen ohne ".md").
+3. Existiert sie nicht: sag das explizit ("Kein Skill '<name>' in .ai-skills gefunden") und liste, falls der Ordner ".ai-skills" existiert, die dort vorhandenen Skills auf (die Unterordnernamen).
 Nachrichten, die nicht mit "/" beginnen, beantworte ganz normal.
 ```
 
@@ -68,6 +70,21 @@ eines.
 Neue oder geänderte Skills laden sich alle über denselben ZIP-Download nach: alten Inhalt im
 zentralen Ordner überschreiben, fertig. Kein erneuter Symlink nötig, der zeigt schon auf den
 richtigen Ort.
+
+## Fehlerbehebung
+
+Meldet die KI "Skill nicht bekannt", obwohl du sicher bist, dass er existiert, der Reihe nach
+prüfen:
+
+1. **Existiert die Datei wirklich?** Im Projekt-Root: `dir .ai-skills\<name>`, steht da
+   `SKILL.md` drin?
+2. **Neue Chat-Sitzung gestartet?** IntelliJ übernimmt Chat Instructions laut eigenem Tooltip nur
+   *"each time you start a new chat"*. Ein bereits offener Chat zieht eine neu gespeicherte
+   Anweisung nicht rückwirkend, ein IDE-Neustart allein reicht dafür nicht, es muss ein **neuer
+   Chat-Tab** sein.
+3. **Blendet IntelliJ `.ai-skills` aus?** JetBrains-IDEs schließen Punkt-Ordner oft von der
+   Indexierung aus. Check: **Settings → Editor → File Types → Ignored Files and Folders**, und im
+   Project-Tool-Fenster per Rechtsklick auf `.ai-skills`, ob er als "Excluded" markiert ist.
 
 ## Für Kollegen
 
