@@ -5,46 +5,81 @@ sidebar_position: 2
 
 import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
 
-# grill-with-docs: Idee schärfen, mit Papierspur
+# grill-with-docs: Idee schärfen, mit oder ohne Papierspur
 
 <AtruviaSkillHeader category="Hauptfluss" invocation="user" slug="grill-with-docs" />
 
-Ein rücksichtsloses Interview, das eine Idee schärft, und dabei Spuren hinterlässt. Was dabei
-geklärt wird, landet in `CONTEXT.md` und in ADRs.
+Ein rücksichtsloses Interview, das eine Idee schärft. Vereint drei Original-Skills in einem: das
+reine Interview-Prinzip, und die Frage, ob das Ergebnis dauerhaft im Projekt festgehalten wird
+(`CONTEXT.md`/ADRs) oder flüchtig bleibt. Diese Unterscheidung war im Original zwei getrennte
+Skills, hier ist sie nur eine Betriebsart desselben Interviews (siehe unten).
 
 ## Wann brauche ich das?
 
-Startpunkt des Hauptflusses, wenn du **in einem Arbeitsverzeichnis** bist *und* das Ergebnis
-wiederverwendbares Vokabular oder eine schwer umkehrbare Entscheidung ist. Für eine wirklich
-triviale, nicht wiederverwendbare Entscheidung (z.B. reine Formatierungsfragen) lohnt sich die
-Papierspur nicht, dann reicht ein kurzes Gespräch ohne `CONTEXT.md`-Eintrag.
+Immer, wenn eine Idee, ein Plan oder eine Anforderung noch unscharf ist und sich durch gezieltes
+Nachfragen klären lässt, egal ob am Anfang des Hauptflusses (nach einer Idee) oder mitten in
+jedem anderen Skill, der Klärung braucht.
 
 ## Wie funktioniert das?
 
-Der Loop, immer wieder:
+Das Interview läuft als **Design-Baum**: jede Entscheidung verzweigt in die Entscheidungen, die
+von ihr abhängen. Gearbeitet wird in **Runden**:
 
-1. **Frage stellen**: eine nach der anderen, nie mehrere auf einmal.
-2. **Antwort hören**: mit einer Empfehlung, die du in einem Wort bestätigen oder ablehnen kannst.
-3. **Frontier verschieben**: zum nächsten offenen Ast des Entscheidungsbaums.
-4. **Doku aktualisieren**: sobald ein Begriff sich klärt, direkt als Snippet für `CONTEXT.md`
-   oder ein ADR, das du übernimmst.
+- Die **Frontier** ist jede Entscheidung, deren Voraussetzungen schon geklärt sind, also alles,
+  was sich *jetzt* fragen lässt, ohne bei unbeantworteten Fragen zu raten.
+- Die ganze Frontier kommt in **einer** Runde: jede Frage nummeriert, mit einer empfohlenen
+  Antwort, dann wird auf deine Antworten gewartet, bevor die nächste Runde beginnt.
 
-Zwei Dinge laufen dabei zusammen:
+Format einer Runde:
 
-1. **Das reine Interview-Prinzip**: Runden, die Frontier (der nächste offene Ast), Fakten sind
-   Aufgabe der KI, Entscheidungen bleiben bei dir.
-2. **`domain-modeling`** parallel: sobald ein Begriff sich klärt oder eine schwer umkehrbare
-   Entscheidung fällt, wird `CONTEXT.md` sofort als Snippet vorgeschlagen bzw. ein ADR angelegt,
-   nicht gesammelt fürs Ende.
+```
+❓ Q1 - <Fragetitel>: <Fragetext, ggf. mehrere Absätze oder Auswahlmöglichkeiten>
+
+➡️ <empfohlene Antwort>
+
+---
+
+❓ Q2 - <Fragetitel>: <Fragetext>
+
+➡️ <empfohlene Antwort>
+```
+
+Jede beantwortete Runde formt den Baum neu: geklärte Entscheidungen schieben die Frontier weiter
+und schalten Fragen frei, die von ihnen abhingen. Eine Frage, deren Antwort von einer in dieser
+Runde noch offenen Frage abhängt, gehört in eine **spätere** Runde, nicht in diese.
+
+**Fakten finden ist Aufgabe der KI, nie deine.** Braucht eine Frontier-Frage einen Fakt aus der
+Codebase oder dem Netz, recherchiert die KI ihn selbst (Codebase-Kontext direkt, externe Fakten
+über `research`), bevor sie diese eine Frage stellt, statt dich danach zu fragen. Ohne Agenten
+läuft das nicht im Hintergrund parallel zu den übrigen Fragen wie im Original, aber es blockiert
+auch nur die Fragen, die tatsächlich von diesem Fakt abhängen: der Rest der Frontier wird trotzdem
+in derselben Runde gestellt. Die **Entscheidungen** bleiben immer bei dir.
+
+**Fertig ist die Sitzung**, wenn die Frontier leer ist: jeder Ast des Baums besucht, nichts still
+angenommen. Nicht handeln, bevor du bestätigt hast, dass ihr ein gemeinsames Verständnis erreicht
+habt.
+
+## Zwei Betriebsarten: mit oder ohne Papierspur
+
+| Betriebsart | Wann | Was passiert |
+|---|---|---|
+| **Mit Papierspur** (Standard in einem Arbeitsverzeichnis) | Das Ergebnis ist wiederverwendbares Vokabular oder eine schwer umkehrbare Entscheidung. | Sobald ein Begriff sich klärt, schlägt die KI die `CONTEXT.md`-/ADR-Änderung direkt als Snippet vor, du übernimmst sie. |
+| **Ohne Papierspur** (früher der eigene Skill `grill-me`) | Kein Arbeitsverzeichnis vorhanden, oder die Entscheidung ist trivial und nicht wiederverwendbar (z.B. reine Formatierungsfragen). | Reines Gespräch, nichts landet in `CONTEXT.md`. Nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. |
+
+Die Interview-Mechanik selbst (Runden, Frontier, Format) ist in beiden Betriebsarten identisch,
+nur das Festhalten des Ergebnisses unterscheidet sich.
 
 ## Wo passt das rein?
 
-Erster Kettenschritt im Hauptfluss, mündet in `to-spec`. Gesamtüberblick: `ask-matt`.
+Erster Kettenschritt im Hauptfluss, mündet in `to-spec`. Läuft parallel mit `domain-modeling`, das
+die `CONTEXT.md`-/ADR-Disziplin trägt. Gesamtüberblick: `ask-matt`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-- Ruft im Original zwei Skills auf ("grilling" für das reine Interview, "domain-modeling" fürs
-  Dokumentieren). "grilling" selbst ist ein Produktivitäts-Skill, der hier noch nicht bewertet
-  wurde. Das Interview-Prinzip ist aber unverändert reine Konversation, keine Ausführung nötig, und
-  funktioniert unabhängig davon vollständig im Chat.
+- Vereint drei Original-Skills (`grill-me`, `grilling`, `grill-with-docs`) in einem: die
+  stateless/stateful-Unterscheidung war nie ein eigener Workflow, nur eine Betriebsart desselben
+  Interviews, und wird hier auch so behandelt.
+- Kein Subagent für die Fakten-Recherche während des Interviews: die KI recherchiert synchron
+  selbst (Codebase-Kontext direkt, externe Fakten über `research`), bevor sie eine abhängige Frage
+  stellt.
 - Doku-Updates sind Snippets, die du übernimmst, keine automatischen Dateischreibvorgänge.

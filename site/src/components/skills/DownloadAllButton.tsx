@@ -6,7 +6,7 @@ export default function DownloadAllButton() {
   const downloadUrl = useBaseUrl('/downloads/atruvia-skills-alle.zip');
   return (
     <a className={styles.button} href={downloadUrl} download>
-      📦 Alle 16 angepassten Skills herunterladen (ZIP)
+      📦 Alle 17 angepassten Skills herunterladen (ZIP)
     </a>
   );
 }

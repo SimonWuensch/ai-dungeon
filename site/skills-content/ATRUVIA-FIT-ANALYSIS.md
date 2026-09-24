@@ -10,6 +10,16 @@ konkreten Gegenbeispiel-Usecase, der dagegen sprach, und die Fit-Bewertung war o
 unverändert". `wayfinder` wurde auf Wunsch erneut analysiert: siehe "Wayfinder — zweiter Blick"
 unten. Verdikt geändert von "Entfernen" zu "Passt mit Anpassung".
 
+**Update 2:** Drei Skills aus `productivity/` wurden nachträglich ergänzt: `grill-me` und
+`grilling` sind in `grill-with-docs` aufgegangen (die stateless/stateful-Unterscheidung ist jetzt
+nur eine Betriebsart desselben Interviews, kein eigener Skill mehr), `handoff` ist eigenständig als
+17. Skill hinzugekommen (unverändert gut geeignet, da schon immer reine Textarbeit, jetzt als
+Snippet zum Selbst-Speichern statt automatischem Dateischreiben). Die übrigen vier
+Produktivitäts-Skills (`wait-what`, `to-questionnaire`, `teach`, `writing-for-agents`) sind noch
+nicht geprüft. Außerdem wurde eine Schreibweise-Runde gegen Matt Pococks eigenes
+`writing-for-agents`-Schema durchgeführt (keine Gedankenstriche, echtes `description`-Frontmatter,
+"Wo passt das rein?"-Abschnitte); diese Analyse-Datei selbst wurde dabei nicht mit durchgezogen.
+
 ## Umgebung, gegen die geprüft wurde
 
 IntelliJ AI Chat (ChatGPT 5.5/5.6), zwei Projektarten (Angular/npm und Java/Spring mit Maven):
@@ -48,7 +58,8 @@ Zwei Einschränkungen tragen praktisch jede Anpassung unten:
 | `wizard` | ✅ Passt unverändert | War immer schon "Skript für einen Menschen", nie Agent-Ausführung |
 | `ask-matt` | ✅ Passt, kleine Retusche | Verweist auf Subagenten/`/compact`, die es hier nicht gibt |
 | `domain-modeling` | ✅ Passt, kleine Retusche | "Inline aktualisieren" wird zu "Snippet vorschlagen, du übernimmst" |
-| `grill-with-docs` | ✅ Passt, kleine Retusche | Ruft nur `grilling` + `domain-modeling`, beide kompatibel |
+| `grill-with-docs` | ✅ Passt, kleine Retusche | Vereint jetzt `grill-me` + `grilling` + `grill-with-docs` als eine Betriebsart-Wahl |
+| `handoff` (neu, aus `productivity/`) | ✅ Passt, kleine Retusche | Reine Textarbeit; Dokument kommt als Snippet statt automatischem Dateischreiben in den OS-Temp-Ordner |
 | `tdd` | ✅ Passt, kleine Retusche | Testläufe sind möglich — nur nicht autonom verkettet |
 | `prototype` | ✅ Passt, kleine Retusche | Snippet + manuelles Speichern/Ausführen statt autonomer Dateierzeugung |
 | `code-review` | 🟡 Passt mit Anpassung | "Parallele Subagenten" → sequenziell im selben Chat |

@@ -1,0 +1,49 @@
+---
+sidebar_label: handoff
+sidebar_position: 17
+---
+
+import AtruviaSkillHeader from '@site/src/components/skills/AtruviaSkillHeader';
+
+# handoff: Ein Gespräch für eine neue Sitzung verdichten
+
+<AtruviaSkillHeader category="Standalone" invocation="user" slug="handoff" />
+
+Schreibt ein Übergabe-Dokument, das das aktuelle Gespräch zusammenfasst, damit eine frische
+Chat-Sitzung (du selbst später, oder ein Kollege) dort weitermachen kann, wo hier aufgehört wurde.
+
+## Wann brauche ich das?
+
+Wenn ein Kontextfenster an sein Ende kommt, du das Thema an eine andere Person übergibst, oder du
+bewusst in eine neue, saubere Sitzung wechseln willst, ohne den bisherigen Stand zu verlieren.
+Ohne Agenten und ohne persistenten Chat-Verlauf über Sitzungen hinweg ist das hier der einzige
+Weg, Kontext gezielt mitzunehmen, kein Nice-to-have, sondern die einzige Brücke zwischen zwei
+Chat-Fenstern.
+
+## Wie funktioniert das?
+
+1. Die KI fasst das Gespräch zusammen: was geklärt ist, was noch offen ist, welche Entscheidungen
+   gefallen sind und warum.
+2. Ein Abschnitt **"Empfohlene nächste Skills"** nennt, welche Skills die neue Sitzung als Erstes
+   aufrufen sollte (z.B. "`/to-spec`, danach `/to-tickets`").
+3. **Keine Duplizierung**: Was bereits in einem Artefakt steht (Spec, `CONTEXT.md`, ADR, Ticket,
+   Commit, Diff), wird nicht erneut ausformuliert, sondern per Datei-/Ticket-Referenz verlinkt.
+4. **Sensible Angaben werden geschwärzt** (API-Keys, Passwörter, personenbezogene Daten).
+5. Sagst du, worauf sich die neue Sitzung konzentrieren soll, richtet sich das Dokument danach
+   aus, statt alles gleich ausführlich zu behandeln.
+
+Das fertige Dokument kommt als **Snippet**, du speicherst es selbst dort, wo es für dich sinnvoll
+ist (z.B. `.scratch/handoff-<datum>.md` im Repo, oder außerhalb, wenn es nicht ins Repo gehört).
+In der neuen Sitzung fügst du es als ersten Chat-Beitrag ein.
+
+## Wo passt das rein?
+
+Standalone, reach-for-it an jeder Phasen-Grenze: ein neues Kontextfenster, ein neuer Bearbeiter,
+oder ein bewusster Themenwechsel mitten in einer Sitzung. Gesamtüberblick: `ask-matt`.
+
+## Was sich gegenüber dem Original geändert hat
+
+- Das Original schreibt die Datei automatisch in den OS-Temp-Ordner. Das geht hier nicht (kein
+  Dateisystem-Schreibzugriff), das Dokument kommt als Snippet, das du selbst speicherst.
+- Sonst inhaltlich unverändert: gleiche Struktur (Zusammenfassung, empfohlene nächste Skills,
+  Verweise statt Duplizierung, Schwärzung), da das schon immer reine Textarbeit war.

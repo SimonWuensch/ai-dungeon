@@ -57,12 +57,19 @@ zusammenhängen.
 - **`research`**: eine Frage gegen Primärquellen im Netz recherchieren, synchron im selben Chat.
 - **`wizard`**: ein Bash-Skript für Schritte erzeugen, die nur ein Mensch tun kann (Zugänge,
   Zertifikate, Dashboards).
+- **`handoff`**: das laufende Gespräch zu einem Übergabe-Dokument für eine neue Chat-Sitzung
+  verdichten. Reach for it an jeder Phasen-Grenze: ein Kontextfenster, das voll wird, ein
+  Themenwechsel, eine Übergabe an eine andere Person.
 
 ## Was sich gegenüber dem Original geändert hat
 
 - Keine "Subagent"-Option mehr bei Kontext-Übergängen, es gibt keine Subagenten in diesem Setup.
+  Ohne persistenten Chat-Verlauf über Sitzungen hinweg ist `handoff` hier die einzige Brücke
+  zwischen zwei Kontextfenstern, nicht nur eine von mehreren Optionen.
 - `triage` und `setup-matt-pocock-skills` sind komplett entfernt (siehe
   `ATRUVIA-FIT-ANALYSIS.md`): sie bauten fast vollständig auf Tracker-Automatisierung auf, die es
   bei uns nicht gibt.
 - `wayfinder` ist geblieben, aber mit einer anderen Landkarten-Ablage (Dokument statt Tracker-Issue,
   siehe dort).
+- `grill-me`, `grilling` und `grill-with-docs` waren im Original drei Skills, hier ist daraus einer
+  geworden (`grill-with-docs`, mit oder ohne Papierspur als Betriebsart).
