@@ -67,20 +67,8 @@ const deepDiveCards: DeepDiveCardProps[] = [
   {
     title: 'Skills',
     description:
-      'Was ein Skill ist, welche es gibt (u.a. das Matt-Pocock-Engineering-Set) und wie man eigene schreibt.',
+      'Was ein Skill ist, welche es gibt (unser angepasstes Skill-Set), wie man sie einsetzt und lokal einrichtet.',
     to: '/docs/skills',
-  },
-  {
-    title: 'Best Practices',
-    description:
-      'Empfehlungen von Anthropic, OpenAI und bekannten Praktikern für agentic coding.',
-    to: '/docs/best-practices',
-  },
-  {
-    title: 'Workflows & Sessions',
-    description:
-      'Guter Skill-Workflow, empfohlene Session-Länge, sauberes Kontextmanagement.',
-    to: '/docs/workflows',
   },
 ];
 
@@ -96,7 +84,7 @@ function DeepDiveSection() {
         </p>
         <div className="row">
           {deepDiveCards.map((card) => (
-            <div key={card.title} className="col col--4">
+            <div key={card.title} className="col col--4 col--offset-4">
               <Link to={card.to} className={styles.deepDiveCard}>
                 <Heading as="h3">{card.title}</Heading>
                 <p>{card.description}</p>
@@ -114,7 +102,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={siteConfig.title}
-      description="Agentic Coding in 9 kurzen Schritten erklärt — Wissensbasis für Skills, Workflows und Best Practices">
+      description="Agentic Coding in 9 kurzen Schritten erklärt: Wissensbasis für unser angepasstes Skill-Set">
       <HomepageHeader />
       <main>
         <StoryMap />

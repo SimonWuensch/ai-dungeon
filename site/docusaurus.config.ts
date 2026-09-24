@@ -85,8 +85,6 @@ const config: Config = {
           items: [
             {label: 'Übersicht', to: '/docs/intro'},
             {label: 'Skills', to: '/docs/skills'},
-            {label: 'Best Practices', to: '/docs/best-practices'},
-            {label: 'Workflows & Sessions', to: '/docs/workflows'},
           ],
         },
         {

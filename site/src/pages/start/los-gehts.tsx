@@ -17,18 +17,10 @@ export default function Page() {
         <li>Nur Chat, ohne Ausführung? Auch das ist derselbe Loop — nur manuell.</li>
       </ul>
 
-      <p>Von hier aus geht's tiefer in die Referenz-Bereiche dieser Seite:</p>
+      <p>Von hier aus geht's tiefer in die Referenz:</p>
       <ul>
         <li>
-          <Link to="/docs/skills">Skills</Link> — die installierten Engineering-Skills im Detail.
-        </li>
-        <li>
-          <Link to="/docs/best-practices">Best Practices</Link> — Empfehlungen von Anthropic,
-          OpenAI und der Community.
-        </li>
-        <li>
-          <Link to="/docs/workflows">Workflows & Sessions</Link> — guter Skill-Workflow, empfohlene
-          Session-Länge, sauberes Kontextmanagement.
+          <Link to="/docs/skills">Skills</Link>: unser angepasstes Skill-Set im Detail.
         </li>
       </ul>
 
