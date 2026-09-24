@@ -6,16 +6,6 @@ import DownloadAllButton from '@site/src/components/skills/DownloadAllButton';
 
 # Skills
 
-:::info[Angepasst für unser Setup]
-Alle Skills auf dieser Seite sind **unser eigenes, angepasstes Skill-Set**, nicht die
-Original-Skills von Matt Pocock. Angepasst für IntelliJ AI Chat (ChatGPT 5.5/5.6): keine Agenten,
-keine direkten Code-Änderungen (nur Snippet + Apply/manuell), keine Jira-Anbindung. Zwei
-Original-Skills (`triage`, `setup-matt-pocock-skills`) sind komplett entfallen, sie bauten fast
-vollständig auf Automatisierung auf, die es bei uns nicht gibt. Drei weitere (`grill-me`,
-`grilling`, `grill-with-docs`) sind zu einem einzigen Skill verschmolzen. Die vollständige
-Begründung je Skill steht in `site/skills-content/ATRUVIA-FIT-ANALYSIS.md` im Repo.
-:::
-
 :::tip[Neu hier?]
 **[Welcher Skill passt zu meiner Situation?](/docs/skills/welcher-skill-passt)**,
 ein Entscheidungsbaum nach Aufgabengröße, mit drei konkreten Beispielen.
