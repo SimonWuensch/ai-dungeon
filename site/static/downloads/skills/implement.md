@@ -33,6 +33,34 @@ Am Ende: einmal die volle Test-Suite laufen lassen, dann `/code-review` für den
 den Arbeitsstand direkt kontrolliert. Da hier jede Änderung erst durch dich läuft (Review + Apply),
 bist du auch diejenige Person, die den fertigen Stand committet, nachdem du ihn geprüft hast.
 
+## So wenig Snippets wie möglich
+
+Jedes Snippet kostet dich einen Wechsel: lesen, Datei finden, einfügen, zurück in den Chat. Das
+zählt doppelt, weil hier ohnehin schon kein Apply auf den ganzen Diff möglich ist. Zwei Regeln
+dagegen:
+
+- **Bündeln statt zersplittern.** Alles, was zu einem Schritt gehört und in dieselbe Datei geht,
+  kommt in einem Snippet, nicht in drei kleinen. Eine neue Methode plus ihr Test plus eine
+  Typ-Ergänzung in derselben Datei sind ein Snippet, kein Snippet pro Gedanke. Nur wirklich
+  unabhängige Dateien (z.B. Komponente und Service) rechtfertigen ein eigenes Snippet.
+- **Ein Snippet pro Datei pro Runde**, nicht pro Zeile. Wenn eine Datei in derselben Runde mehrfach
+  betroffen wäre, wird daraus ein einziges, vollständiges Snippet für diese Datei, keine Kette aus
+  Mini-Diffs, die du nacheinander einfügst.
+
+## Dateiname und Pfad vor jedem Snippet
+
+**Jedes** Code-Snippet trägt direkt davor die vollständige, relative Pfadangabe zur Datei, in die es
+gehört, als eigene Zeile, z.B.:
+
+```
+src/app/components/basis-vorlage-auswahl-dialog/basis-vorlage-auswahl-dialog.component.ts
+```
+
+Gilt auch für eine **neue** Datei (die Pfadangabe zeigt dann, wo sie angelegt werden muss) und für
+Java/Maven-Module genauso wie für Angular/npm-Projekte. Ohne diese Zeile muss du raten, wo ein
+Snippet hingehört, das kostet Zeit und ist eine der häufigsten Fehlerquellen beim manuellen
+Übertragen.
+
 ## Wo passt das rein?
 
 Kettenschritt im Hauptfluss nach `to-tickets` (oder direkt nach `grill-with-docs` bei kleineren
@@ -42,4 +70,5 @@ Kettenschritt im Hauptfluss nach `to-tickets` (oder direkt nach `grill-with-docs
 
 Aus "Agent baut autonom durch, committet am Ende selbst" wird "Snippet vorschlagen, du wendest
 es an, Test/Typecheck auf Zuruf, nächstes Snippet, du committest". Test-getrieben bleibt es in
-beiden Fällen.
+beiden Fällen. Neu hinzugekommen (im Original nicht nötig, weil der Agent dort direkt in den Dateien
+arbeitet): möglichst wenige, gebündelte Snippets, und jedes davon mit vorangestelltem Dateipfad.
