@@ -30,9 +30,9 @@ zusammenhängen.
      dann **`to-tickets`** (Spec in einzelne Tickets zerlegen, ebenfalls zum manuellen Übertragen).
    - **Nein**: **`implement`** direkt im selben Kontextfenster.
 
-   In beiden Fällen treibt **`implement`** intern **`tdd`** (eine rot-grün-Runde nach der anderen)
-   und schließt mit **`code-review`** ab (Standards- und Spec-Achse, nacheinander im selben Chat statt
-   parallel), bevor du committest.
+   In beiden Fällen setzt **`implement`** direkt um, prüft sich vor jeder Ausgabe selbst (Standards-
+   und Spec-Achse, wie `/code-review`) und zieht **`tdd`** nur gezielt bei harter oder unklarer
+   Logik. Am Ende schließt **`code-review`** den fertigen Diff ab, bevor du committest.
 
 ## On-Ramps: Ausgangslagen, die auf den Hauptfluss münden
 

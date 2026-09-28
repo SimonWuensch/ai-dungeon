@@ -9,7 +9,8 @@ import SkillMetaHeader from '@site/src/components/skills/SkillMetaHeader';
 
 <SkillMetaHeader category="Hauptfluss" invocation="user" slug="implement" />
 
-Setzt die Arbeit um, die eine Spec oder ein Ticket beschreibt.
+Setzt die Arbeit um, die eine Spec oder ein Ticket beschreibt: genau wie vorgegeben, direkt lauffähig,
+und schon vor der Ausgabe gegen sich selbst geprüft.
 
 ## Wann brauche ich das?
 
@@ -19,17 +20,28 @@ mehrstufigen Hauptflusses (nach `to-tickets`) oder direkt im selben Kontextfenst
 
 ## Wie funktioniert das?
 
-Da Code nicht direkt geändert werden kann, läuft das als enger, iterativer Dialog statt als
-autonomer Durchlauf:
+Der Fokus liegt auf **schnell und einfach genau das umsetzen, was gefordert ist**, nicht auf einem
+strikten Test-first-Ritual. `tdd` ist ein Werkzeug, das dieser Skill bei Bedarf zieht, kein
+vorgeschriebener Taktgeber für jeden Schritt:
 
-1. Die KI schlägt den nächsten Schritt als **Snippet** vor, an der vereinbarten Naht, test-first via
-   `/tdd` wo sinnvoll.
-2. Du übernimmst es (Apply-Button oder manuell) und lässt Typecheck/Test laufen (einzeln
+1. **Spec/Ticket genau lesen** und den vollständigen Umsetzungsschritt planen, bevor der erste
+   Code entsteht: welche Dateien, welche Änderung, was am Ende funktionieren muss.
+2. **Direkt umsetzen**, wie vorgegeben. Tests entstehen **parallel, an der Stelle, wo sie
+   hingehören** (an der öffentlichen Schnittstelle, die die Änderung betrifft), nicht als
+   vorgeschalteter Selbstzweck. Bei einer wirklich harten oder unklaren Logik zieht die KI `/tdd`
+   gezielt für genau diese Stelle, statt den ganzen Schritt in einen Rot-Grün-Loop zu zwingen.
+3. **Vor der Ausgabe: Selbstprüfung.** Bevor das Snippet gezeigt wird, prüft die KI den Entwurf
+   intern entlang derselben zwei Achsen wie `/code-review`, Standards und Spec, und behebt
+   gefundene Fehler direkt. Was du zu sehen bekommst, ist bereits die **korrigierte, stabile
+   Version**, nicht der erste Entwurf.
+4. Du übernimmst das Snippet (Apply-Button oder manuell) und lässt Typecheck/Test laufen (einzeln
    angestoßen, bestätigt möglich für Angular/npm **und** Java/Maven-Projekte).
-3. Du gibst das Ergebnis zurück: rot oder grün.
-4. Nächstes Snippet, bis das Ticket fertig ist.
+5. Du gibst das Ergebnis zurück: rot oder grün. Bei rot schlägt die KI die Korrektur vor, wieder
+   schon selbst vorgeprüft.
+6. Nächstes Snippet, bis das Ticket fertig ist.
 
-Am Ende: einmal die volle Test-Suite laufen lassen, dann `/code-review` für den fertigen Diff.
+Am Ende: einmal die volle Test-Suite laufen lassen, dann `/code-review` für den fertigen Diff als
+zweiten, unabhängigen Blick von außen, zusätzlich zur Selbstprüfung aus Schritt 3.
 
 **Committen bleibt bei dir.** Im Original committet der Agent selbst, das setzt voraus, dass er
 den Arbeitsstand direkt kontrolliert. Da hier jede Änderung erst durch dich läuft (Review + Apply),
@@ -66,11 +78,19 @@ Snippet hingehört, das kostet Zeit und ist eine der häufigsten Fehlerquellen b
 ## Wo passt das rein?
 
 Kettenschritt im Hauptfluss nach `to-tickets` (oder direkt nach `grill-with-docs` bei kleineren
-Änderungen), treibt `tdd` und schließt mit `code-review` ab. Gesamtüberblick: `ask-simon`.
+Änderungen). Zieht `tdd` gezielt bei harter Logik, schließt mit `code-review` für den fertigen Diff
+ab. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-Aus "Agent baut autonom durch, committet am Ende selbst" wird "Snippet vorschlagen, du wendest
-es an, Test/Typecheck auf Zuruf, nächstes Snippet, du committest". Test-getrieben bleibt es in
-beiden Fällen. Neu hinzugekommen (im Original nicht nötig, weil der Agent dort direkt in den Dateien
-arbeitet): möglichst wenige, gebündelte Snippets, und jedes davon mit vorangestelltem Dateipfad.
+- Aus "jeder Schritt läuft zwingend über `tdd`" wird "direkt umsetzen wie vorgegeben, Tests parallel
+  an passender Stelle, `tdd` gezielt bei harter Logik". Das Original ist test-first als Taktgeber
+  für jeden einzelnen Schritt, hier ist es ein Werkzeug für die Stellen, die es brauchen.
+- Neu: eine **Selbstprüfung vor der Ausgabe** entlang der `code-review`-Achsen (Standards und Spec),
+  damit du von Anfang an eine korrigierte, stabile Version siehst statt eines ungeprüften ersten
+  Entwurfs. Der `code-review`-Schritt am Ende bleibt zusätzlich bestehen, als zweiter, unabhängiger
+  Blick auf den fertigen Diff.
+- Aus "Agent baut autonom durch, committet am Ende selbst" wird "Snippet vorschlagen, du wendest
+  es an, Test/Typecheck auf Zuruf, nächstes Snippet, du committest".
+- Möglichst wenige, gebündelte Snippets, und jedes davon mit vorangestelltem Dateipfad (im Original
+  nicht nötig, weil der Agent dort direkt in den Dateien arbeitet).
