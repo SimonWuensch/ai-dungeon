@@ -1,6 +1,6 @@
 ---
 name: wayfinder
-description: Kartiert ein riesiges, unklares Vorhaben als Landkarte aus Entscheidungs-Tickets.
+description: Kartiert ein riesiges, unklares Vorhaben als Landkarte aus Entscheidungs-Tickets. Nutze es bei einem Greenfield-Projekt oder Mega-Feature, dessen Weg noch nicht sichtbar ist, nicht für ein gut umrissenes Feature.
 disable-model-invocation: true
 kategorie: On-Ramp
 ---

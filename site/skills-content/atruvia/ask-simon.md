@@ -1,6 +1,6 @@
 ---
 name: ask-simon
-description: Zeigt, welcher Skill oder Ablauf gerade passt. Router über die user-invoked Skills in diesem Set.
+description: Zeigt, welcher Skill oder Ablauf gerade passt. Router über die user-invoked Skills in diesem Set. Nutze es, wenn unklar ist, welcher der Skills zur aktuellen Aufgabe passt, oder für einen Überblick, wie sie zusammenhängen.
 disable-model-invocation: true
 kategorie: Standalone (Router)
 ---

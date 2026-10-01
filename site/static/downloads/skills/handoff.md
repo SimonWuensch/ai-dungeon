@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Verdichtet das laufende Gespräch zu einem Übergabe-Dokument für eine neue Chat-Sitzung.
+description: Verdichtet das laufende Gespräch zu einem Übergabe-Dokument für eine neue Chat-Sitzung. Nutze es, wenn ein Kontextfenster an sein Ende kommt, du das Thema übergibst, oder bewusst in eine neue Sitzung wechseln willst.
 disable-model-invocation: true
 kategorie: Standalone
 ---

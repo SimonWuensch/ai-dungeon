@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: Ein rücksichtsloses Interview, das eine Idee schärft, wahlweise mit oder ohne Papierspur in CONTEXT.md/ADRs.
+description: Ein rücksichtsloses Interview, das eine Idee schärft, wahlweise mit oder ohne Papierspur in CONTEXT.md/ADRs. Nutze es, wenn eine Idee, ein Plan oder eine Anforderung noch unscharf ist und sich durch gezieltes Nachfragen klären lässt.
 disable-model-invocation: true
 kategorie: Hauptfluss
 ---

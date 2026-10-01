@@ -1,6 +1,6 @@
 ---
 name: to-tickets
-description: Zerlegt einen Plan oder eine Spec in Tracer-Bullet-Tickets mit Blocking-Kanten.
+description: Zerlegt einen Plan oder eine Spec in Tracer-Bullet-Tickets mit Blocking-Kanten. Nutze es direkt nach to-spec, um die Spec in greifbare, einzeln umsetzbare Tickets zu zerlegen.
 disable-model-invocation: true
 kategorie: Hauptfluss
 ---

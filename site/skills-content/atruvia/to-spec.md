@@ -1,6 +1,6 @@
 ---
 name: to-spec
-description: Verdichtet das aktuelle Gespräch zu einer Spec.
+description: Verdichtet ein bereits geschärftes Gespräch zu einer Spec zum manuellen Einfügen in Jira. Nutze es, nachdem eine Idee in grill-me ausreichend geschärft wurde und mehrere Sitzungen für die Umsetzung nötig sind.
 disable-model-invocation: true
 kategorie: Hauptfluss
 ---

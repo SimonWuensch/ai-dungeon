@@ -1,6 +1,6 @@
 ---
 name: implement
-description: Setzt die Arbeit um, die eine Spec oder ein Ticket beschreibt, prüft sich vor der Ausgabe selbst und liefert eine fertig geprüfte Version.
+description: Setzt die Arbeit um, die eine Spec oder ein Ticket beschreibt, prüft sich vor der Ausgabe selbst und liefert eine fertig geprüfte Version. Nutze es, sobald ein Ticket oder eine Spec feststeht und umgesetzt werden soll.
 disable-model-invocation: true
 kategorie: Hauptfluss
 ---

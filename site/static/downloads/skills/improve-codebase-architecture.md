@@ -1,6 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Findet Deepening-Kandidaten in der Codebase und schlägt sie als HTML-Report vor.
+description: Findet Deepening-Kandidaten in der Codebase und schlägt sie als HTML-Report vor. Nutze es, wenn Luft für Pflege ist (keine Feature-Arbeit), um die Codebase für künftige Änderungen und KI-Unterstützung gut zu halten.
 disable-model-invocation: true
 kategorie: Codebase-Health
 ---
