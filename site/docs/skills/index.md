@@ -17,6 +17,12 @@ lädt der Chat den passenden Skill automatisch nach, sobald du `/tdd`, `/grill-m
 schreibst, statt dass du Inhalte von Hand reinkopierst.
 :::
 
+:::note[Einen eigenen Skill schreiben?]
+**[Wie schreibe ich einen guten Skill?](/docs/skills/skill-schreiben)**: Anthropics offizielle
+Kriterien, übersetzt und auf unser Setup zugeschnitten, inklusive Audit aller 17 Skills gegen
+genau diese Kriterien.
+:::
+
 Ein Skill ist eine wiederverwendbare, in Markdown geschriebene Anleitung, die eine KI selbst
 nachschlägt oder die du per Namen aufrufst, sobald die aktuelle Aufgabe dazu passt.
 

@@ -1,0 +1,156 @@
+---
+sidebar_label: Wie schreibe ich einen Skill?
+sidebar_position: 1.8
+---
+
+# Wie schreibe ich einen guten Skill?
+
+Diese Kriterien stammen direkt aus Anthropics offizieller Anleitung zum Schreiben von Agent
+Skills ([Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)),
+hier übersetzt und auf unser Setup zugeschnitten: kein autonomer Agent, keine automatische
+Code-Änderung, nur Snippet-Vorschläge per Apply/Copy-Paste. Ein Abschnitt unten macht genau das
+sichtbar, wo wir bewusst von der offiziellen Empfehlung abweichen, und warum.
+
+## Grundregel: Claude ist schon schlau
+
+Der Kontext ist ein geteiltes Gut. Jeder Skill teilt sich das Kontextfenster mit dem System-Prompt,
+dem bisherigen Gespräch und allen anderen Skills. Jeder Satz muss seine Existenz rechtfertigen:
+würde Claude das auch ohne diese Erklärung wissen? Wenn ja, raus damit.
+
+**Zu ausführlich** (~150 Token): erklärt erst, was ein PDF ist, dann, dass es Bibliotheken dafür
+gibt, dann, warum ausgerechnet diese eine.
+
+**Prägnant** (~50 Token): nennt direkt die Bibliothek und den Code dazu, ohne Einleitung.
+
+Unsere 17 Skills liegen alle deutlich unter dem offiziellen Richtwert von 500 Zeilen (der längste
+knapp über 90), Kürzen ist hier also kein akutes Problem, aber die Grundhaltung gilt trotzdem bei
+jeder Überarbeitung: nichts erklären, was die KI schon weiß.
+
+## Freiheitsgrade passend wählen
+
+Wie genau eine Anleitung sein muss, hängt davon ab, wie fehleranfällig die Aufgabe ist:
+
+| Freiheitsgrad | Wann | Beispiel bei uns |
+|---|---|---|
+| **Hoch** (Prosa-Anleitung) | Mehrere Wege führen zum Ziel, der Kontext entscheidet | `grill-me`: ein Interview, keine feste Antwortform |
+| **Mittel** (Vorlage mit Spielraum) | Ein bevorzugtes Muster existiert, Variation ist erlaubt | `to-spec`: ein Spec-Template, das sich an die Idee anpasst |
+| **Niedrig** (exakte Schritte, keine Abweichung) | Fehleranfällig, Reihenfolge ist zwingend | `wizard`: ein Skript, das genau so ausgeführt wird, nicht angepasst |
+
+Anthropics Bild dafür: eine schmale Brücke mit Abgrund auf beiden Seiten braucht exakte Geländer
+(niedriger Freiheitsgrad), ein offenes Feld ohne Gefahren braucht nur eine Richtung (hoher
+Freiheitsgrad). Beim Schreiben eines Skills zuerst fragen: wie viele Wege führen hier zu einem
+guten Ergebnis, und wie teuer ist ein falscher Weg?
+
+## Name und Beschreibung
+
+### Die `description` entscheidet, ob ein Skill gefunden wird
+
+Claude liest beim Start nur `name` und `description` aller Skills, das volle `SKILL.md` erst, wenn
+eine Anfrage dazu passt. Die `description` muss deshalb **beides** sagen: was der Skill tut, und
+wann er zum Einsatz kommt, immer in der dritten Person (nicht "ich kann…", nicht "du kannst…").
+
+**Gut** (sagt was + wann): `Diagnose-Loop für harte Bugs und Performance-Regressionen.
+Automatisch wählbar, wenn etwas kaputt ist, sich aber nicht auf den ersten Blick erklärt.`
+
+**Zu vage** (sagt nur ungefähr was, nie wann): `Hilft bei Dokumenten.` / `Verarbeitet Daten.`
+
+Das gilt auch für Skills, die nur manuell per `/name` aufgerufen werden (`disable-model-invocation:
+true`): die `description` ist dort weniger entscheidend für die automatische Auswahl, aber genauso
+wichtig, damit du selbst beim Überfliegen der Skill-Liste sofort weißt, wann du danach greifst.
+
+### Namenskonvention: bewusste Abweichung
+
+Anthropic empfiehlt Gerundium-Namen (`processing-pdfs`, `analyzing-spreadsheets`), weil sie auf
+einen Blick die Tätigkeit beschreiben. Ein Teil unserer Namen folgt dem bereits (`diagnosing-bugs`,
+`domain-modeling`, `resolving-merge-conflicts`), ein anderer Teil nicht (`implement`, `research`,
+`tdd`, `wizard`, …).
+
+**Wir benennen trotzdem nicht um.** Diese Namen sind tägliche `/name`-Befehle, auf die sich Finger-
+und Kopf-Gedächtnis eingespielt haben, und sie sind in jeder Querverweis-Kette (`Wo passt das
+rein?`) sowie im `.ai-skills`-Download verdrahtet. Eine Umbenennung bricht beides, ohne einen
+Qualitätsgewinn, der diesen Preis rechtfertigt. Konsistenz der Namenskonvention verliert hier gegen
+Konsistenz der Nutzung.
+
+## Struktur: was bei uns gilt, und was nicht
+
+Offizielle Skills können in drei Stufen geladen werden: `name`/`description` immer, der Rest von
+`SKILL.md` bei Bedarf, zusätzliche Dateien (`REFERENCE.md`, Skripte) erst, wenn Claude sie gezielt
+nachlädt. Das nennt sich **Progressive Disclosure**.
+
+**Das greift bei uns nicht.** Der AI Chat lädt hier keine Unterordner nach, er bekommt entweder den
+kompletten Inhalt über `#`-Referenz oder nichts. **Jeder Skill muss deshalb als eine einzige,
+vollständige Datei funktionieren**, zusätzliche Referenzdateien, auf die ein Skill nur "bei Bedarf"
+verweist, sind hier keine Option, sie würden schlicht nie gelesen. Das ist auch unproblematisch,
+weil keiner unserer Skills in die Nähe der 500-Zeilen-Grenze kommt, an der eine Aufteilung ohnehin
+fällig würde.
+
+## Workflows und Feedback-Loops
+
+Für mehrstufige Aufgaben: nummerierte Schritte statt Fließtext, bei wirklich langen Abläufen eine
+Checkliste zum Abhaken (`implement`, `diagnosing-bugs` und `to-tickets` machen das bereits so).
+
+**Feedback-Loop-Muster**: prüfen → Fehler beheben → erneut prüfen, bevor etwas als fertig gilt.
+Offizielle Skills erreichen das oft mit einem Validierungs-Skript. Ohne Code-Ausführung übernimmt
+diese Rolle bei uns entweder die KI selbst (Selbstprüfung, siehe `implement` Schritt 3) oder du,
+indem du einen angestoßenen Testlauf zurückmeldest (`tdd`, `diagnosing-bugs`).
+
+## Inhalts-Richtlinien
+
+- **Keine Momentaufnahmen als Dauerzustand**: kein "mach es vor August 2025 so, danach anders",
+  solche Sätze veralten. Technische Fakten, die sich ändern können, gehören in `research` statt
+  fest in einen Skill geschrieben.
+- **Ein Begriff, immer derselbe Begriff**: nicht zwischen "Snippet"/"Codeblock"/"Vorschlag" wechseln,
+  wenn dieselbe Sache gemeint ist. Unsere Skills nutzen bereits konsequent "Snippet", "Apply-Button",
+  "Kettenschritt" und "Naht" als feste Begriffe, das soll so bleiben.
+- **Konkrete Beispiele statt abstrakter Beschreibung**, wo immer möglich (siehe `to-spec`s
+  Spec-Template oder `to-tickets`s Ticket-Template).
+- **Einen Standardweg nennen, nicht fünf gleichwertige Optionen.** "Nutze X. Für den Sonderfall Y
+  stattdessen Z" ist klarer als eine Aufzählung von vier austauschbaren Alternativen.
+
+## Testen und iterieren
+
+Offizielle Skills entstehen datengetrieben: zuerst eine Aufgabe ohne Skill versuchen, beobachten,
+wo es hakt, dann genau das in den Skill schreiben, danach an echten Aufgaben erneut beobachten.
+Ohne eigenes Eval-Framework heißt das bei uns konkret: einen Skill an einem echten Ticket
+ausprobieren, merken, wo die KI zu viel fragt, zu wenig prüft oder zu allgemein bleibt, und genau
+diese Lücke gezielt nachschärfen, statt vorsorglich alles auszuformulieren.
+
+## Checkliste vor jeder Änderung
+
+- [ ] `description` nennt was **und** wann, in der dritten Person
+- [ ] Kein Satz, den Claude ohnehin schon wüsste
+- [ ] Freiheitsgrad passt zur Fehleranfälligkeit der Aufgabe
+- [ ] Ein Standardweg, keine Liste gleichwertiger Optionen
+- [ ] Durchgehend dieselben Begriffe für dieselbe Sache
+- [ ] Mehrstufiger Ablauf hat nummerierte Schritte (Checkliste bei wirklich vielen Schritten)
+- [ ] Keine Zeitangaben, die in ein paar Monaten falsch sind
+- [ ] Datei funktioniert komplett für sich allein (kein Verweis auf eine Datei, die nie nachgeladen wird)
+
+## Audit: Wie schneiden unsere 17 Skills ab?
+
+Gegen genau diese Kriterien geprüft. Die meisten bestehen bereits, die Spalte "Angepasst" zeigt, wo
+diese Prüfung tatsächlich etwas verändert hat.
+
+| Skill | Beschreibung (was+wann) | Länge | Begriffe konsistent | Angepasst |
+|---|---|---|---|---|
+| `ask-simon` | ergänzt | ✅ | ✅ | description präzisiert |
+| `code-review` | ✅ bereits gut | ✅ | ✅ | – |
+| `codebase-design` | ✅ bereits gut | ✅ | ✅ | – |
+| `diagnosing-bugs` | ✅ bereits gut | ✅ | ✅ | – |
+| `domain-modeling` | ✅ bereits gut | ✅ | ✅ | – |
+| `grill-me` | ergänzt | ✅ | ✅ | description präzisiert |
+| `handoff` | ergänzt | ✅ | ✅ | description präzisiert |
+| `implement` | ergänzt | ✅ | ✅ | description präzisiert |
+| `improve-codebase-architecture` | ergänzt | ✅ | ✅ | description präzisiert |
+| `prototype` | ✅ bereits gut | ✅ | ✅ | – |
+| `research` | ✅ bereits gut | ✅ | ✅ | – |
+| `resolving-merge-conflicts` | ✅ bereits gut | ✅ | ✅ | – |
+| `tdd` | ✅ bereits gut | ✅ | ✅ | – |
+| `to-spec` | war zu vage, neu formuliert | ✅ | ✅ | description neu formuliert |
+| `to-tickets` | ergänzt | ✅ | ✅ | description präzisiert |
+| `wayfinder` | ergänzt | ✅ | ✅ | description präzisiert |
+| `wizard` | ✅ bereits gut | ✅ | ✅ | – |
+
+**Nicht angepasst, bewusst**: Namenskonvention (Gerundium) wird nicht nachgezogen (siehe oben,
+"Namenskonvention: bewusste Abweichung"). Progressive Disclosure/mehrere Dateien pro Skill wird
+nicht eingeführt (siehe oben, "Struktur: was bei uns gilt, und was nicht").
