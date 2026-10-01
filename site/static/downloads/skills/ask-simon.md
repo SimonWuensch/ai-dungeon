@@ -17,7 +17,7 @@ zusammenhängen.
 
 ## Der Hauptfluss: Idee → Umsetzung
 
-1. **`grill-with-docs`** schärft die Idee per Interview. Start hier, sobald du in einem
+1. **`grill-me`** schärft die Idee per Interview. Start hier, sobald du in einem
    Arbeitsverzeichnis bist: die Erkenntnisse landen in `CONTEXT.md` und ADRs.
 2. **Verzweigung: lässt sich jede Frage im Gespräch klären?** Wenn eine Frage eine lauffähige
    Antwort braucht (Zustand, Business-Logik, eine UI, die man sehen muss), Umweg über
@@ -71,5 +71,5 @@ zusammenhängen.
 - `wayfinder` ist geblieben, aber mit einer anderen Landkarten-Ablage (Dokument statt Tracker-Issue,
   siehe dort).
 - `grill-me`, `grilling` und `grill-with-docs` waren im Original drei Skills, hier ist daraus einer
-  geworden (`grill-with-docs`, mit oder ohne Papierspur als Betriebsart).
+  geworden (`grill-me`, mit oder ohne Papierspur als Betriebsart).
 - Der Skill heißt im Original `ask-matt`, hier `ask-simon`. Inhaltlich unverändert.

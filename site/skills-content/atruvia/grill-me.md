@@ -1,11 +1,11 @@
 ---
-name: grill-with-docs
+name: grill-me
 description: Ein rücksichtsloses Interview, das eine Idee schärft, wahlweise mit oder ohne Papierspur in CONTEXT.md/ADRs.
 disable-model-invocation: true
 kategorie: Hauptfluss
 ---
 
-# grill-with-docs: Idee schärfen, mit oder ohne Papierspur
+# grill-me: Idee schärfen, mit oder ohne Papierspur
 
 Ein rücksichtsloses Interview, das eine Idee schärft. Vereint drei Original-Skills in einem: das
 reine Interview-Prinzip, und die Frage, ob das Ergebnis dauerhaft im Projekt festgehalten wird
@@ -62,7 +62,7 @@ habt.
 | Betriebsart | Wann | Was passiert |
 |---|---|---|
 | **Mit Papierspur** (Standard in einem Arbeitsverzeichnis) | Das Ergebnis ist wiederverwendbares Vokabular oder eine schwer umkehrbare Entscheidung. | Sobald ein Begriff sich klärt, schlägt die KI die `CONTEXT.md`-/ADR-Änderung direkt als Snippet vor, du übernimmst sie. |
-| **Ohne Papierspur** (früher der eigene Skill `grill-me`) | Kein Arbeitsverzeichnis vorhanden, oder die Entscheidung ist trivial und nicht wiederverwendbar (z.B. reine Formatierungsfragen). | Reines Gespräch, nichts landet in `CONTEXT.md`. Nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. |
+| **Ohne Papierspur** (im Original ein eigener Skill) | Kein Arbeitsverzeichnis vorhanden, oder die Entscheidung ist trivial und nicht wiederverwendbar (z.B. reine Formatierungsfragen). | Reines Gespräch, nichts landet in `CONTEXT.md`. Nicht jede Klärung, die man festhalten *könnte*, sollte man auch festhalten. |
 
 Die Interview-Mechanik selbst (Runden, Frontier, Format) ist in beiden Betriebsarten identisch,
 nur das Festhalten des Ergebnisses unterscheidet sich.
@@ -74,9 +74,10 @@ die `CONTEXT.md`-/ADR-Disziplin trägt. Gesamtüberblick: `ask-simon`.
 
 ## Was sich gegenüber dem Original geändert hat
 
-- Vereint drei Original-Skills (`grill-me`, `grilling`, `grill-with-docs`) in einem: die
-  stateless/stateful-Unterscheidung war nie ein eigener Workflow, nur eine Betriebsart desselben
-  Interviews, und wird hier auch so behandelt.
+- Vereint drei Original-Skills in einem und übernimmt dabei den Namen des ersten: das reine
+  Interview (`grill-me`), seine Variante (`grilling`) und die Version mit Papierspur
+  (`grill-with-docs`) sind hier eine einzige Datei. Die stateless/stateful-Unterscheidung war nie
+  ein eigener Workflow, nur eine Betriebsart desselben Interviews, und wird hier auch so behandelt.
 - Kein Subagent für die Fakten-Recherche während des Interviews: die KI recherchiert synchron
   selbst (Codebase-Kontext direkt, externe Fakten über `research`), bevor sie eine abhängige Frage
   stellt.

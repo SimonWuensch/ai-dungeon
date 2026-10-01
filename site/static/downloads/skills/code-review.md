@@ -67,7 +67,7 @@ ist der Grund für die Trennung.
 
 ## Wo passt das rein?
 
-Letzter Kettenschritt im Hauptfluss (`grill-with-docs → to-spec → to-tickets → implement →
+Letzter Kettenschritt im Hauptfluss (`grill-me → to-spec → to-tickets → implement →
 code-review`), von `implement` am Ende aufgerufen. Reicht auch standalone, wenn du selbst einen
 Branch reviewen willst. Gesamtüberblick: `ask-simon`.
 

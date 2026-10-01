@@ -13,7 +13,7 @@ ein Entscheidungsbaum nach Aufgabengröße, mit drei konkreten Beispielen.
 
 :::info[Skills direkt in IntelliJ per `/name` aufrufen]
 **[Skills lokal einrichten](/docs/skills/skills-lokal-einrichten)**: einmalige Einrichtung, danach
-lädt der Chat den passenden Skill automatisch nach, sobald du `/tdd`, `/grill-with-docs` & Co.
+lädt der Chat den passenden Skill automatisch nach, sobald du `/tdd`, `/grill-me` & Co.
 schreibst, statt dass du Inhalte von Hand reinkopierst.
 :::
 
@@ -27,7 +27,7 @@ nachschlägt oder die du per Namen aufrufst, sobald die aktuelle Aufgabe dazu pa
 Jede Skill-Seite trägt einen zweiten Badge neben der Kategorie:
 
 - **⌨️ Nur manuell**: der Skill reagiert **nur**, wenn du ihn per Namen aufrufst
-  (`/grill-with-docs`, `/to-tickets`, …). Sein Job ist zu **orchestrieren**, er trifft
+  (`/grill-me`, `/to-tickets`, …). Sein Job ist zu **orchestrieren**, er trifft
   Entscheidungen, die eigentlich dir gehören, deshalb wartet er auf dich.
 - **🤖 Kann selbst gewählt werden**: der Skill kann sowohl von dir aufgerufen werden als auch
   automatisch gezogen werden, wenn die Aufgabe dazu passt. Er kapselt **wiederverwendbare
@@ -43,7 +43,7 @@ Skill aufrufen (z.B. `implement` treibt `tdd`), aber **nie einen anderen nur-man
 Der Pfad, den die meiste Arbeit nimmt: eine Idee schärfen, daraus eine Spec und Tickets machen,
 umsetzen.
 
-- **[grill-with-docs](/docs/skills/grill-with-docs)**: die Idee per Interview schärfen, mit oder ohne Papierspur
+- **[grill-me](/docs/skills/grill-me)**: die Idee per Interview schärfen, mit oder ohne Papierspur
 - **[to-spec](/docs/skills/to-spec)**: das Gespräch zur Spec synthetisieren (Text zum manuellen Einfügen in Jira)
 - **[to-tickets](/docs/skills/to-tickets)**: die Spec in greifbare Tickets zerlegen (zum manuellen Übertragen)
 - **[implement](/docs/skills/implement)**: ein Ticket umsetzen, treibt `tdd` und schließt mit `code-review`
